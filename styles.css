@@ -27,6 +27,32 @@ body {
   padding: 88px 0 72px;
   background: linear-gradient(180deg, #f8f6f1 0%, #f3ede2 100%);
 }
+.lang-switch {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-bottom: 28px;
+}
+.lang-btn {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.lang-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.lang-panel {
+  display: none;
+}
+.lang-panel.active {
+  display: block;
+}
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.12em;
