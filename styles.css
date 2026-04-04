@@ -126,6 +126,12 @@ h2 {
 .footer {
   padding: 28px 0 40px;
   color: var(--muted);
-  text-align: center;
+  text-align: left;
+  font-size: 0.95rem;
+  border-top: 1px solid var(--line);
+  background: #f5efe4;
+}
+.footer p {
+  margin: 0 0 12px;
 }
 a { color: var(--accent-dark); }
