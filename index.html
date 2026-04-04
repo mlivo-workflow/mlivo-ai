@@ -4,219 +4,461 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mlivo AI – AI & Automatisierung für lokale Unternehmen</title>
-  <meta name="description" content="Mlivo AI hilft kleinen Unternehmen in Österreich dabei, Anfragen, Termine, Nachverfolgung und einfache Abläufe mit praktischer AI und Automatisierung besser zu organisieren." />
+  <meta name="description" content="Mlivo AI hilft kleinen Unternehmen in Österreich dabei, Anfragen, Termine und Abläufe mit praktischer AI und Automatisierung besser zu organisieren." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <div class="lang-switch">
-        <button class="lang-btn active" data-lang="de">DE</button>
-        <button class="lang-btn" data-lang="en">EN</button>
-      </div>
 
+  <!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">Mlivo <span>AI</span></a>
+      <div class="nav-links">
+        <a href="#leistungen" data-de="Leistungen" data-en="Services">Leistungen</a>
+        <a href="#pakete" data-de="Pakete" data-en="Packages">Pakete</a>
+        <a href="#kontakt" data-de="Kontakt" data-en="Contact">Kontakt</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="de">DE</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a href="#kontakt" class="nav-cta" data-de="Anfrage stellen" data-en="Get in touch">Anfrage stellen</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════ HERO ══════════════════════════════ -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
       <div class="lang-panel active" data-lang-panel="de">
-        <p class="eyebrow">Mlivo AI</p>
-        <h1>AI & Automatisierung für lokale Unternehmen</h1>
+        <p class="eyebrow">✦ Mlivo AI — Österreich</p>
+        <h1>AI & Automatisierung<br><span class="highlight">für lokale Unternehmen</span></h1>
         <p class="lead">Mehr Anfragen. Weniger Chaos. Bessere Abläufe.</p>
-        <p>Mlivo AI hilft kleinen Unternehmen in Österreich dabei, Anfragen, Termine, Nachverfolgung und einfache Abläufe mit praktischer AI und Automatisierung besser zu organisieren.</p>
-        <div class="actions">
-          <a class="btn primary" href="#angebote">Angebote ansehen</a>
-          <a class="btn secondary" href="#kontakt">Kontakt</a>
+        <p class="hero-sub">Kleine Unternehmen brauchen keine komplizierte KI-Beratung — sondern praktische Lösungen, die im Alltag wirklich helfen.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#leistungen">Leistungen ansehen</a>
+          <a class="btn ghost" href="#kontakt">Kostenlose Einschätzung</a>
+        </div>
+        <div class="hero-trust">
+          <span>✓ Kein KI-Jargon</span>
+          <span>✓ Fixpreis-orientiert</span>
+          <span>✓ Für Österreich gemacht</span>
         </div>
       </div>
-
       <div class="lang-panel" data-lang-panel="en">
-        <p class="eyebrow">Mlivo AI</p>
-        <h1>AI & Automation for Local Businesses</h1>
+        <p class="eyebrow">✦ Mlivo AI — Austria</p>
+        <h1>AI & Automation<br><span class="highlight">for Local Businesses</span></h1>
         <p class="lead">More inquiries. Less chaos. Better workflows.</p>
-        <p>Mlivo AI helps small businesses in Austria improve inquiries, appointments, follow-up, and simple daily workflows through practical AI and automation.</p>
-        <div class="actions">
-          <a class="btn primary" href="#angebote">View offers</a>
-          <a class="btn secondary" href="#kontakt">Contact</a>
+        <p class="hero-sub">Small businesses don't need complicated AI consulting — they need practical solutions that actually help day-to-day.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#leistungen">View services</a>
+          <a class="btn ghost" href="#kontakt">Free assessment</a>
+        </div>
+        <div class="hero-trust">
+          <span>✓ No AI jargon</span>
+          <span>✓ Fixed-price focused</span>
+          <span>✓ Built for Austria</span>
         </div>
       </div>
     </div>
   </header>
 
-  <section class="section">
-    <div class="container narrow">
-      <div class="lang-panel active" data-lang-panel="de">
-        <h2>Was Mlivo AI macht</h2>
-        <p>Die meisten kleinen Unternehmen brauchen keine komplizierte AI-Beratung. Sie brauchen weniger verlorene Anfragen, schnellere Antworten, klarere Abläufe und einen professionelleren Kundenkontakt.</p>
-        <ul class="checklist">
-          <li>Anfragen strukturieren</li>
-          <li>Termine und Erinnerungen vereinfachen</li>
-          <li>Nachfassprozesse verbessern</li>
-          <li>Content und Kundenkommunikation unterstützen</li>
-          <li>Einfache interne Abläufe automatisieren</li>
-        </ul>
-      </div>
-
-      <div class="lang-panel" data-lang-panel="en">
-        <h2>What Mlivo AI does</h2>
-        <p>Most small businesses do not need complicated AI consulting. They need fewer lost inquiries, faster responses, clearer workflows, and a more professional customer experience.</p>
-        <ul class="checklist">
-          <li>Structure incoming inquiries</li>
-          <li>Simplify appointments and reminders</li>
-          <li>Improve follow-up processes</li>
-          <li>Support content and customer communication</li>
-          <li>Automate simple internal workflows</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt" id="angebote">
+  <!-- ═══════════════════════════════ PROBLEM ═══════════════════════════ -->
+  <section class="section problem-section">
     <div class="container">
       <div class="lang-panel active" data-lang-panel="de">
+        <div class="section-label">Das Problem</div>
+        <h2>Viele kleine Unternehmen verlieren<br>täglich Zeit und Anfragen</h2>
+      </div>
+      <div class="lang-panel" data-lang-panel="en">
+        <div class="section-label">The Problem</div>
+        <h2>Many small businesses lose<br>time and inquiries every day</h2>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-item">
+          <div class="problem-icon">📩</div>
+          <div class="lang-panel active" data-lang-panel="de"><strong>Anfragen gehen unter</strong><p>Nachrichten über Instagram, WhatsApp und E-Mail bleiben liegen.</p></div>
+          <div class="lang-panel" data-lang-panel="en"><strong>Inquiries get lost</strong><p>Messages via Instagram, WhatsApp and email are left unanswered.</p></div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">⏳</div>
+          <div class="lang-panel active" data-lang-panel="de"><strong>Antworten dauern zu lange</strong><p>Kunden wenden sich an die Konkurrenz, bevor Sie antworten können.</p></div>
+          <div class="lang-panel" data-lang-panel="en"><strong>Responses take too long</strong><p>Customers turn to competitors before you can respond.</p></div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">🔁</div>
+          <div class="lang-panel active" data-lang-panel="de"><strong>Nachfassen passiert nicht</strong><p>Interessenten fallen durch das Raster, weil kein strukturiertes Follow-up existiert.</p></div>
+          <div class="lang-panel" data-lang-panel="en"><strong>No follow-up happens</strong><p>Prospects slip through the cracks due to lack of structured follow-up.</p></div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">😤</div>
+          <div class="lang-panel active" data-lang-panel="de"><strong>Abläufe kosten Nerven</strong><p>Manuelle Erinnerungen, No-Shows, unklare Prozesse — täglich.</p></div>
+          <div class="lang-panel" data-lang-panel="en"><strong>Workflows drain energy</strong><p>Manual reminders, no-shows, unclear processes — every single day.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ LEISTUNGEN ════════════════════════ -->
+  <section class="section services-section" id="leistungen">
+    <div class="container">
+      <div class="lang-panel active" data-lang-panel="de">
+        <div class="section-label">Leistungen</div>
         <h2>Unsere Start-Angebote</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>Inquiry Agent</h3>
-            <p>Mehr Anfragen sauber erfassen. Schneller reagieren. Weniger verlieren.</p>
-            <ul>
-              <li>strukturierte Anfrage-Erfassung</li>
-              <li>automatische Erstreaktion</li>
-              <li>Follow-up-Struktur</li>
-              <li>klare Übersicht eingehender Leads</li>
-            </ul>
-            <p class="price">Automationen ab €200 · Agent-Deployments ab €300 · Betreuung ab €100/Monat</p>
-          </article>
-          <article class="card">
-            <h3>Appointment & Reminder Agent</h3>
-            <p>Weniger No-Shows. Weniger manuelle Nachrichten. Sauberere Abläufe.</p>
-            <ul>
-              <li>Terminbestätigung</li>
-              <li>Erinnerungen</li>
-              <li>Follow-up-Nachrichten</li>
-              <li>einfacher Kommunikationsprozess</li>
-            </ul>
-            <p class="price">Automationen ab €200 · Agent-Deployments ab €300 · Betreuung ab €100/Monat</p>
-          </article>
-          <article class="card">
-            <h3>Content & Follow-up Agent</h3>
-            <p>Konstanter sichtbar sein – ohne Content-Chaos.</p>
-            <ul>
-              <li>Content-Ideen</li>
-              <li>Caption- und Textvorlagen</li>
-              <li>Monatsstruktur</li>
-              <li>einfachere Nachverfolgung</li>
-            </ul>
-            <p class="price">Automationen ab €200 · Agent-Deployments ab €300 · Betreuung ab €100/Monat</p>
-          </article>
-        </div>
+        <p class="section-sub">Drei praktische Lösungen — klar abgegrenzt, sofort einsetzbar.</p>
       </div>
-
       <div class="lang-panel" data-lang-panel="en">
+        <div class="section-label">Services</div>
         <h2>Our Starter Offers</h2>
-        <div class="cards">
-          <article class="card">
+        <p class="section-sub">Three practical solutions — clearly defined, ready to deploy.</p>
+      </div>
+
+      <div class="cards">
+        <!-- Card 1 -->
+        <article class="card">
+          <div class="card-icon">📥</div>
+          <div class="lang-panel active" data-lang-panel="de">
             <h3>Inquiry Agent</h3>
-            <p>Capture more inquiries properly. Respond faster. Lose fewer leads.</p>
-            <ul>
-              <li>structured inquiry capture</li>
-              <li>automatic first response</li>
-              <li>follow-up structure</li>
-              <li>clear overview of incoming leads</li>
+            <p class="card-tagline">Mehr Anfragen sauber erfassen. Schneller reagieren. Weniger verlieren.</p>
+            <ul class="card-list">
+              <li>Strukturierte Erfassung über alle Kanäle</li>
+              <li>Automatische Erstantwort-Vorlagen</li>
+              <li>Follow-up-Struktur</li>
+              <li>Klare Übersicht eingehender Leads</li>
             </ul>
-            <p class="price">Automation from €200 · Agent deployments from €300 · Support from €100/month</p>
-          </article>
-          <article class="card">
+          </div>
+          <div class="lang-panel" data-lang-panel="en">
+            <h3>Inquiry Agent</h3>
+            <p class="card-tagline">Capture more inquiries properly. Respond faster. Lose fewer leads.</p>
+            <ul class="card-list">
+              <li>Structured capture across all channels</li>
+              <li>Automatic first-response templates</li>
+              <li>Follow-up structure</li>
+              <li>Clear overview of incoming leads</li>
+            </ul>
+          </div>
+          <div class="card-price">
+            <div class="lang-panel active" data-lang-panel="de">ab €200 Automation · ab €300 Agent</div>
+            <div class="lang-panel" data-lang-panel="en">from €200 automation · from €300 agent</div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card card-featured">
+          <div class="card-badge">
+            <span class="lang-panel active" data-lang-panel="de">Beliebt</span>
+            <span class="lang-panel" data-lang-panel="en">Popular</span>
+          </div>
+          <div class="card-icon">📅</div>
+          <div class="lang-panel active" data-lang-panel="de">
             <h3>Appointment & Reminder Agent</h3>
-            <p>Fewer no-shows. Fewer manual messages. Cleaner workflows.</p>
-            <ul>
-              <li>appointment confirmations</li>
-              <li>reminders</li>
-              <li>follow-up messages</li>
-              <li>simple communication workflow</li>
+            <p class="card-tagline">Weniger No-Shows. Weniger manuelle Nachrichten. Sauberere Abläufe.</p>
+            <ul class="card-list">
+              <li>Terminbestätigung automatisch</li>
+              <li>Erinnerungen vor dem Termin</li>
+              <li>Follow-up nach dem Termin</li>
+              <li>Wiederholbarer Kommunikationsprozess</li>
             </ul>
-            <p class="price">Automation from €200 · Agent deployments from €300 · Support from €100/month</p>
-          </article>
-          <article class="card">
+          </div>
+          <div class="lang-panel" data-lang-panel="en">
+            <h3>Appointment & Reminder Agent</h3>
+            <p class="card-tagline">Fewer no-shows. Fewer manual messages. Cleaner workflows.</p>
+            <ul class="card-list">
+              <li>Automatic appointment confirmations</li>
+              <li>Pre-appointment reminders</li>
+              <li>Post-appointment follow-up</li>
+              <li>Repeatable communication process</li>
+            </ul>
+          </div>
+          <div class="card-price">
+            <div class="lang-panel active" data-lang-panel="de">ab €200 Automation · ab €300 Agent</div>
+            <div class="lang-panel" data-lang-panel="en">from €200 automation · from €300 agent</div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card">
+          <div class="card-icon">✍️</div>
+          <div class="lang-panel active" data-lang-panel="de">
             <h3>Content & Follow-up Agent</h3>
-            <p>Stay visible without content chaos.</p>
-            <ul>
-              <li>content ideas</li>
-              <li>caption and text templates</li>
-              <li>monthly structure</li>
-              <li>simpler follow-up</li>
+            <p class="card-tagline">Konstant sichtbar bleiben — ohne Content-Chaos.</p>
+            <ul class="card-list">
+              <li>Content-Ideen & Planung</li>
+              <li>Caption- und Textvorlagen</li>
+              <li>Monatliche Struktur</li>
+              <li>Einfachere Kundenkommunikation</li>
             </ul>
-            <p class="price">Automation from €200 · Agent deployments from €300 · Support from €100/month</p>
-          </article>
+          </div>
+          <div class="lang-panel" data-lang-panel="en">
+            <h3>Content & Follow-up Agent</h3>
+            <p class="card-tagline">Stay consistently visible — without content chaos.</p>
+            <ul class="card-list">
+              <li>Content ideas & planning</li>
+              <li>Caption and text templates</li>
+              <li>Monthly structure</li>
+              <li>Simpler customer communication</li>
+            </ul>
+          </div>
+          <div class="card-price">
+            <div class="lang-panel active" data-lang-panel="de">ab €200 Automation · ab €300 Agent</div>
+            <div class="lang-panel" data-lang-panel="en">from €200 automation · from €300 agent</div>
+          </div>
+        </article>
+      </div>
+
+      <div class="support-note">
+        <div class="lang-panel active" data-lang-panel="de">+ Laufende Betreuung ab €100/Monat</div>
+        <div class="lang-panel" data-lang-panel="en">+ Ongoing support from €100/month</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ PAKETE ════════════════════════════ -->
+  <section class="section packages-section" id="pakete">
+    <div class="container">
+      <div class="lang-panel active" data-lang-panel="de">
+        <div class="section-label">Pakete</div>
+        <h2>Klar. Transparent. Fixpreis.</h2>
+        <p class="section-sub">Kein offener Bauchladen — klare Pakete mit klaren Grenzen.</p>
+      </div>
+      <div class="lang-panel" data-lang-panel="en">
+        <div class="section-label">Packages</div>
+        <h2>Clear. Transparent. Fixed price.</h2>
+        <p class="section-sub">No open-ended scope — clear packages with clear boundaries.</p>
+      </div>
+
+      <div class="packages">
+        <!-- Starter -->
+        <div class="package">
+          <div class="package-header">
+            <div class="package-name">Starter</div>
+            <div class="package-price-block">
+              <div class="package-price">ab €300</div>
+              <div class="lang-panel active" data-lang-panel="de"><div class="package-price-sub">Setup · dann ab €100/Monat</div></div>
+              <div class="lang-panel" data-lang-panel="en"><div class="package-price-sub">Setup · then from €100/month</div></div>
+            </div>
+          </div>
+          <div class="lang-panel active" data-lang-panel="de">
+            <p class="package-desc">Für kleine Unternehmen, die einen klaren, unkomplizierten Einstieg suchen.</p>
+            <ul class="package-list">
+              <li>1 einfacher Agent oder Automation</li>
+              <li>1 Hauptanwendungsfall</li>
+              <li>Grundeinrichtung & Anpassung</li>
+              <li>Testlauf</li>
+              <li>Basisbetreuung</li>
+            </ul>
+          </div>
+          <div class="lang-panel" data-lang-panel="en">
+            <p class="package-desc">For small businesses looking for a simple, straightforward entry point.</p>
+            <ul class="package-list">
+              <li>1 simple agent or automation</li>
+              <li>1 main use case</li>
+              <li>Basic setup & customization</li>
+              <li>Test run</li>
+              <li>Basic support</li>
+            </ul>
+          </div>
+          <a href="#kontakt" class="btn outline full-width">
+            <span class="lang-panel active" data-lang-panel="de">Anfrage stellen</span>
+            <span class="lang-panel" data-lang-panel="en">Get started</span>
+          </a>
+        </div>
+
+        <!-- Standard -->
+        <div class="package package-highlight">
+          <div class="package-tag">
+            <span class="lang-panel active" data-lang-panel="de">Empfohlen</span>
+            <span class="lang-panel" data-lang-panel="en">Recommended</span>
+          </div>
+          <div class="package-header">
+            <div class="package-name">Standard</div>
+            <div class="package-price-block">
+              <div class="package-price">ab €500</div>
+              <div class="lang-panel active" data-lang-panel="de"><div class="package-price-sub">Setup · dann ab €150/Monat</div></div>
+              <div class="lang-panel" data-lang-panel="en"><div class="package-price-sub">Setup · then from €150/month</div></div>
+            </div>
+          </div>
+          <div class="lang-panel active" data-lang-panel="de">
+            <p class="package-desc">Für Unternehmen, die einen Agenten aktiv im Alltag einsetzen und laufend betreut haben möchten.</p>
+            <ul class="package-list">
+              <li>Sauber eingerichteter Agent / Workflow</li>
+              <li>1–2 Anwendungsfälle</li>
+              <li>Individuelle Anpassung</li>
+              <li>Tests & Optimierung</li>
+              <li>Laufende Betreuung & kleinere Verbesserungen</li>
+            </ul>
+          </div>
+          <div class="lang-panel" data-lang-panel="en">
+            <p class="package-desc">For businesses wanting to actively use an agent daily with ongoing support.</p>
+            <ul class="package-list">
+              <li>Properly configured agent / workflow</li>
+              <li>1–2 use cases</li>
+              <li>Custom configuration</li>
+              <li>Testing & optimization</li>
+              <li>Ongoing support & minor improvements</li>
+            </ul>
+          </div>
+          <a href="#kontakt" class="btn primary full-width">
+            <span class="lang-panel active" data-lang-panel="de">Anfrage stellen</span>
+            <span class="lang-panel" data-lang-panel="en">Get started</span>
+          </a>
+        </div>
+
+        <!-- Plus -->
+        <div class="package">
+          <div class="package-header">
+            <div class="package-name">Plus</div>
+            <div class="package-price-block">
+              <div class="package-price">ab €800</div>
+              <div class="lang-panel active" data-lang-panel="de"><div class="package-price-sub">Setup · dann ab €250/Monat</div></div>
+              <div class="lang-panel" data-lang-panel="en"><div class="package-price-sub">Setup · then from €250/month</div></div>
+            </div>
+          </div>
+          <div class="lang-panel active" data-lang-panel="de">
+            <p class="package-desc">Für Unternehmen mit mehreren Abläufen, höherem Anpassungsbedarf und laufender Optimierung.</p>
+            <ul class="package-list">
+              <li>Mehrere Agenten & Workflows</li>
+              <li>Mehrere Anwendungsfälle</li>
+              <li>Stärkere Individualisierung</li>
+              <li>Laufende Optimierung</li>
+              <li>Priorisierte Betreuung</li>
+            </ul>
+          </div>
+          <div class="lang-panel" data-lang-panel="en">
+            <p class="package-desc">For businesses with multiple workflows, higher customization needs, and ongoing optimization.</p>
+            <ul class="package-list">
+              <li>Multiple agents & workflows</li>
+              <li>Multiple use cases</li>
+              <li>Greater customization</li>
+              <li>Ongoing optimization</li>
+              <li>Priority support</li>
+            </ul>
+          </div>
+          <a href="#kontakt" class="btn outline full-width">
+            <span class="lang-panel active" data-lang-panel="de">Anfrage stellen</span>
+            <span class="lang-panel" data-lang-panel="en">Get started</span>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <!-- ═══════════════════════════════ FÜR WEN ═══════════════════════════ -->
+  <section class="section forwhom-section">
     <div class="container narrow">
       <div class="lang-panel active" data-lang-panel="de">
-        <h2>Für wen das passt</h2>
-        <p>Ideal für Beauty-Studios, Kosmetik, Wellness, lokale Dienstleister und kleine Unternehmen mit viel manueller Kommunikation.</p>
-        <p>Praktisch statt theoretisch. Klar statt kompliziert. Mit Blick auf die Realität in Österreich.</p>
+        <div class="section-label">Für wen</div>
+        <h2>Ideal für lokale Unternehmen mit viel manueller Kommunikation</h2>
+        <p class="section-sub">Praktisch statt theoretisch. Klar statt kompliziert. Mit Blick auf die Realität in Österreich.</p>
       </div>
-
       <div class="lang-panel" data-lang-panel="en">
-        <h2>Who this is for</h2>
-        <p>Ideal for beauty studios, cosmetics, wellness, local service businesses, and small companies with too much manual communication.</p>
-        <p>Practical instead of theoretical. Clear instead of complicated. Built with Austrian business reality in mind.</p>
+        <div class="section-label">Who it's for</div>
+        <h2>Ideal for local businesses with lots of manual communication</h2>
+        <p class="section-sub">Practical not theoretical. Clear not complicated. Built with Austrian business reality in mind.</p>
+      </div>
+      <div class="forwhom-grid">
+        <div class="forwhom-item">💅 <span class="lang-panel active" data-lang-panel="de">Beauty-Studios</span><span class="lang-panel" data-lang-panel="en">Beauty Studios</span></div>
+        <div class="forwhom-item">🌿 <span class="lang-panel active" data-lang-panel="de">Kosmetik</span><span class="lang-panel" data-lang-panel="en">Cosmetics</span></div>
+        <div class="forwhom-item">🧘 <span class="lang-panel active" data-lang-panel="de">Wellness & Massage</span><span class="lang-panel" data-lang-panel="en">Wellness & Massage</span></div>
+        <div class="forwhom-item">🏪 <span class="lang-panel active" data-lang-panel="de">Lokale Dienstleister</span><span class="lang-panel" data-lang-panel="en">Local Service Businesses</span></div>
+        <div class="forwhom-item">📱 <span class="lang-panel active" data-lang-panel="de">Instagram-Unternehmen</span><span class="lang-panel" data-lang-panel="en">Instagram Businesses</span></div>
+        <div class="forwhom-item">✉️ <span class="lang-panel active" data-lang-panel="de">E-Mail-lastige Betriebe</span><span class="lang-panel" data-lang-panel="en">Email-heavy Businesses</span></div>
       </div>
     </div>
   </section>
 
-  <section class="section alt" id="kontakt">
+  <!-- ═══════════════════════════════ KONTAKT ═══════════════════════════ -->
+  <section class="section contact-section" id="kontakt">
     <div class="container narrow">
       <div class="lang-panel active" data-lang-panel="de">
-        <h2>Kontakt</h2>
-        <p>Sie möchten sehen, wo AI und Automatisierung in Ihrem Unternehmen konkret Zeit sparen können?</p>
-        <p>Dann starten wir mit einer kurzen Workflow-Einschätzung.</p>
-        <p><strong>Anfragen:</strong> <a href="mailto:mlivo.office@gmail.com">mlivo.office@gmail.com</a></p>
-        <p><strong>Hinweis:</strong> Eingehende Anfragen werden vorqualifiziert. Relevante und passende Projekte werden anschließend persönlich weiterbearbeitet.</p>
-        <p><strong>Website:</strong> <a href="https://mlivo-workflow.com/">mlivo-workflow.com</a></p>
+        <div class="section-label">Kontakt</div>
+        <h2>Starten Sie mit einer kurzen Workflow-Einschätzung</h2>
+        <p class="section-sub">Kostenlos und unverbindlich — wir schauen uns an, wo sich bei Ihnen mit wenig Aufwand Zeit sparen lässt.</p>
+      </div>
+      <div class="lang-panel" data-lang-panel="en">
+        <div class="section-label">Contact</div>
+        <h2>Start with a short workflow assessment</h2>
+        <p class="section-sub">Free and non-binding — we look at where you can save time with minimal effort.</p>
       </div>
 
-      <div class="lang-panel" data-lang-panel="en">
-        <h2>Contact</h2>
-        <p>Would you like to see where AI and automation could save time in your business?</p>
-        <p>Then start with a short workflow review.</p>
-        <p><strong>Inquiries:</strong> <a href="mailto:mlivo.office@gmail.com">mlivo.office@gmail.com</a></p>
-        <p><strong>Note:</strong> Incoming inquiries are pre-qualified. Relevant and suitable projects are then handled personally.</p>
-        <p><strong>Website:</strong> <a href="https://mlivo-workflow.com/">mlivo-workflow.com</a></p>
+      <div class="contact-box">
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <div class="lang-panel active" data-lang-panel="de"><strong>E-Mail</strong></div>
+            <div class="lang-panel" data-lang-panel="en"><strong>Email</strong></div>
+            <a href="mailto:mlivo.office@gmail.com">mlivo.office@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div>
+            <strong>Website</strong>
+            <a href="https://mlivo-workflow.com/" target="_blank">mlivo-workflow.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-note">
+        <div class="lang-panel active" data-lang-panel="de">
+          <strong>Hinweis:</strong> Eingehende Anfragen werden vorqualifiziert. Relevante Projekte werden persönlich weiterbearbeitet.
+        </div>
+        <div class="lang-panel" data-lang-panel="en">
+          <strong>Note:</strong> Incoming inquiries are pre-qualified. Relevant projects are handled personally.
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ═══════════════════════════════ FOOTER ════════════════════════════ -->
   <footer class="footer">
     <div class="container">
-      <div class="lang-panel active" data-lang-panel="de">
-        <p><strong>Mlivo AI</strong> – praktische AI- und Automationslösungen für kleine Unternehmen.</p>
-        <p><strong>Datenschutz:</strong> Eingehende Anfragen per E-Mail werden ausschließlich zur Bearbeitung der Anfrage und für die geschäftliche Kommunikation verarbeitet.</p>
-        <p><strong>Rechtlicher Hinweis:</strong> Die angebotenen Leistungen stellen keine Rechts- oder Steuerberatung dar. Leistungen, Umfang und Umsetzung erfolgen nach individueller Prüfung und Vereinbarung.</p>
-        <p><strong>Kontaktweg:</strong> Anfragen werden vorqualifiziert. Passende Projekte werden anschließend persönlich weiterbearbeitet.</p>
-      </div>
-      <div class="lang-panel" data-lang-panel="en">
-        <p><strong>Mlivo AI</strong> – practical AI and automation solutions for small businesses.</p>
-        <p><strong>Privacy:</strong> Incoming email inquiries are processed only for handling the request and related business communication.</p>
-        <p><strong>Legal notice:</strong> The offered services do not constitute legal or tax advice. Scope, implementation, and delivery are subject to individual review and agreement.</p>
-        <p><strong>Contact flow:</strong> Incoming inquiries are pre-qualified. Suitable projects are then handled personally.</p>
+      <div class="footer-inner">
+        <div class="footer-brand">Mlivo <span>AI</span></div>
+        <div class="footer-text">
+          <span class="lang-panel active" data-lang-panel="de">Praktische AI- und Automationslösungen für kleine Unternehmen in Österreich.</span>
+          <span class="lang-panel" data-lang-panel="en">Practical AI and automation solutions for small businesses in Austria.</span>
+        </div>
+        <div class="footer-note">
+          <span class="lang-panel active" data-lang-panel="de">Datenschutz: Eingehende Anfragen per E-Mail werden ausschließlich zur Bearbeitung der Anfrage und für die geschäftliche Kommunikation verarbeitet.</span>
+          <span class="lang-panel" data-lang-panel="en">Privacy: Incoming email inquiries are processed solely for handling the inquiry and business communication.</span>
+        </div>
       </div>
     </div>
   </footer>
 
+  <!-- ═══════════════════════════════ SCRIPT ════════════════════════════ -->
   <script>
-    const buttons = document.querySelectorAll('.lang-btn');
-    const panels = document.querySelectorAll('.lang-panel');
+    // Language switch
+    const langBtns = document.querySelectorAll('.lang-btn');
+    const langPanels = document.querySelectorAll('.lang-panel');
+    const langLinks = document.querySelectorAll('[data-de]');
 
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        const lang = button.dataset.lang;
-        buttons.forEach(b => b.classList.toggle('active', b === button));
-        panels.forEach(panel => {
-          panel.classList.toggle('active', panel.dataset.langPanel === lang);
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        langBtns.forEach(b => b.classList.toggle('active', b === btn));
+        langPanels.forEach(p => {
+          p.classList.toggle('active', p.dataset.langPanel === lang);
+        });
+        langLinks.forEach(el => {
+          if (el.dataset[lang]) el.textContent = el.dataset[lang];
         });
       });
     });
+
+    // Sticky nav
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // No scroll animation needed — design speaks for itself
   </script>
 </body>
 </html>
