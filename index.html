@@ -3,557 +3,164 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mlivo AI – Automatisierung für lokale Unternehmen</title>
-  <meta name="description" content="Mlivo AI hilft kleinen Unternehmen in Österreich dabei, Anfragen, Termine und Abläufe mit AI-Automatisierung zu optimieren." />
+  <title>Mlivo AI – KI-Agenten für lokale Unternehmen in Österreich</title>
+  <meta name="description" content="Mlivo AI richtet KI-Agenten für kleine Unternehmen in Österreich ein — automatische Antworten, Terminverwaltung, Follow-ups. Ab €99/Monat." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg: #F7F4EF;
-      --dark: #0E0E0E;
-      --gold: #B07D3A;
-      --gold-light: #C99A56;
-      --text: #1A1A1A;
-      --muted: #6B6B6B;
-      --border: #D8D0C4;
-      --card-bg: #FFFFFF;
+      --bg:       #F7F4EF;
+      --dark:     #0E0E0E;
+      --gold:     #B07D3A;
+      --gold-lt:  #C99A56;
+      --text:     #1A1A1A;
+      --muted:    #6B6B6B;
+      --border:   #D8D0C4;
+      --white:    #FFFFFF;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 16px;
-      line-height: 1.6;
-    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.6; }
 
     /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 200;
-      background: transparent;
-      border-bottom: 1px solid transparent;
-      transition: background .25s, border-color .25s, box-shadow .25s;
-    }
-    nav.scrolled {
-      background: rgba(255,255,255,.97);
-      border-color: var(--border);
-      box-shadow: 0 1px 12px rgba(0,0,0,.06);
-    }
-    .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .nav-row {
-      display: flex;
-      align-items: center;
-      height: 60px;
-    }
-    .nav-logo {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
-      text-decoration: none;
-      letter-spacing: .05em;
-      margin-right: auto;
-      transition: color .25s;
-    }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: transparent; border-bottom: 1px solid transparent; transition: background .25s, border-color .25s, box-shadow .25s; }
+    nav.scrolled { background: rgba(255,255,255,.97); border-color: var(--border); box-shadow: 0 1px 12px rgba(0,0,0,.06); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .nav-row { display: flex; align-items: center; height: 60px; }
+    .nav-logo { font-size: 1rem; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: .05em; margin-right: auto; transition: color .25s; }
     nav.scrolled .nav-logo { color: var(--text); }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: .85rem;
-      font-weight: 500;
-      color: rgba(255,255,255,.65);
-      text-decoration: none;
-      letter-spacing: .02em;
-      transition: color .2s;
-    }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { font-size: .85rem; font-weight: 500; color: rgba(255,255,255,.65); text-decoration: none; transition: color .2s; }
     .nav-links a:hover { color: #fff; }
     nav.scrolled .nav-links a { color: var(--muted); }
     nav.scrolled .nav-links a:hover { color: var(--text); }
-
-    .nav-cta {
-      padding: 8px 18px !important;
-      background: var(--gold) !important;
-      color: #fff !important;
-      border-radius: 3px;
-      font-weight: 600 !important;
-      transition: background .2s !important;
-    }
-    .nav-cta:hover { background: var(--gold-light) !important; }
-
-    .lang-switch {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      margin-left: 28px;
-    }
-    .lang-switch button {
-      background: none;
-      border: none;
-      font-size: .78rem;
-      font-weight: 600;
-      color: rgba(255,255,255,.4);
-      cursor: pointer;
-      padding: 3px 5px;
-      letter-spacing: .06em;
-      transition: color .2s;
-    }
+    .nav-cta { padding: 8px 18px !important; background: var(--gold) !important; color: #fff !important; border-radius: 3px; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--gold-lt) !important; }
+    .lang-switch { display: flex; align-items: center; gap: 2px; margin-left: 24px; }
+    .lang-switch button { background: none; border: none; font-size: .78rem; font-weight: 600; color: rgba(255,255,255,.4); cursor: pointer; padding: 3px 5px; letter-spacing: .06em; transition: color .2s; }
     .lang-switch button.on { color: #fff; }
     nav.scrolled .lang-switch button { color: rgba(0,0,0,.3); }
     nav.scrolled .lang-switch button.on { color: var(--text); }
     .lang-sep { color: rgba(255,255,255,.2); font-size: .7rem; }
     nav.scrolled .lang-sep { color: rgba(0,0,0,.15); }
 
-    /* ── LANGUAGE PANELS ── */
+    /* ── LANG PANELS ── */
     [data-l] { display: none; }
     [data-l].on { display: block; }
 
     /* ── SHARED ── */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    section { padding: 96px 0; }
-
-    .section-label {
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-    h2 {
-      font-size: clamp(1.75rem, 3vw, 2.4rem);
-      font-weight: 700;
-      line-height: 1.15;
-      color: var(--text);
-      margin-bottom: 14px;
-    }
-    .lead {
-      font-size: 1rem;
-      color: var(--muted);
-      max-width: 560px;
-      line-height: 1.7;
-    }
-    .btn {
-      display: inline-block;
-      padding: 13px 28px;
-      border-radius: 3px;
-      font-size: .875rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background .2s, border-color .2s, color .2s, transform .1s;
-      cursor: pointer;
-      border: none;
-    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 88px 0; }
+    .label { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 700; line-height: 1.15; color: var(--text); margin-bottom: 12px; }
+    .sub { font-size: .975rem; color: var(--muted); max-width: 540px; line-height: 1.7; }
+    .btn { display: inline-block; padding: 13px 28px; border-radius: 3px; font-size: .875rem; font-weight: 600; text-decoration: none; transition: background .2s, border-color .2s, color .2s, transform .1s; border: none; cursor: pointer; }
     .btn:hover { transform: translateY(-1px); }
     .btn-gold { background: var(--gold); color: #fff; }
-    .btn-gold:hover { background: var(--gold-light); }
-    .btn-ghost-dark {
-      background: transparent;
-      color: rgba(255,255,255,.65);
-      border: 1.5px solid rgba(255,255,255,.18);
-    }
-    .btn-ghost-dark:hover { border-color: rgba(255,255,255,.45); color: #fff; }
+    .btn-gold:hover { background: var(--gold-lt); }
+    .btn-outline-dark { background: transparent; color: rgba(255,255,255,.65); border: 1.5px solid rgba(255,255,255,.2); }
+    .btn-outline-dark:hover { border-color: rgba(255,255,255,.5); color: #fff; }
 
     /* ── HERO ── */
-    #hero {
-      background: #0E0E0E;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 140px 0 80px;
-    }
-    .hero-tag {
-      display: inline-block;
-      font-size: .72rem;
-      font-weight: 600;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid rgba(176,125,58,.3);
-      padding: 5px 12px;
-      border-radius: 2px;
-      margin-bottom: 36px;
-    }
-    #hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      font-weight: 700;
-      color: #fff;
-      max-width: 800px;
-      line-height: 1.08;
-      margin-bottom: 22px;
-    }
-    #hero h1 em {
-      font-style: normal;
-      color: var(--gold);
-    }
-    .hero-sub {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,.48);
-      max-width: 520px;
-      line-height: 1.75;
-      margin-bottom: 44px;
-    }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-    .hero-divider {
-      margin-top: 72px;
-      padding-top: 44px;
-      border-top: 1px solid rgba(255,255,255,.07);
-      display: flex;
-      gap: 52px;
-      flex-wrap: wrap;
-    }
-    .hero-stat-val {
-      font-size: 1.9rem;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1;
-    }
-    .hero-stat-label {
-      font-size: .75rem;
-      color: rgba(255,255,255,.35);
-      margin-top: 5px;
-    }
+    #hero { background: var(--dark); min-height: 100vh; display: flex; align-items: center; padding: 130px 0 80px; }
+    .hero-tag { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(176,125,58,.3); padding: 5px 12px; border-radius: 2px; margin-bottom: 32px; }
+    #hero h1 { font-size: clamp(2rem, 4.5vw, 3.5rem); font-weight: 700; color: #fff; max-width: 780px; line-height: 1.1; margin-bottom: 20px; }
+    #hero h1 em { font-style: normal; color: var(--gold); }
+    .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,.48); max-width: 500px; line-height: 1.75; margin-bottom: 40px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-bar { margin-top: 64px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,.07); display: flex; gap: 48px; flex-wrap: wrap; }
+    .hstat-val { font-size: 1.85rem; font-weight: 700; color: #fff; line-height: 1; }
+    .hstat-lab { font-size: .75rem; color: rgba(255,255,255,.32); margin-top: 5px; }
 
-    /* ── PROBLEM ── */
-    #problem { background: var(--bg); }
-    .problem-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      margin-top: 52px;
-      border: 1px solid var(--border);
-    }
-    .problem-item {
-      background: var(--card-bg);
-      padding: 36px 30px;
-    }
-    .problem-num {
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      color: var(--gold);
-      margin-bottom: 18px;
-    }
-    .problem-item h4 {
-      font-size: .975rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
-    .problem-item p {
-      font-size: .845rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+    /* ── HOW IT WORKS ── */
+    #how { background: var(--bg); }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); margin-top: 48px; border: 1px solid var(--border); }
+    .step { background: var(--white); padding: 36px 28px; }
+    .step-n { font-size: .68rem; font-weight: 700; letter-spacing: .1em; color: var(--gold); margin-bottom: 16px; }
+    .step h4 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.25; }
+    .step p { font-size: .845rem; color: var(--muted); line-height: 1.6; }
 
-    /* ── SERVICES ── */
-    #services { background: var(--bg); border-top: 1px solid var(--border); }
-    .services-hd {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 32px;
-      margin-bottom: 52px;
-      flex-wrap: wrap;
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1px;
-      background: var(--border);
-    }
-    .svc-card {
-      background: var(--card-bg);
-      padding: 38px 34px;
-    }
-    .svc-num {
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      color: var(--gold);
-      margin-bottom: 20px;
-    }
-    .svc-card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 10px;
-    }
-    .svc-card > p {
-      font-size: .845rem;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 22px;
-    }
-    .svc-features {
-      list-style: none;
-      margin-bottom: 26px;
-    }
-    .svc-features li {
-      font-size: .815rem;
-      color: var(--muted);
-      padding: 6px 0;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 9px;
-    }
-    .svc-features li:last-child { border-bottom: none; }
-    .svc-features li::before {
-      content: '';
-      width: 4px; height: 4px;
-      background: var(--gold);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .svc-pricing {
-      border-top: 1px solid var(--border);
-      padding-top: 18px;
-    }
-    .svc-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 5px;
-      gap: 8px;
-    }
-    .svc-plabel {
-      font-size: .73rem;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    .svc-pval {
-      font-size: .845rem;
-      font-weight: 600;
-      color: var(--text);
-      text-align: right;
-    }
-    .svc-monthly {
-      font-size: .845rem;
-      font-weight: 700;
-      color: var(--gold);
-      text-align: right;
-    }
+    /* ── AGENTS ── */
+    #agents { background: var(--bg); border-top: 1px solid var(--border); }
+    .agents-hd { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 48px; flex-wrap: wrap; }
+    .agents-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--border); }
+    .agent { background: var(--white); padding: 36px 30px; }
+    .agent-id { font-size: .68rem; font-weight: 700; letter-spacing: .1em; color: var(--gold); margin-bottom: 18px; }
+    .agent h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .agent-desc { font-size: .845rem; color: var(--muted); line-height: 1.65; margin-bottom: 18px; }
+    .agent-example { font-size: .8rem; color: var(--muted); background: var(--bg); padding: 10px 14px; border-left: 2px solid var(--gold); border-radius: 0 2px 2px 0; margin-bottom: 20px; line-height: 1.55; }
+    .agent-example strong { color: var(--text); font-weight: 600; }
+    .agent-price { border-top: 1px solid var(--border); padding-top: 16px; display: flex; justify-content: space-between; align-items: baseline; }
+    .agent-setup { font-size: .78rem; color: var(--muted); }
+    .agent-mo { font-size: .9rem; font-weight: 700; color: var(--gold); }
 
     /* ── PACKAGES ── */
-    #packages { background: #0E0E0E; }
-    #packages .section-label { color: var(--gold); }
+    #packages { background: var(--dark); }
+    #packages .label { color: var(--gold); }
     #packages h2 { color: #fff; }
-    #packages .lead { color: rgba(255,255,255,.42); }
-    .pkg-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1px;
-      background: rgba(255,255,255,.05);
-      margin-top: 52px;
-      border: 1px solid rgba(255,255,255,.05);
-    }
-    .pkg-card {
-      background: #171717;
-      padding: 42px 34px;
-    }
-    .pkg-card.featured {
-      background: #1C1710;
-      border-left: 2px solid var(--gold);
-    }
-    .pkg-badge {
-      display: inline-block;
-      font-size: .64rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid rgba(176,125,58,.35);
-      padding: 3px 10px;
-      border-radius: 2px;
-      margin-bottom: 18px;
-    }
-    .pkg-card h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-    .pkg-tagline {
-      font-size: .815rem;
-      color: rgba(255,255,255,.35);
-      margin-bottom: 26px;
-      line-height: 1.5;
-    }
-    .pkg-price-block {
-      padding: 18px 0;
-      border-top: 1px solid rgba(255,255,255,.05);
-      border-bottom: 1px solid rgba(255,255,255,.05);
-      margin-bottom: 26px;
-    }
-    .pkg-setup-label {
-      font-size: .72rem;
-      color: rgba(255,255,255,.3);
-      margin-bottom: 3px;
-    }
-    .pkg-setup-val {
-      font-size: 1.9rem;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1;
-      margin-bottom: 14px;
-    }
-    .pkg-monthly-label {
-      font-size: .72rem;
-      color: rgba(255,255,255,.3);
-      margin-bottom: 3px;
-    }
-    .pkg-monthly-val {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--gold);
-    }
-    .pkg-features {
-      list-style: none;
-      margin-bottom: 30px;
-    }
-    .pkg-features li {
-      font-size: .815rem;
-      color: rgba(255,255,255,.48);
-      padding: 7px 0;
-      border-bottom: 1px solid rgba(255,255,255,.04);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .pkg-features li:last-child { border-bottom: none; }
-    .pkg-features li::before {
-      content: '';
-      width: 4px; height: 4px;
-      background: var(--gold);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .btn-pkg {
-      display: block;
-      width: 100%;
-      text-align: center;
-      padding: 11px;
-      background: rgba(255,255,255,.05);
-      color: rgba(255,255,255,.6);
-      border-radius: 3px;
-      text-decoration: none;
-      font-size: .845rem;
-      font-weight: 600;
-      transition: background .2s, color .2s;
-    }
-    .btn-pkg:hover { background: rgba(255,255,255,.09); color: #fff; }
-    .pkg-card.featured .btn-pkg { background: var(--gold); color: #fff; }
-    .pkg-card.featured .btn-pkg:hover { background: var(--gold-light); }
+    #packages .sub { color: rgba(255,255,255,.4); }
+    .pkg-note { font-size: .8rem; color: rgba(255,255,255,.28); margin-top: 10px; }
+    .pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: rgba(255,255,255,.05); margin-top: 48px; border: 1px solid rgba(255,255,255,.05); }
+    .pkg { background: #171717; padding: 40px 32px; }
+    .pkg.star { background: #1C1710; border-left: 2px solid var(--gold); }
+    .pkg-badge { display: inline-block; font-size: .63rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(176,125,58,.35); padding: 3px 10px; border-radius: 2px; margin-bottom: 16px; }
+    .pkg h3 { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .pkg-tag { font-size: .815rem; color: rgba(255,255,255,.32); margin-bottom: 24px; line-height: 1.5; }
+    .pkg-agents { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 24px; }
+    .pkg-agent-chip { font-size: .72rem; font-weight: 500; color: rgba(255,255,255,.5); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); padding: 3px 10px; border-radius: 20px; }
+    .pkg-price { padding: 18px 0; border-top: 1px solid rgba(255,255,255,.05); border-bottom: 1px solid rgba(255,255,255,.05); margin-bottom: 24px; display: flex; gap: 32px; }
+    .pkg-price-col { }
+    .pkg-price-lbl { font-size: .7rem; color: rgba(255,255,255,.28); margin-bottom: 3px; }
+    .pkg-setup-val { font-size: 1.6rem; font-weight: 700; color: #fff; line-height: 1; }
+    .pkg-mo-val { font-size: 1.15rem; font-weight: 700; color: var(--gold); }
+    .pkg-includes { list-style: none; margin-bottom: 28px; }
+    .pkg-includes li { font-size: .815rem; color: rgba(255,255,255,.45); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.04); display: flex; align-items: flex-start; gap: 9px; line-height: 1.45; }
+    .pkg-includes li:last-child { border-bottom: none; }
+    .pkg-includes li::before { content: ''; width: 4px; height: 4px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+    .pkg-btn { display: block; width: 100%; text-align: center; padding: 11px; background: rgba(255,255,255,.05); color: rgba(255,255,255,.6); border-radius: 3px; text-decoration: none; font-size: .845rem; font-weight: 600; transition: background .2s, color .2s; }
+    .pkg-btn:hover { background: rgba(255,255,255,.09); color: #fff; }
+    .pkg.star .pkg-btn { background: var(--gold); color: #fff; }
+    .pkg.star .pkg-btn:hover { background: var(--gold-lt); }
 
-    /* ── FOR WHOM ── */
-    #forwhom { background: var(--bg); border-top: 1px solid var(--border); }
-    .forwhom-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      margin-top: 44px;
-    }
-    .forwhom-item {
-      background: var(--card-bg);
-      padding: 26px 22px;
-      font-size: .875rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-    .forwhom-item span {
-      display: block;
-      font-size: .77rem;
-      color: var(--muted);
-      font-weight: 400;
-      margin-top: 3px;
-    }
+    /* ── INCLUDED ── */
+    #included { background: var(--bg); border-top: 1px solid var(--border); }
+    .incl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--border); margin-top: 48px; }
+    .incl-item { background: var(--white); padding: 26px 22px; }
+    .incl-item h4 { font-size: .9rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .incl-item p { font-size: .8rem; color: var(--muted); line-height: 1.55; }
 
     /* ── CONTACT ── */
-    #contact { background: #0E0E0E; text-align: center; }
-    #contact h2 { color: #fff; margin-bottom: 14px; }
-    #contact .lead { color: rgba(255,255,255,.42); margin: 0 auto 38px; }
-    .contact-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .contact-note { margin-top: 22px; font-size: .77rem; color: rgba(255,255,255,.22); }
-    .contact-details {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 44px;
-      padding-top: 36px;
-      border-top: 1px solid rgba(255,255,255,.06);
-      flex-wrap: wrap;
-    }
-    .contact-detail-label {
-      font-size: .72rem;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.25);
-      margin-bottom: 6px;
-    }
-    .contact-detail-val {
-      font-size: .9rem;
-      color: rgba(255,255,255,.6);
-      text-decoration: none;
-    }
-    .contact-detail-val:hover { color: #fff; }
+    #contact { background: var(--dark); text-align: center; }
+    #contact h2 { color: #fff; margin-bottom: 12px; }
+    #contact .sub { color: rgba(255,255,255,.4); margin: 0 auto 36px; }
+    .contact-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .contact-note { margin-top: 20px; font-size: .77rem; color: rgba(255,255,255,.22); }
+    .contact-info { display: flex; justify-content: center; gap: 40px; margin-top: 44px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,.06); flex-wrap: wrap; }
+    .ci-lbl { font-size: .7rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.22); margin-bottom: 5px; }
+    .ci-val { font-size: .875rem; color: rgba(255,255,255,.55); text-decoration: none; }
+    .ci-val:hover { color: #fff; }
 
     /* ── FOOTER ── */
-    footer {
-      background: #080808;
-      padding: 28px 24px;
-    }
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .footer-logo {
-      font-size: .875rem;
-      font-weight: 700;
-      color: rgba(255,255,255,.3);
-      letter-spacing: .05em;
-      text-decoration: none;
-    }
-    .footer-copy { font-size: .72rem; color: rgba(255,255,255,.18); }
+    footer { background: #080808; padding: 26px 24px; }
+    .foot-in { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .foot-logo { font-size: .875rem; font-weight: 700; color: rgba(255,255,255,.28); letter-spacing: .05em; text-decoration: none; }
+    .foot-copy { font-size: .72rem; color: rgba(255,255,255,.16); }
+
+    /* ── SAVINGS CALLOUT ── */
+    .callout { background: rgba(176,125,58,.08); border: 1px solid rgba(176,125,58,.2); border-radius: 4px; padding: 14px 18px; margin-top: 28px; font-size: .845rem; color: var(--muted); line-height: 1.6; }
+    .callout strong { color: var(--text); }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
     <div class="nav-row">
       <a href="#" class="nav-logo">Mlivo AI</a>
       <ul class="nav-links">
-        <li><a href="#services">Leistungen</a></li>
-        <li><a href="#packages">Pakete</a></li>
+        <li><a href="#agents">Agenten</a></li>
+        <li><a href="#packages">Preise</a></li>
         <li><a href="#contact" class="nav-cta">Anfragen</a></li>
       </ul>
       <div class="lang-switch">
@@ -565,538 +172,582 @@
   </div>
 </nav>
 
-<!-- ══════════════════ DEUTSCH ══════════════════ -->
+<!-- ══════════════ DEUTSCH ══════════════ -->
 <div data-l="de" class="on">
 
 <section id="hero">
-  <div class="container">
-    <div class="hero-tag">AI-Automatisierung · Österreich</div>
-    <h1>Weniger Verwaltung.<br><em>Mehr Zeit fürs Geschäft.</em></h1>
-    <p class="hero-sub">Mlivo AI übernimmt Kundenanfragen, Terminplanung und Follow-ups — automatisch, rund um die Uhr.</p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn btn-gold">Kostenlose Erstberatung</a>
-      <a href="#services" class="btn btn-ghost-dark">Leistungen ansehen</a>
+  <div class="wrap">
+    <div class="hero-tag">KI-Agenten für kleine Unternehmen · Österreich</div>
+    <h1>Ihr Unternehmen antwortet,<br><em>auch wenn Sie schlafen.</em></h1>
+    <p class="hero-sub">Mlivo AI richtet KI-Agenten für Sie ein — die automatisch auf Kundenanfragen antworten, Termine verwalten und nachfassen. Sie bezahlen eine monatliche Pauschale. Fertig.</p>
+    <div class="hero-btns">
+      <a href="#packages" class="btn btn-gold">Preise ansehen</a>
+      <a href="#agents" class="btn btn-outline-dark">Was machen die Agenten?</a>
     </div>
-    <div class="hero-divider">
-      <div>
-        <div class="hero-stat-val">3 Std.</div>
-        <div class="hero-stat-label">Ø Zeitersparnis täglich</div>
+    <div class="hero-bar">
+      <div><div class="hstat-val">ab €99</div><div class="hstat-lab">pro Monat, alles inklusive</div></div>
+      <div><div class="hstat-val">24/7</div><div class="hstat-lab">Ihr Agent ist immer erreichbar</div></div>
+      <div><div class="hstat-val">~1 Woche</div><div class="hstat-lab">bis Ihr Agent live ist</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="label">So funktioniert es</div>
+    <h2>In 3 Schritten zum laufenden Agenten</h2>
+    <p class="sub">Kein technisches Vorwissen nötig. Wir übernehmen die Einrichtung komplett.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">01 — Gespräch</div>
+        <h4>Wir schauen uns Ihre Abläufe an</h4>
+        <p>In einem kurzen Gespräch (30 Min.) klären wir, welche Anfragen bei Ihnen täglich reinkommen und was automatisiert werden soll.</p>
       </div>
-      <div>
-        <div class="hero-stat-val">24/7</div>
-        <div class="hero-stat-label">Verfügbarkeit für Kunden</div>
+      <div class="step">
+        <div class="step-n">02 — Einrichtung</div>
+        <h4>Wir richten alles ein</h4>
+        <p>Wir konfigurieren den Agenten mit Ihren Infos, Ihrem Ton und Ihren Antworten. Sie müssen nichts installieren oder programmieren.</p>
       </div>
-      <div>
-        <div class="hero-stat-val">ab €100</div>
-        <div class="hero-stat-label">Monatliche Betreuung</div>
+      <div class="step">
+        <div class="step-n">03 — Läuft</div>
+        <h4>Der Agent übernimmt</h4>
+        <p>Ab dem ersten Tag antwortet der Agent für Sie. Sie sehen alles in einer einfachen Übersicht — und wir optimieren laufend.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">04 — Betreuung</div>
+        <h4>Wir bleiben dabei</h4>
+        <p>Monatliche Pauschale deckt API-Kosten, Updates, Anpassungen und Support ab. Keine versteckten Extras.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="problem">
-  <div class="container">
-    <div class="section-label">Das Problem</div>
-    <h2>Wo Unternehmen täglich Zeit verlieren</h2>
-    <p class="lead">Viele Betriebe kämpfen mit denselben Aufgaben — Aufgaben, die automatisiert werden könnten.</p>
-    <div class="problem-grid">
-      <div class="problem-item">
-        <div class="problem-num">01</div>
-        <h4>Anfragen außerhalb der Öffnungszeiten</h4>
-        <p>Kunden schreiben abends oder am Wochenende — und bekommen keine Antwort.</p>
-      </div>
-      <div class="problem-item">
-        <div class="problem-num">02</div>
-        <h4>Manuelle Terminplanung</h4>
-        <p>Hin- und Her-Schreiben für Terminabsprachen kostet täglich wertvolle Zeit.</p>
-      </div>
-      <div class="problem-item">
-        <div class="problem-num">03</div>
-        <h4>Kein strukturiertes Follow-up</h4>
-        <p>Interessenten fallen durch die Raster, weil kein Follow-up-System existiert.</p>
-      </div>
-      <div class="problem-item">
-        <div class="problem-num">04</div>
-        <h4>Unregelmäßige Kommunikation</h4>
-        <p>Bewertungen, Newsletter und Posts bleiben liegen — die Sichtbarkeit sinkt.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="container">
-    <div class="services-hd">
+<section id="agents">
+  <div class="wrap">
+    <div class="agents-hd">
       <div>
-        <div class="section-label">Leistungen</div>
-        <h2>Was Mlivo AI für Sie übernimmt</h2>
+        <div class="label">Die Agenten</div>
+        <h2>Was jeder Agent konkret tut</h2>
       </div>
-      <p class="lead" style="max-width:360px">Drei spezialisierte Agenten — konfiguriert für Ihr Unternehmen.</p>
+      <p class="sub" style="max-width:340px">Vier spezialisierte KI-Agenten — einzeln oder kombiniert buchbar.</p>
     </div>
-    <div class="services-grid">
+    <div class="agents-grid">
 
-      <div class="svc-card">
-        <div class="svc-num">01 — Anfragen-Agent</div>
-        <h3>Inquiry Agent</h3>
-        <p>Beantwortet Kundenanfragen automatisch per Website-Chat, E-Mail oder WhatsApp — mit präzisen, personalisierten Antworten.</p>
-        <ul class="svc-features">
-          <li>Automatische Erstantwort in Minuten</li>
-          <li>Integration in bestehende Kanäle</li>
-          <li>Qualifizierung von Anfragen</li>
-          <li>Weiterleitung an Sie bei Bedarf</li>
-        </ul>
-        <div class="svc-pricing">
-          <div class="svc-row">
-            <span class="svc-plabel">Einrichtung ab</span>
-            <span class="svc-pval">€200 Automation / €300 Agent</span>
-          </div>
-          <div class="svc-row">
-            <span class="svc-plabel">Monatliche Betreuung</span>
-            <span class="svc-monthly">ab €100 / Monat</span>
-          </div>
+      <div class="agent">
+        <div class="agent-id">Agent 01 — Anfragen</div>
+        <h3>Anfragen-Agent</h3>
+        <p class="agent-desc">Beantwortet eingehende Kundennachrichten automatisch — per WhatsApp, E-Mail oder Website-Chat. Gibt Infos, erfasst Anfragen, leitet weiter wenn nötig.</p>
+        <div class="agent-example"><strong>Beispiel:</strong> Ein Kunde schreibt um 22 Uhr auf WhatsApp: „Macht ihr auch Hausbesuche?" — der Agent antwortet sofort mit Ja/Nein, Infos und einem Link zur Buchung.</div>
+        <div class="agent-price">
+          <span class="agent-setup">Einrichtung ab €299</span>
+          <span class="agent-mo">ab €99 / Monat</span>
         </div>
       </div>
 
-      <div class="svc-card">
-        <div class="svc-num">02 — Termin-Agent</div>
-        <h3>Appointment &amp; Reminder Agent</h3>
-        <p>Verwaltet Terminbuchungen automatisch, sendet Erinnerungen und reduziert No-Shows — ohne Ihren manuellen Aufwand.</p>
-        <ul class="svc-features">
-          <li>Automatische Buchungsbestätigung</li>
-          <li>Terminerinnerungen per SMS / E-Mail</li>
-          <li>Kalender-Synchronisation</li>
-          <li>Absage- und Umbuchungslogik</li>
-        </ul>
-        <div class="svc-pricing">
-          <div class="svc-row">
-            <span class="svc-plabel">Einrichtung ab</span>
-            <span class="svc-pval">€200 Automation / €300 Agent</span>
-          </div>
-          <div class="svc-row">
-            <span class="svc-plabel">Monatliche Betreuung</span>
-            <span class="svc-monthly">ab €100 / Monat</span>
-          </div>
+      <div class="agent">
+        <div class="agent-id">Agent 02 — Termine</div>
+        <h3>Termin-Agent</h3>
+        <p class="agent-desc">Nimmt Buchungsanfragen entgegen, verschickt Bestätigungen automatisch und erinnert Kunden vor dem Termin — damit weniger einfach nicht auftauchen.</p>
+        <div class="agent-example"><strong>Beispiel:</strong> Kunde bucht online → bekommt sofort eine Bestätigung per E-Mail/SMS → 24h vorher eine Erinnerung → nach dem Termin eine Dankesnachricht.</div>
+        <div class="agent-price">
+          <span class="agent-setup">Einrichtung ab €299</span>
+          <span class="agent-mo">ab €99 / Monat</span>
         </div>
       </div>
 
-      <div class="svc-card">
-        <div class="svc-num">03 — Content-Agent</div>
-        <h3>Content &amp; Follow-up Agent</h3>
-        <p>Erstellt Kundenkommunikation, Follow-up-Nachrichten und Social-Media-Inhalte — angepasst an Ihren Ton und Ihre Marke.</p>
-        <ul class="svc-features">
-          <li>Automatisierte Follow-up-Sequenzen</li>
-          <li>Social-Media-Planung und Texte</li>
-          <li>Kundenbewertungen anfordern</li>
-          <li>Newsletter-Drafts</li>
-        </ul>
-        <div class="svc-pricing">
-          <div class="svc-row">
-            <span class="svc-plabel">Einrichtung ab</span>
-            <span class="svc-pval">€200 Automation / €300 Agent</span>
-          </div>
-          <div class="svc-row">
-            <span class="svc-plabel">Monatliche Betreuung</span>
-            <span class="svc-monthly">ab €100 / Monat</span>
-          </div>
+      <div class="agent">
+        <div class="agent-id">Agent 03 — Follow-up</div>
+        <h3>Follow-up &amp; Bewertungs-Agent</h3>
+        <p class="agent-desc">Schreibt nach jedem Termin automatisch nach — fragt wie es war, bittet um eine Google-Bewertung und hält den Kontakt warm.</p>
+        <div class="agent-example"><strong>Beispiel:</strong> 2 Tage nach dem Friseurtermin bekommt der Kunde: „Wie war Ihr Termin bei uns? Wir freuen uns über eine Bewertung: [Link]" — vollautomatisch.</div>
+        <div class="agent-price">
+          <span class="agent-setup">Einrichtung ab €249</span>
+          <span class="agent-mo">ab €79 / Monat</span>
         </div>
       </div>
 
+      <div class="agent">
+        <div class="agent-id">Agent 04 — Content</div>
+        <h3>Content &amp; Social-Agent</h3>
+        <p class="agent-desc">Erstellt fertige Social-Media-Posts für Instagram und Facebook — nach einem fixen Plan, im Stil Ihres Unternehmens. Weniger Stress mit Content.</p>
+        <div class="agent-example"><strong>Beispiel:</strong> Jeden Montag liegt ein fertiger Post-Entwurf für die Woche bereit. Sie genehmigen ihn in 2 Klicks — oder er geht automatisch raus.</div>
+        <div class="agent-price">
+          <span class="agent-setup">Einrichtung ab €249</span>
+          <span class="agent-mo">ab €79 / Monat</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="callout">
+      <strong>Powered by ChatGPT (OpenAI).</strong> Die Agenten basieren auf GPT-4o — denselben Modellen, die hinter ChatGPT Pro stecken. Wir richten alles für Ihr Unternehmen ein und betreuen es laufend. Sie brauchen kein eigenes OpenAI-Konto.
     </div>
   </div>
 </section>
 
 <section id="packages">
-  <div class="container">
-    <div class="section-label">Pakete</div>
-    <h2>Wählen Sie Ihren Einstieg</h2>
-    <p class="lead">Alle Pakete beinhalten Einrichtung, Konfiguration und laufende Betreuung.</p>
-    <div class="pkg-grid">
+  <div class="wrap">
+    <div class="label">Preise</div>
+    <h2>Klare Pakete. Keine Überraschungen.</h2>
+    <p class="sub">Einmalige Einrichtungsgebühr + monatliche Pauschale. Die Pauschale deckt alles ab — API-Kosten, Wartung, Updates und Support.</p>
+    <p class="pkg-note" style="margin-top:10px;color:var(--muted);font-size:.8rem;">Alle Preise exkl. MwSt. · Mindestlaufzeit 3 Monate · Danach monatlich kündbar</p>
+    <div class="pkgs">
 
-      <div class="pkg-card">
-        <div class="pkg-badge">Starter</div>
-        <h3>Starter-Paket</h3>
-        <p class="pkg-tagline">Ideal für den ersten Einstieg in die Automatisierung</p>
-        <div class="pkg-price-block">
-          <div class="pkg-setup-label">Einrichtung ab</div>
-          <div class="pkg-setup-val">€300</div>
-          <div class="pkg-monthly-label">Monatliche Betreuung ab</div>
-          <div class="pkg-monthly-val">€100 / Monat</div>
+      <div class="pkg">
+        <div class="pkg-badge">Basis</div>
+        <h3>1 Agent</h3>
+        <p class="pkg-tag">Für den ersten Einstieg — ein Prozess automatisiert</p>
+        <div class="pkg-agents">
+          <span class="pkg-agent-chip">Anfragen-Agent</span>
+          <span class="pkg-agent-chip">oder Termin-Agent</span>
+          <span class="pkg-agent-chip">oder Follow-up</span>
+          <span class="pkg-agent-chip">oder Content</span>
         </div>
-        <ul class="pkg-features">
-          <li>1 automatisierter Workflow</li>
-          <li>1 KI-Agent Ihrer Wahl</li>
-          <li>Einrichtung &amp; Konfiguration</li>
-          <li>Monatliches Check-in</li>
+        <div class="pkg-price">
+          <div class="pkg-price-col">
+            <div class="pkg-price-lbl">Einrichtung (einmalig)</div>
+            <div class="pkg-setup-val">ab €249</div>
+          </div>
+          <div class="pkg-price-col">
+            <div class="pkg-price-lbl">Monatlich</div>
+            <div class="pkg-mo-val">ab €99 / Mo</div>
+          </div>
+        </div>
+        <ul class="pkg-includes">
+          <li>1 KI-Agent nach Wahl</li>
+          <li>Einrichtung, Konfiguration &amp; Test</li>
+          <li>API-Kosten inkl. (bis 800 Interaktionen/Mo)</li>
+          <li>Monatliche Optimierung</li>
           <li>E-Mail-Support</li>
         </ul>
-        <a href="#contact" class="btn-pkg">Jetzt anfragen</a>
+        <a href="#contact" class="pkg-btn">Jetzt anfragen</a>
       </div>
 
-      <div class="pkg-card featured">
-        <div class="pkg-badge">Empfohlen</div>
-        <h3>Standard-Paket</h3>
-        <p class="pkg-tagline">Für Unternehmen, die mehrere Prozesse optimieren möchten</p>
-        <div class="pkg-price-block">
-          <div class="pkg-setup-label">Einrichtung ab</div>
-          <div class="pkg-setup-val">€500</div>
-          <div class="pkg-monthly-label">Monatliche Betreuung ab</div>
-          <div class="pkg-monthly-val">€150 / Monat</div>
+      <div class="pkg star">
+        <div class="pkg-badge">Standard · Empfohlen</div>
+        <h3>2 Agenten</h3>
+        <p class="pkg-tag">Anfragen beantworten + Termine verwalten — die häufigste Kombination</p>
+        <div class="pkg-agents">
+          <span class="pkg-agent-chip">Anfragen-Agent</span>
+          <span class="pkg-agent-chip">+ Termin-Agent</span>
+          <span class="pkg-agent-chip">oder andere Kombi</span>
         </div>
-        <ul class="pkg-features">
-          <li>Bis zu 3 automatisierte Workflows</li>
+        <div class="pkg-price">
+          <div class="pkg-price-col">
+            <div class="pkg-price-lbl">Einrichtung (einmalig)</div>
+            <div class="pkg-setup-val">ab €449</div>
+          </div>
+          <div class="pkg-price-col">
+            <div class="pkg-price-lbl">Monatlich</div>
+            <div class="pkg-mo-val">ab €169 / Mo</div>
+          </div>
+        </div>
+        <ul class="pkg-includes">
           <li>2 KI-Agenten nach Wahl</li>
-          <li>Einrichtung &amp; Konfiguration</li>
+          <li>Einrichtung, Konfiguration &amp; Test</li>
+          <li>API-Kosten inkl. (bis 1.500 Interaktionen/Mo)</li>
           <li>Bi-wöchentliche Optimierung</li>
           <li>Prioritäts-Support</li>
-          <li>Performance-Reporting</li>
+          <li>Einfaches Reporting monatlich</li>
         </ul>
-        <a href="#contact" class="btn-pkg">Jetzt anfragen</a>
+        <a href="#contact" class="pkg-btn">Jetzt anfragen</a>
       </div>
 
-      <div class="pkg-card">
-        <div class="pkg-badge">Plus</div>
-        <h3>Plus-Paket</h3>
-        <p class="pkg-tagline">Vollständige Lösung für wachsende Betriebe</p>
-        <div class="pkg-price-block">
-          <div class="pkg-setup-label">Einrichtung ab</div>
-          <div class="pkg-setup-val">€800</div>
-          <div class="pkg-monthly-label">Monatliche Betreuung ab</div>
-          <div class="pkg-monthly-val">€250 / Monat</div>
+      <div class="pkg">
+        <div class="pkg-badge">Komplett</div>
+        <h3>Alle 4 Agenten</h3>
+        <p class="pkg-tag">Vollständige Automatisierung — Anfragen, Termine, Follow-up &amp; Content</p>
+        <div class="pkg-agents">
+          <span class="pkg-agent-chip">Anfragen</span>
+          <span class="pkg-agent-chip">Termine</span>
+          <span class="pkg-agent-chip">Follow-up</span>
+          <span class="pkg-agent-chip">Content</span>
         </div>
-        <ul class="pkg-features">
-          <li>Unbegrenzte Workflows</li>
-          <li>Alle 3 KI-Agenten</li>
-          <li>Individuelle Entwicklung</li>
+        <div class="pkg-price">
+          <div class="pkg-price-col">
+            <div class="pkg-price-lbl">Einrichtung (einmalig)</div>
+            <div class="pkg-setup-val">ab €790</div>
+          </div>
+          <div class="pkg-price-col">
+            <div class="pkg-price-lbl">Monatlich</div>
+            <div class="pkg-mo-val">ab €279 / Mo</div>
+          </div>
+        </div>
+        <ul class="pkg-includes">
+          <li>Alle 4 KI-Agenten</li>
+          <li>Einrichtung, Konfiguration &amp; Test</li>
+          <li>API-Kosten inkl. (unbegrenzte Interaktionen)</li>
           <li>Wöchentliche Optimierung</li>
           <li>Dedizierter Ansprechpartner</li>
-          <li>Vollständiges Reporting</li>
-          <li>API-Integrationen nach Bedarf</li>
+          <li>Vollständiges Monats-Reporting</li>
+          <li>Individuelle Anpassungen nach Bedarf</li>
         </ul>
-        <a href="#contact" class="btn-pkg">Jetzt anfragen</a>
+        <a href="#contact" class="pkg-btn">Jetzt anfragen</a>
       </div>
 
     </div>
   </div>
 </section>
 
-<section id="forwhom">
-  <div class="container">
-    <div class="section-label">Für wen</div>
-    <h2>Konzipiert für lokale Unternehmen</h2>
-    <p class="lead">Speziell für kleine und mittlere Betriebe in Österreich — ohne großen IT-Aufwand.</p>
-    <div class="forwhom-grid">
-      <div class="forwhom-item">Handwerksbetriebe<span>Anfragen &amp; Terminplanung</span></div>
-      <div class="forwhom-item">Dienstleister<span>Follow-ups &amp; Kundenpflege</span></div>
-      <div class="forwhom-item">Gastgewerbe<span>Buchungen &amp; Gästekommunikation</span></div>
-      <div class="forwhom-item">Gesundheit &amp; Beauty<span>Termine &amp; Erinnerungen</span></div>
-      <div class="forwhom-item">Einzelhandel<span>Kundenbindung &amp; Kommunikation</span></div>
-      <div class="forwhom-item">Beratung &amp; Coaching<span>Lead-Qualifizierung &amp; Onboarding</span></div>
+<section id="included">
+  <div class="wrap">
+    <div class="label">Was immer dabei ist</div>
+    <h2>Monatliche Pauschale — alles drin</h2>
+    <p class="sub">Keine versteckten API-Kosten, keine Überraschungsrechnungen. Die monatliche Pauschale deckt alles ab.</p>
+    <div class="incl-grid">
+      <div class="incl-item">
+        <h4>API-Kosten inklusive</h4>
+        <p>OpenAI API-Gebühren sind in der Monatspauschale enthalten. Sie zahlen keine extra Tokens oder Credits.</p>
+      </div>
+      <div class="incl-item">
+        <h4>Wartung &amp; Updates</h4>
+        <p>Wenn OpenAI etwas ändert oder der Agent Fehler zeigt, kümmern wir uns. Ohne Extrakosten.</p>
+      </div>
+      <div class="incl-item">
+        <h4>Kleine Anpassungen</h4>
+        <p>Neue Produkte, geänderte Öffnungszeiten, andere Preise — wir updaten den Agenten laufend.</p>
+      </div>
+      <div class="incl-item">
+        <h4>Support</h4>
+        <p>Bei Fragen oder Problemen antworten wir per E-Mail innerhalb von 24 Stunden (Werktage).</p>
+      </div>
+      <div class="incl-item">
+        <h4>Monatliche Optimierung</h4>
+        <p>Wir prüfen regelmäßig wie der Agent performt und verbessern Antworten, Abläufe und Conversion.</p>
+      </div>
+      <div class="incl-item">
+        <h4>Kein Techniker nötig</h4>
+        <p>Sie brauchen kein IT-Wissen und keinen eigenen Techniker. Wir erledigen alles remote.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="contact">
-  <div class="container">
-    <div class="section-label">Kontakt</div>
-    <h2>Bereit, Zeit zu sparen?</h2>
-    <p class="lead">Kostenloses Erstgespräch — wir analysieren Ihre Abläufe und zeigen, was sich automatisieren lässt.</p>
-    <div class="contact-actions">
-      <a href="mailto:mlivo.office@gmail.com" class="btn btn-gold">E-Mail senden</a>
-      <a href="https://mlivo-workflow.com" class="btn btn-ghost-dark">Website besuchen</a>
+  <div class="wrap">
+    <div class="label">Kontakt</div>
+    <h2>Interesse? Schreiben Sie uns.</h2>
+    <p class="sub">Kostenloses Erstgespräch (30 Min.) — wir schauen gemeinsam, welcher Agent für Ihr Unternehmen am meisten bringt.</p>
+    <div class="contact-btns">
+      <a href="mailto:mlivo.office@gmail.com" class="btn btn-gold">E-Mail schreiben</a>
+      <a href="https://mlivo-workflow.com" class="btn btn-outline-dark" target="_blank">Website besuchen</a>
     </div>
-    <p class="contact-note">Keine versteckten Kosten. Kein Risiko. Antwort innerhalb von 24 Stunden.</p>
-    <div class="contact-details">
+    <p class="contact-note">Kein Verkaufsdruck. Keine versteckten Kosten. Antwort innerhalb von 24 Stunden.</p>
+    <div class="contact-info">
       <div>
-        <div class="contact-detail-label">E-Mail</div>
-        <a href="mailto:mlivo.office@gmail.com" class="contact-detail-val">mlivo.office@gmail.com</a>
+        <div class="ci-lbl">E-Mail</div>
+        <a href="mailto:mlivo.office@gmail.com" class="ci-val">mlivo.office@gmail.com</a>
       </div>
       <div>
-        <div class="contact-detail-label">Website</div>
-        <a href="https://mlivo-workflow.com" class="contact-detail-val" target="_blank">mlivo-workflow.com</a>
+        <div class="ci-lbl">Website</div>
+        <a href="https://mlivo-workflow.com" class="ci-val" target="_blank">mlivo-workflow.com</a>
+      </div>
+      <div>
+        <div class="ci-lbl">Standort</div>
+        <span class="ci-val">Österreich</span>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-inner">
-    <a href="#" class="footer-logo">Mlivo AI</a>
-    <span class="footer-copy">&copy; 2024 Mlivo AI — Automatisierung für lokale Unternehmen in Österreich</span>
+  <div class="foot-in">
+    <a href="#" class="foot-logo">Mlivo AI</a>
+    <span class="foot-copy">&copy; 2024 Mlivo AI — KI-Agenten für lokale Unternehmen in Österreich</span>
   </div>
 </footer>
 
 </div><!-- /DE -->
 
-<!-- ══════════════════ ENGLISH ══════════════════ -->
+<!-- ══════════════ ENGLISH ══════════════ -->
 <div data-l="en">
 
-<section id="hero-en" style="background:#0E0E0E;min-height:100vh;display:flex;align-items:center;padding:140px 0 80px;">
-  <div class="container">
-    <div class="hero-tag">AI Automation · Austria</div>
-    <h1>Less admin.<br><em>More time for business.</em></h1>
-    <p class="hero-sub">Mlivo AI handles customer inquiries, scheduling and follow-ups — automatically, around the clock.</p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn btn-gold">Free Consultation</a>
-      <a href="#services" class="btn btn-ghost-dark">View Services</a>
+<section style="background:var(--dark);min-height:100vh;display:flex;align-items:center;padding:130px 0 80px;">
+  <div class="wrap">
+    <div class="hero-tag">AI Agents for Small Businesses · Austria</div>
+    <h1>Your business responds,<br><em>even while you sleep.</em></h1>
+    <p class="hero-sub">Mlivo AI sets up AI agents for you — they automatically answer customer inquiries, manage appointments and send follow-ups. You pay a flat monthly rate. That's it.</p>
+    <div class="hero-btns">
+      <a href="#packages" class="btn btn-gold">View Pricing</a>
+      <a href="#agents" class="btn btn-outline-dark">What do the agents do?</a>
     </div>
-    <div class="hero-divider">
-      <div>
-        <div class="hero-stat-val">3 hrs</div>
-        <div class="hero-stat-label">Avg. time saved daily</div>
+    <div class="hero-bar">
+      <div><div class="hstat-val">from €99</div><div class="hstat-lab">per month, all inclusive</div></div>
+      <div><div class="hstat-val">24/7</div><div class="hstat-lab">your agent is always available</div></div>
+      <div><div class="hstat-val">~1 week</div><div class="hstat-lab">until your agent goes live</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg);padding:88px 0;">
+  <div class="wrap">
+    <div class="label">How it works</div>
+    <h2>Live in 3 steps</h2>
+    <p class="sub">No technical knowledge needed. We handle the entire setup.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">01 — Consultation</div>
+        <h4>We review your processes</h4>
+        <p>In a short 30-minute call, we identify which inquiries come in daily and what should be automated.</p>
       </div>
-      <div>
-        <div class="hero-stat-val">24/7</div>
-        <div class="hero-stat-label">Client availability</div>
+      <div class="step">
+        <div class="step-n">02 — Setup</div>
+        <h4>We set everything up</h4>
+        <p>We configure the agent with your information, tone and responses. Nothing to install or program on your end.</p>
       </div>
-      <div>
-        <div class="hero-stat-val">from €100</div>
-        <div class="hero-stat-label">Monthly care plan</div>
+      <div class="step">
+        <div class="step-n">03 — Running</div>
+        <h4>The agent takes over</h4>
+        <p>From day one, the agent responds for you. You see everything in a simple dashboard — and we optimise continuously.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">04 — Ongoing</div>
+        <h4>We stay with you</h4>
+        <p>The monthly flat rate covers API costs, updates, adjustments and support. No hidden extras.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section style="background:var(--bg);padding:96px 0;">
-  <div class="container">
-    <div class="section-label">The Challenge</div>
-    <h2>Where businesses lose time every day</h2>
-    <p class="lead">Most local businesses struggle with the same recurring tasks — tasks that could be automated.</p>
-    <div class="problem-grid">
-      <div class="problem-item">
-        <div class="problem-num">01</div>
-        <h4>Inquiries outside office hours</h4>
-        <p>Potential clients reach out evenings or weekends — and receive no response.</p>
-      </div>
-      <div class="problem-item">
-        <div class="problem-num">02</div>
-        <h4>Manual scheduling</h4>
-        <p>Back-and-forth messages for appointments waste valuable time every day.</p>
-      </div>
-      <div class="problem-item">
-        <div class="problem-num">03</div>
-        <h4>No structured follow-up</h4>
-        <p>Leads fall through the cracks because no follow-up system exists.</p>
-      </div>
-      <div class="problem-item">
-        <div class="problem-num">04</div>
-        <h4>Inconsistent communication</h4>
-        <p>Reviews, newsletters and posts are neglected — visibility declines.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section style="background:var(--bg);padding:96px 0;border-top:1px solid var(--border);">
-  <div class="container">
-    <div class="services-hd">
+<section style="background:var(--bg);padding:88px 0;border-top:1px solid var(--border);">
+  <div class="wrap">
+    <div class="agents-hd">
       <div>
-        <div class="section-label">Services</div>
-        <h2>What Mlivo AI handles for you</h2>
+        <div class="label">The Agents</div>
+        <h2>What each agent concretely does</h2>
       </div>
-      <p class="lead" style="max-width:360px">Three specialised agents — configured for your business.</p>
+      <p class="sub" style="max-width:340px">Four specialised AI agents — bookable individually or combined.</p>
     </div>
-    <div class="services-grid">
+    <div class="agents-grid">
 
-      <div class="svc-card">
-        <div class="svc-num">01 — Inquiry Agent</div>
+      <div class="agent">
+        <div class="agent-id">Agent 01 — Inquiries</div>
         <h3>Inquiry Agent</h3>
-        <p>Responds to customer inquiries automatically via website chat, email or WhatsApp — with precise, personalised replies.</p>
-        <ul class="svc-features">
-          <li>Automated first response in minutes</li>
-          <li>Integration into existing channels</li>
-          <li>Lead qualification</li>
-          <li>Escalation to you when needed</li>
-        </ul>
-        <div class="svc-pricing">
-          <div class="svc-row">
-            <span class="svc-plabel">Setup from</span>
-            <span class="svc-pval">€200 Automation / €300 Agent</span>
-          </div>
-          <div class="svc-row">
-            <span class="svc-plabel">Monthly care plan</span>
-            <span class="svc-monthly">from €100 / month</span>
-          </div>
+        <p class="agent-desc">Automatically answers incoming customer messages via WhatsApp, email or website chat. Provides information, captures requests, escalates when necessary.</p>
+        <div class="agent-example"><strong>Example:</strong> A customer writes at 10pm on WhatsApp: "Do you do home visits?" — the agent responds immediately with yes/no, info and a booking link.</div>
+        <div class="agent-price">
+          <span class="agent-setup">Setup from €299</span>
+          <span class="agent-mo">from €99 / month</span>
         </div>
       </div>
 
-      <div class="svc-card">
-        <div class="svc-num">02 — Appointment Agent</div>
-        <h3>Appointment &amp; Reminder Agent</h3>
-        <p>Manages bookings automatically, sends reminders and reduces no-shows — without any manual effort from you.</p>
-        <ul class="svc-features">
-          <li>Automatic booking confirmation</li>
-          <li>Reminders via SMS / email</li>
-          <li>Calendar synchronisation</li>
-          <li>Cancellation &amp; rescheduling logic</li>
-        </ul>
-        <div class="svc-pricing">
-          <div class="svc-row">
-            <span class="svc-plabel">Setup from</span>
-            <span class="svc-pval">€200 Automation / €300 Agent</span>
-          </div>
-          <div class="svc-row">
-            <span class="svc-plabel">Monthly care plan</span>
-            <span class="svc-monthly">from €100 / month</span>
-          </div>
+      <div class="agent">
+        <div class="agent-id">Agent 02 — Appointments</div>
+        <h3>Appointment Agent</h3>
+        <p class="agent-desc">Accepts booking requests, automatically sends confirmations and reminds customers before their appointment — so fewer people simply don't show up.</p>
+        <div class="agent-example"><strong>Example:</strong> Customer books online → instantly receives confirmation via email/SMS → reminder 24h before → thank-you message after the appointment.</div>
+        <div class="agent-price">
+          <span class="agent-setup">Setup from €299</span>
+          <span class="agent-mo">from €99 / month</span>
         </div>
       </div>
 
-      <div class="svc-card">
-        <div class="svc-num">03 — Content Agent</div>
-        <h3>Content &amp; Follow-up Agent</h3>
-        <p>Creates client communications, follow-up messages and social media content — tailored to your tone and brand.</p>
-        <ul class="svc-features">
-          <li>Automated follow-up sequences</li>
-          <li>Social media scheduling &amp; copy</li>
-          <li>Review request automation</li>
-          <li>Newsletter drafts</li>
-        </ul>
-        <div class="svc-pricing">
-          <div class="svc-row">
-            <span class="svc-plabel">Setup from</span>
-            <span class="svc-pval">€200 Automation / €300 Agent</span>
-          </div>
-          <div class="svc-row">
-            <span class="svc-plabel">Monthly care plan</span>
-            <span class="svc-monthly">from €100 / month</span>
-          </div>
+      <div class="agent">
+        <div class="agent-id">Agent 03 — Follow-up</div>
+        <h3>Follow-up &amp; Review Agent</h3>
+        <p class="agent-desc">Automatically follows up after every appointment — asks how it went, requests a Google review and keeps the relationship warm.</p>
+        <div class="agent-example"><strong>Example:</strong> 2 days after a haircut the customer receives: "How was your appointment? We'd love a review: [link]" — fully automated.</div>
+        <div class="agent-price">
+          <span class="agent-setup">Setup from €249</span>
+          <span class="agent-mo">from €79 / month</span>
+        </div>
+      </div>
+
+      <div class="agent">
+        <div class="agent-id">Agent 04 — Content</div>
+        <h3>Content &amp; Social Agent</h3>
+        <p class="agent-desc">Creates ready-to-publish social media posts for Instagram and Facebook — on a fixed schedule, in your company's style. Less stress with content.</p>
+        <div class="agent-example"><strong>Example:</strong> Every Monday a finished post draft for the week is ready. You approve it in 2 clicks — or it goes out automatically.</div>
+        <div class="agent-price">
+          <span class="agent-setup">Setup from €249</span>
+          <span class="agent-mo">from €79 / month</span>
         </div>
       </div>
 
     </div>
+    <div class="callout">
+      <strong>Powered by ChatGPT (OpenAI).</strong> The agents are built on GPT-4o — the same models that power ChatGPT Pro. We configure everything for your business and manage it ongoing. You don't need your own OpenAI account.
+    </div>
   </div>
 </section>
 
-<section style="background:#0E0E0E;padding:96px 0;">
-  <div class="container">
-    <div class="section-label">Packages</div>
-    <h2 style="color:#fff;">Choose your plan</h2>
-    <p class="lead" style="color:rgba(255,255,255,.42)">All packages include setup, configuration and ongoing support.</p>
-    <div class="pkg-grid">
+<section style="background:var(--dark);padding:88px 0;">
+  <div class="wrap">
+    <div class="label">Pricing</div>
+    <h2 style="color:#fff;">Clear packages. No surprises.</h2>
+    <p class="sub" style="color:rgba(255,255,255,.4)">One-time setup fee + monthly flat rate. The flat rate covers everything — API costs, maintenance, updates and support.</p>
+    <p style="margin-top:10px;color:rgba(255,255,255,.25);font-size:.8rem;">All prices excl. VAT · Minimum term 3 months · Monthly cancellation thereafter</p>
+    <div class="pkgs">
 
-      <div class="pkg-card">
-        <div class="pkg-badge">Starter</div>
-        <h3>Starter Package</h3>
-        <p class="pkg-tagline">Perfect for your first step into automation</p>
-        <div class="pkg-price-block">
-          <div class="pkg-setup-label">Setup from</div>
-          <div class="pkg-setup-val">€300</div>
-          <div class="pkg-monthly-label">Monthly care plan from</div>
-          <div class="pkg-monthly-val">€100 / month</div>
+      <div class="pkg">
+        <div class="pkg-badge">Basic</div>
+        <h3>1 Agent</h3>
+        <p class="pkg-tag">For your first step — one process automated</p>
+        <div class="pkg-agents">
+          <span class="pkg-agent-chip">Inquiry Agent</span>
+          <span class="pkg-agent-chip">or Appointment Agent</span>
+          <span class="pkg-agent-chip">or Follow-up</span>
+          <span class="pkg-agent-chip">or Content</span>
         </div>
-        <ul class="pkg-features">
-          <li>1 automated workflow</li>
+        <div class="pkg-price">
+          <div class="pkg-price-col">
+            <div class="pkg-price-lbl">Setup (one-time)</div>
+            <div class="pkg-setup-val">from €249</div>
+          </div>
+          <div class="pkg-price-col">
+            <div class="pkg-price-lbl">Monthly</div>
+            <div class="pkg-mo-val">from €99 / mo</div>
+          </div>
+        </div>
+        <ul class="pkg-includes">
           <li>1 AI agent of your choice</li>
-          <li>Setup &amp; configuration</li>
-          <li>Monthly check-in</li>
+          <li>Setup, configuration &amp; testing</li>
+          <li>API costs included (up to 800 interactions/mo)</li>
+          <li>Monthly optimisation</li>
           <li>Email support</li>
         </ul>
-        <a href="#contact" class="btn-pkg">Get in touch</a>
+        <a href="#contact" class="pkg-btn">Get in touch</a>
       </div>
 
-      <div class="pkg-card featured">
-        <div class="pkg-badge">Recommended</div>
-        <h3>Standard Package</h3>
-        <p class="pkg-tagline">For businesses optimising multiple processes</p>
-        <div class="pkg-price-block">
-          <div class="pkg-setup-label">Setup from</div>
-          <div class="pkg-setup-val">€500</div>
-          <div class="pkg-monthly-label">Monthly care plan from</div>
-          <div class="pkg-monthly-val">€150 / month</div>
+      <div class="pkg star">
+        <div class="pkg-badge">Standard · Recommended</div>
+        <h3>2 Agents</h3>
+        <p class="pkg-tag">Answer inquiries + manage appointments — the most popular combination</p>
+        <div class="pkg-agents">
+          <span class="pkg-agent-chip">Inquiry Agent</span>
+          <span class="pkg-agent-chip">+ Appointment Agent</span>
+          <span class="pkg-agent-chip">or other combo</span>
         </div>
-        <ul class="pkg-features">
-          <li>Up to 3 automated workflows</li>
+        <div class="pkg-price">
+          <div class="pkg-price-col">
+            <div class="pkg-price-lbl">Setup (one-time)</div>
+            <div class="pkg-setup-val">from €449</div>
+          </div>
+          <div class="pkg-price-col">
+            <div class="pkg-price-lbl">Monthly</div>
+            <div class="pkg-mo-val">from €169 / mo</div>
+          </div>
+        </div>
+        <ul class="pkg-includes">
           <li>2 AI agents of your choice</li>
-          <li>Setup &amp; configuration</li>
+          <li>Setup, configuration &amp; testing</li>
+          <li>API costs included (up to 1,500 interactions/mo)</li>
           <li>Bi-weekly optimisation</li>
           <li>Priority support</li>
-          <li>Performance reporting</li>
+          <li>Simple monthly reporting</li>
         </ul>
-        <a href="#contact" class="btn-pkg">Get in touch</a>
+        <a href="#contact" class="pkg-btn">Get in touch</a>
       </div>
 
-      <div class="pkg-card">
-        <div class="pkg-badge">Plus</div>
-        <h3>Plus Package</h3>
-        <p class="pkg-tagline">Complete solution for growing businesses</p>
-        <div class="pkg-price-block">
-          <div class="pkg-setup-label">Setup from</div>
-          <div class="pkg-setup-val">€800</div>
-          <div class="pkg-monthly-label">Monthly care plan from</div>
-          <div class="pkg-monthly-val">€250 / month</div>
+      <div class="pkg">
+        <div class="pkg-badge">Complete</div>
+        <h3>All 4 Agents</h3>
+        <p class="pkg-tag">Full automation — inquiries, appointments, follow-up &amp; content</p>
+        <div class="pkg-agents">
+          <span class="pkg-agent-chip">Inquiries</span>
+          <span class="pkg-agent-chip">Appointments</span>
+          <span class="pkg-agent-chip">Follow-up</span>
+          <span class="pkg-agent-chip">Content</span>
         </div>
-        <ul class="pkg-features">
-          <li>Unlimited workflows</li>
-          <li>All 3 AI agents</li>
-          <li>Custom development</li>
+        <div class="pkg-price">
+          <div class="pkg-price-col">
+            <div class="pkg-price-lbl">Setup (one-time)</div>
+            <div class="pkg-setup-val">from €790</div>
+          </div>
+          <div class="pkg-price-col">
+            <div class="pkg-price-lbl">Monthly</div>
+            <div class="pkg-mo-val">from €279 / mo</div>
+          </div>
+        </div>
+        <ul class="pkg-includes">
+          <li>All 4 AI agents</li>
+          <li>Setup, configuration &amp; testing</li>
+          <li>API costs included (unlimited interactions)</li>
           <li>Weekly optimisation</li>
           <li>Dedicated point of contact</li>
-          <li>Full reporting suite</li>
-          <li>API integrations on request</li>
+          <li>Full monthly reporting</li>
+          <li>Custom adjustments as needed</li>
         </ul>
-        <a href="#contact" class="btn-pkg">Get in touch</a>
+        <a href="#contact" class="pkg-btn">Get in touch</a>
       </div>
 
     </div>
   </div>
 </section>
 
-<section style="background:var(--bg);padding:96px 0;border-top:1px solid var(--border);">
-  <div class="container">
-    <div class="section-label">Who It's For</div>
-    <h2>Built for local businesses</h2>
-    <p class="lead">Designed specifically for small and medium-sized businesses — no complex IT required.</p>
-    <div class="forwhom-grid">
-      <div class="forwhom-item">Trades &amp; Crafts<span>Inquiries &amp; scheduling</span></div>
-      <div class="forwhom-item">Service Providers<span>Follow-ups &amp; client care</span></div>
-      <div class="forwhom-item">Hospitality<span>Bookings &amp; guest communication</span></div>
-      <div class="forwhom-item">Health &amp; Beauty<span>Appointments &amp; reminders</span></div>
-      <div class="forwhom-item">Retail<span>Client retention &amp; communication</span></div>
-      <div class="forwhom-item">Consulting &amp; Coaching<span>Lead qualification &amp; onboarding</span></div>
+<section style="background:var(--bg);padding:88px 0;border-top:1px solid var(--border);">
+  <div class="wrap">
+    <div class="label">Always included</div>
+    <h2>Monthly flat rate — everything covered</h2>
+    <p class="sub">No hidden API costs, no surprise invoices. The monthly flat rate covers everything.</p>
+    <div class="incl-grid">
+      <div class="incl-item">
+        <h4>API costs included</h4>
+        <p>OpenAI API fees are included in the monthly flat rate. You pay no extra tokens or credits.</p>
+      </div>
+      <div class="incl-item">
+        <h4>Maintenance &amp; updates</h4>
+        <p>When OpenAI changes something or the agent shows errors, we handle it. No extra cost.</p>
+      </div>
+      <div class="incl-item">
+        <h4>Minor adjustments</h4>
+        <p>New products, changed hours, different prices — we update the agent continuously.</p>
+      </div>
+      <div class="incl-item">
+        <h4>Support</h4>
+        <p>For questions or issues, we respond by email within 24 hours on business days.</p>
+      </div>
+      <div class="incl-item">
+        <h4>Monthly optimisation</h4>
+        <p>We regularly review how the agent performs and improve responses, workflows and conversion.</p>
+      </div>
+      <div class="incl-item">
+        <h4>No technician needed</h4>
+        <p>You need no IT knowledge and no in-house technician. We handle everything remotely.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section style="background:#0E0E0E;padding:96px 0;text-align:center;">
-  <div class="container">
-    <div class="section-label">Contact</div>
-    <h2 style="color:#fff;">Ready to save time?</h2>
-    <p class="lead" style="color:rgba(255,255,255,.42);margin:0 auto 38px;">Free initial consultation — we analyse your processes and show what can be automated.</p>
-    <div class="contact-actions">
-      <a href="mailto:mlivo.office@gmail.com" class="btn btn-gold">Send an Email</a>
-      <a href="https://mlivo-workflow.com" class="btn btn-ghost-dark">Visit Website</a>
+<section style="background:var(--dark);padding:88px 0;text-align:center;">
+  <div class="wrap">
+    <div class="label">Contact</div>
+    <h2 style="color:#fff;">Interested? Get in touch.</h2>
+    <p class="sub" style="color:rgba(255,255,255,.4);margin:0 auto 36px;">Free initial call (30 min.) — we figure out together which agent brings the most value for your business.</p>
+    <div class="contact-btns">
+      <a href="mailto:mlivo.office@gmail.com" class="btn btn-gold">Send an email</a>
+      <a href="https://mlivo-workflow.com" class="btn btn-outline-dark" target="_blank">Visit website</a>
     </div>
-    <p class="contact-note">No hidden costs. No risk. Response within 24 hours.</p>
-    <div class="contact-details">
+    <p class="contact-note">No sales pressure. No hidden costs. Reply within 24 hours.</p>
+    <div class="contact-info">
       <div>
-        <div class="contact-detail-label">Email</div>
-        <a href="mailto:mlivo.office@gmail.com" class="contact-detail-val">mlivo.office@gmail.com</a>
+        <div class="ci-lbl">Email</div>
+        <a href="mailto:mlivo.office@gmail.com" class="ci-val">mlivo.office@gmail.com</a>
       </div>
       <div>
-        <div class="contact-detail-label">Website</div>
-        <a href="https://mlivo-workflow.com" class="contact-detail-val" target="_blank">mlivo-workflow.com</a>
+        <div class="ci-lbl">Website</div>
+        <a href="https://mlivo-workflow.com" class="ci-val" target="_blank">mlivo-workflow.com</a>
+      </div>
+      <div>
+        <div class="ci-lbl">Location</div>
+        <span class="ci-val">Austria</span>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-inner">
-    <a href="#" class="footer-logo">Mlivo AI</a>
-    <span class="footer-copy">&copy; 2024 Mlivo AI — Automation for local businesses in Austria</span>
+  <div class="foot-in">
+    <a href="#" class="foot-logo">Mlivo AI</a>
+    <span class="foot-copy">&copy; 2024 Mlivo AI — AI agents for local businesses in Austria</span>
   </div>
 </footer>
 
 </div><!-- /EN -->
 
 <script>
-  // Nav scroll
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
 
-  // Language switch
   const langBtns = document.querySelectorAll('[data-lang]');
   const panels   = document.querySelectorAll('[data-l]');
   langBtns.forEach(btn => {
@@ -1107,7 +758,6 @@
     });
   });
 
-  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const t = document.querySelector(a.getAttribute('href'));
