@@ -146,6 +146,16 @@
     .foot-in { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
     .foot-logo { font-size: .875rem; font-weight: 700; color: rgba(255,255,255,.28); letter-spacing: .05em; text-decoration: none; }
     .foot-copy { font-size: .72rem; color: rgba(255,255,255,.16); }
+    .foot-link { font-size: .72rem; color: rgba(255,255,255,.25); text-decoration: none; transition: color .2s; }
+    .foot-link:hover { color: rgba(255,255,255,.6); }
+
+    /* ── IMPRESSUM ── */
+    #impressum { background: #0a0a0a; border-top: 1px solid rgba(255,255,255,.04); padding: 64px 0; }
+    .imp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-top: 36px; }
+    .imp-col h4 { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.25); margin-bottom: 12px; }
+    .imp-col p, .imp-col a { font-size: .815rem; color: rgba(255,255,255,.35); line-height: 1.7; display: block; text-decoration: none; }
+    .imp-col a:hover { color: rgba(255,255,255,.6); }
+    .imp-col strong { color: rgba(255,255,255,.5); font-weight: 500; }
 
     /* ── SAVINGS CALLOUT ── */
     .callout { background: rgba(176,125,58,.08); border: 1px solid rgba(176,125,58,.2); border-radius: 4px; padding: 14px 18px; margin-top: 28px; font-size: .845rem; color: var(--muted); line-height: 1.6; }
@@ -574,10 +584,45 @@
   </div>
 </section>
 
+<section id="impressum">
+  <div class="wrap">
+    <div style="font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.22);">Impressum</div>
+    <div class="imp-grid">
+      <div class="imp-col">
+        <h4>Angaben gem. § 5 ECG</h4>
+        <p><strong>Alen Mlivo</strong></p>
+        <p>[Straße und Hausnummer]</p>
+        <p>4470 Enns, Österreich</p>
+        <a href="mailto:mlivo.office@gmail.com">mlivo.office@gmail.com</a>
+      </div>
+      <div class="imp-col">
+        <h4>Gewerbe</h4>
+        <p>Freies Gewerbe</p>
+        <p>Dienstleistungen in der automatischen Datenverarbeitung und Informationstechnik</p>
+        <p>Gewerbebehörde: BH Linz-Land</p>
+        <p>Mitglied der WKO Oberösterreich</p>
+      </div>
+      <div class="imp-col">
+        <h4>Steuer</h4>
+        <p>Kleinunternehmer gem. § 6 Abs. 1 Z 27 UStG</p>
+        <p>UID: [wird nach Gewerbeanmeldung ergänzt]</p>
+      </div>
+      <div class="imp-col">
+        <h4>Datenschutz</h4>
+        <p>Eingehende Anfragen per E-Mail werden ausschließlich zur Bearbeitung der Anfrage verarbeitet und nicht an Dritte weitergegeben.</p>
+        <p style="margin-top:8px;">Für KI-Dienste wird die OpenAI API verwendet. Es gelten die <a href="https://openai.com/policies/privacy-policy" target="_blank" style="color:rgba(255,255,255,.4);text-decoration:underline;">Datenschutzbestimmungen von OpenAI</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="foot-in">
     <a href="#" class="foot-logo">Mlivo AI</a>
-    <span class="foot-copy">&copy; 2024 Mlivo AI — KI-Agenten für lokale Unternehmen in Österreich</span>
+    <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+      <a href="#impressum" class="foot-link">Impressum</a>
+      <span class="foot-copy">&copy; 2025 Mlivo AI — Enns, Österreich</span>
+    </div>
   </div>
 </footer>
 
@@ -950,10 +995,45 @@
   </div>
 </section>
 
+<section style="background:#0a0a0a;border-top:1px solid rgba(255,255,255,.04);padding:64px 0;">
+  <div class="wrap">
+    <div style="font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.22);">Legal Notice (Impressum)</div>
+    <div class="imp-grid">
+      <div class="imp-col">
+        <h4>Information per § 5 ECG</h4>
+        <p><strong>Alen Mlivo</strong></p>
+        <p>[Street and number]</p>
+        <p>4470 Enns, Austria</p>
+        <a href="mailto:mlivo.office@gmail.com">mlivo.office@gmail.com</a>
+      </div>
+      <div class="imp-col">
+        <h4>Business</h4>
+        <p>Free trade (Freies Gewerbe)</p>
+        <p>IT services and data processing</p>
+        <p>Trade authority: BH Linz-Land</p>
+        <p>Member of WKO Upper Austria</p>
+      </div>
+      <div class="imp-col">
+        <h4>Tax</h4>
+        <p>Small business per § 6 Abs. 1 Z 27 UStG (VAT exempt)</p>
+        <p>VAT ID: [added after registration]</p>
+      </div>
+      <div class="imp-col">
+        <h4>Privacy</h4>
+        <p>Incoming email inquiries are processed solely for handling the request and not shared with third parties.</p>
+        <p style="margin-top:8px;">AI services use the OpenAI API. <a href="https://openai.com/policies/privacy-policy" target="_blank" style="color:rgba(255,255,255,.4);text-decoration:underline;">OpenAI Privacy Policy</a> applies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="foot-in">
     <a href="#" class="foot-logo">Mlivo AI</a>
-    <span class="foot-copy">&copy; 2024 Mlivo AI — AI agents for local businesses in Austria</span>
+    <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+      <a href="#impressum" class="foot-link">Legal Notice</a>
+      <span class="foot-copy">&copy; 2025 Mlivo AI — Enns, Austria</span>
+    </div>
   </div>
 </footer>
 
