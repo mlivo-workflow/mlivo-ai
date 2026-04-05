@@ -194,6 +194,13 @@
     .op-vs-icon { flex-shrink: 0; width: 16px; color: var(--gold); font-weight: 700; font-size: .8rem; margin-top: 1px; }
     .op-vs-text { color: var(--muted); }
     .op-vs-text strong { color: var(--text); display: block; font-weight: 600; }
+
+    /* ── MOBILE NAV ── */
+    @media (max-width: 680px) {
+      .nav-links li:not(:last-child) { display: none; }
+      .nav-links { gap: 12px; }
+      .lang-switch { margin-left: 12px; }
+    }
   </style>
 </head>
 <body>
@@ -222,17 +229,17 @@
 
 <section id="hero">
   <div class="wrap">
-    <div class="hero-tag">KI-Automatisierung für Unternehmen · Österreich</div>
-    <h1>Sie verlieren täglich Zeit mit<br><em>Anfragen, Terminen und Angeboten.</em></h1>
-    <p class="hero-sub">Wir bauen Ihnen ein System, das diese Arbeit automatisch übernimmt. Ohne zusätzliches Personal. Ohne Chaos. Ohne Technikaufwand.</p>
+    <div class="hero-tag">Digitale Automatisierung für Unternehmen · Österreich</div>
+    <h1>Mehr Anfragen. Weniger Aufwand.<br><em>Automatisch umgesetzt.</em></h1>
+    <p class="hero-sub">Wir implementieren digitale Systeme, die Kundenanfragen automatisch erfassen, strukturieren und beantworten — rund um die Uhr.</p>
     <div class="hero-btns">
-      <a href="#contact" class="btn btn-gold">Jetzt live zeigen lassen</a>
+      <a href="#contact" class="btn btn-gold">Kostenloses Erstgespräch sichern</a>
       <a href="#system" class="btn btn-outline-dark">Was übernimmt das System?</a>
     </div>
     <div class="hero-bar">
-      <div><div class="hstat-val">10–20 Std.</div><div class="hstat-lab">pro Woche zurückgewonnen</div></div>
-      <div><div class="hstat-val">24/7</div><div class="hstat-lab">das System arbeitet immer</div></div>
-      <div><div class="hstat-val">2–6 Wo.</div><div class="hstat-lab">bis ROI erreicht</div></div>
+      <div><div class="hstat-val">24/7</div><div class="hstat-lab">automatisch verfügbar</div></div>
+      <div><div class="hstat-val">&lt; 2 Wo.</div><div class="hstat-lab">bis zur Inbetriebnahme</div></div>
+      <div><div class="hstat-val">Lokal</div><div class="hstat-lab">persönlicher Ansprechpartner</div></div>
     </div>
   </div>
 </section>
@@ -240,31 +247,32 @@
 <section id="problem" style="background:var(--bg);padding:88px 0;border-top:1px solid var(--border);">
   <div class="wrap">
     <div class="label">Das Problem</div>
-    <h2>Wenn das bei Ihnen so klingt...</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);margin:48px 0 40px;">
+    <h2>Anfragen gehen verloren. Antworten dauern zu lange.</h2>
+    <p class="sub" style="margin-bottom:48px;">Viele Unternehmen verlieren täglich potenzielle Kunden, weil Anfragen nicht sofort beantwortet werden oder intern untergehen. Wir setzen genau hier an.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);margin-bottom:40px;">
       <div style="background:var(--bg);padding:32px 28px;">
         <div style="font-size:1.6rem;margin-bottom:14px;">📩</div>
-        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Kundenanfragen manuell beantworten</h4>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Dieselben Fragen, täglich, per WhatsApp, E-Mail und Instagram.</p>
+        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Anfragen werden manuell erfasst</h4>
+        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Dieselben Fragen, täglich, per WhatsApp, E-Mail und Formular — von Hand bearbeitet.</p>
       </div>
       <div style="background:var(--bg);padding:32px 28px;">
         <div style="font-size:1.6rem;margin-bottom:14px;">📅</div>
-        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Termine per Hand koordinieren</h4>
+        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Termine unstrukturiert koordiniert</h4>
         <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Hin-und-her per Telefon oder Messenger, für jeden einzelnen Termin.</p>
       </div>
       <div style="background:var(--bg);padding:32px 28px;">
         <div style="font-size:1.6rem;margin-bottom:14px;">📄</div>
-        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Angebote jedes Mal neu erstellen</h4>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Stunden für wiederkehrende Dokumente, die sich kaum ändern.</p>
+        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Interne Abläufe nicht strukturiert</h4>
+        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Infos liegen verstreut, Übergaben passieren mündlich, Aufgaben fallen durch.</p>
       </div>
       <div style="background:var(--bg);padding:32px 28px;">
         <div style="font-size:1.6rem;margin-bottom:14px;">⚡</div>
-        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Ständig unterbrochen werden</h4>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Keine konzentrierte Arbeit — immer reaktiv statt aktiv.</p>
+        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Reaktiv statt strukturiert</h4>
+        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Immer im Tagesbetrieb gefangen — kaum Zeit für das Wesentliche.</p>
       </div>
     </div>
-    <div style="border-left:3px solid #c0392b;padding:20px 28px;background:rgba(192,57,43,.05);">
-      <p style="font-size:1rem;font-weight:600;color:var(--text);margin:0;">Das ist kein Wachstum. Das ist <span style="color:#c0392b;">Stillstand.</span></p>
+    <div style="border-left:3px solid var(--gold);padding:20px 28px;background:rgba(176,125,58,.05);">
+      <p style="font-size:1rem;font-weight:600;color:var(--text);margin:0;">Durch technische Automatisierung werden Anfragen strukturiert erfasst und direkt verarbeitet — ohne zusätzlichen Aufwand für Ihr Team.</p>
     </div>
   </div>
 </section>
@@ -276,9 +284,9 @@
     <p class="sub">Kein technisches Vorwissen nötig. Wir übernehmen die Einrichtung komplett.</p>
     <div class="steps">
       <div class="step">
-        <div class="step-n">01 — Analysegespräch</div>
-        <h4>Wir identifizieren Ihre Potenziale</h4>
-        <p>Kostenloses Erstgespräch (30 Min.) — wir schauen uns Ihre Abläufe an und zeigen konkret, was automatisiert werden kann und was das bringt.</p>
+        <div class="step-n">01 — Analyse der Situation</div>
+        <h4>Wir verstehen Ihre aktuellen Abläufe</h4>
+        <p>Kostenloses Erstgespräch (30 Min.) — wir schauen uns Ihre bestehenden Prozesse an und definieren gemeinsam, welche technischen Lösungen sinnvoll umsetzbar sind.</p>
       </div>
       <div class="step">
         <div class="step-n">02 — Setup &amp; Einrichtung</div>
@@ -286,75 +294,75 @@
         <p>Wir konfigurieren alles mit Ihren Infos, Ihrem Ton und Ihren Prozessen. Sie müssen nichts installieren oder programmieren.</p>
       </div>
       <div class="step">
-        <div class="step-n">03 — Go-Live</div>
-        <h4>Erste Prozesse laufen automatisch</h4>
-        <p>Ab dem ersten Tag übernimmt das System. Sie sehen alles in einer einfachen Übersicht — und bekommen direkt mehr Zeit zurück.</p>
+        <div class="step-n">03 — Inbetriebnahme</div>
+        <h4>Das System geht live</h4>
+        <p>Die implementierten Systeme werden in Betrieb genommen. Sie erhalten eine Einführung in die Bedienung und eine Übersicht über alle laufenden Prozesse.</p>
       </div>
       <div class="step">
-        <div class="step-n">04 — Optimierung</div>
-        <h4>Laufende Verbesserung</h4>
-        <p>Wir überwachen, optimieren und passen das System laufend an. Monatliche Pauschale deckt alles ab — keine versteckten Extras.</p>
+        <div class="step-n">04 — Betrieb &amp; Betreuung</div>
+        <h4>Laufende technische Betreuung</h4>
+        <p>Wir überwachen, optimieren und passen die Systeme laufend an. Die monatliche Pauschale deckt technischen Betrieb, Updates und Support ab.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="agents">
+<section id="system">
   <div class="wrap">
     <div class="agents-hd">
       <div>
-        <div class="label">Das System</div>
-        <h2>Was Ihr System übernimmt</h2>
+        <div class="label">Technische Umsetzung</div>
+        <h2>Automatisierte Prozesse — was wir implementieren</h2>
       </div>
-      <p class="sub" style="max-width:360px">Sechs spezialisierte Komponenten — individuell konfiguriert, nahtlos verknüpft.</p>
+      <p class="sub" style="max-width:380px">Wir entwickeln und integrieren Systeme zur automatisierten Verarbeitung von Kundenanfragen. Fokus: technische Umsetzung und Systemintegration.</p>
     </div>
     <div class="agents-grid">
 
       <div class="agent">
         <div class="agent-id">📩 Kommunikation</div>
-        <h3>Kommunikations-Agent</h3>
-        <p class="agent-desc">Beantwortet eingehende Kundenanfragen automatisch — per WhatsApp, E-Mail oder Website-Chat. Gibt Infos, erfasst Anfragen, leitet weiter wenn nötig.</p>
-        <div class="agent-example"><strong>Typischer Einsatz:</strong> Standardanfragen, Preisinfos, Öffnungszeiten, erste Kontaktaufnahme — rund um die Uhr, ohne manuellen Aufwand.</div>
+        <h3>Automatisierte Antwortsysteme</h3>
+        <p class="agent-desc">Einrichtung automatisierter Systeme zur Erfassung und Beantwortung eingehender Anfragen — per Website-Formular, E-Mail oder Chat-Integration.</p>
+        <div class="agent-example"><strong>Typischer Einsatz:</strong> Strukturierte Erfassung von Standardanfragen, automatische Weiterleitung an zuständige Stellen, Eingangsbestätigungen.</div>
       </div>
 
       <div class="agent">
         <div class="agent-id">📅 Termine</div>
-        <h3>Termin-Agent</h3>
-        <p class="agent-desc">Nimmt Buchungsanfragen entgegen, verschickt Bestätigungen und erinnert Kunden automatisch vor dem Termin — weniger No-Shows, mehr Planbarkeit.</p>
-        <div class="agent-example"><strong>Typischer Einsatz:</strong> Online-Buchung, automatische Bestätigung, 24h-Erinnerung, Dankesnachricht nach dem Termin.</div>
+        <h3>Terminmanagement-Integration</h3>
+        <p class="agent-desc">Technische Einbindung von Buchungssystemen mit automatischer Bestätigung und Erinnerungsfunktion — Integration in bestehende Kalender und CRM-Systeme.</p>
+        <div class="agent-example"><strong>Typischer Einsatz:</strong> Online-Buchungsformular → automatische Kalendereinbuchung → Bestätigungs-E-Mail → Erinnerungsversand.</div>
       </div>
 
       <div class="agent">
         <div class="agent-id">📄 Angebote</div>
-        <h3>Angebots-Agent</h3>
-        <p class="agent-desc">Erstellt standardisierte Angebote und Dokumente automatisch vor — auf Basis Ihrer Vorlagen und der eingehenden Anfrageinformationen.</p>
-        <div class="agent-example"><strong>Typischer Einsatz:</strong> Angebotsvorlagen ausfüllen, Preisübersichten versenden, Dokumente vorbereiten — ohne manuellen Aufwand.</div>
+        <h3>Dokumentenautomatisierung</h3>
+        <p class="agent-desc">Automatisierte Generierung standardisierter Dokumente auf Basis definierter Vorlagen und strukturierter Eingangsdaten — Angebote, Bestätigungen, Informationspakete.</p>
+        <div class="agent-example"><strong>Typischer Einsatz:</strong> Anfrage eingehend → Vorlage befüllt → Dokument versandt. Ohne manuelle Zwischenschritte.</div>
       </div>
 
       <div class="agent">
         <div class="agent-id">⚙️ Prozesse</div>
-        <h3>Prozess-Agent</h3>
-        <p class="agent-desc">Automatisiert interne Abläufe — Benachrichtigungen, Übergaben zwischen Systemen, Statusupdates und wiederkehrende Aufgaben.</p>
-        <div class="agent-example"><strong>Typischer Einsatz:</strong> Neue Anfrage → Team wird informiert → Aufgabe angelegt → Status aktualisiert. Vollautomatisch.</div>
+        <h3>Interne Prozessautomatisierung</h3>
+        <p class="agent-desc">Automatisierung interner Abläufe: Systembenachrichtigungen, Datenübergaben zwischen Plattformen, Statusupdates und wiederkehrende Aufgaben.</p>
+        <div class="agent-example"><strong>Typischer Einsatz:</strong> Neue Anfrage → Systemeintrag → Benachrichtigung an zuständige Person → automatische Statusverfolgung.</div>
       </div>
 
       <div class="agent">
         <div class="agent-id">📊 Analyse</div>
-        <h3>Analyse-Agent</h3>
-        <p class="agent-desc">Wertet Anfragen, Termine und Abläufe automatisch aus — und liefert Ihnen regelmäßige Berichte ohne manuellen Aufwand.</p>
-        <div class="agent-example"><strong>Typischer Einsatz:</strong> Wöchentlicher Bericht: Wie viele Anfragen? Welche Themen? Wo gibt es Optimierungspotenzial?</div>
+        <h3>Automatisiertes Reporting</h3>
+        <p class="agent-desc">Technische Einrichtung automatischer Auswertungen und Berichte auf Basis der erfassten Systemdaten — strukturiert, regelmäßig, ohne manuellen Aufwand.</p>
+        <div class="agent-example"><strong>Typischer Einsatz:</strong> Regelmäßiger Bericht: Anfragenvolumen, Bearbeitungszeiten, Systemauslastung — automatisch generiert.</div>
       </div>
 
       <div class="agent">
         <div class="agent-id">🔄 Workflow</div>
-        <h3>Workflow-Agent</h3>
-        <p class="agent-desc">Verknüpft alle Systemkomponenten miteinander — sodass Daten fließen, Prozesse ineinandergreifen und nichts manuell übergeben werden muss.</p>
-        <div class="agent-example"><strong>Typischer Einsatz:</strong> Anfrage kommt rein → Antwort geht raus → Termin wird gebucht → Team informiert → Bericht aktualisiert. Alles automatisch.</div>
+        <h3>Systemintegration &amp; Vernetzung</h3>
+        <p class="agent-desc">Technische Verknüpfung aller Systemkomponenten — Datenflüsse zwischen Plattformen, API-Integrationen, Schnittstellen zu bestehenden Tools.</p>
+        <div class="agent-example"><strong>Typischer Einsatz:</strong> Eingehende Anfrage → mehrere Systeme werden automatisch aktualisiert → kein manueller Datenabgleich nötig.</div>
       </div>
 
     </div>
     <div class="callout">
-      <strong>Alles arbeitet zusammen.</strong> Die Komponenten sind miteinander verknüpft und individuell auf Ihre Abläufe abgestimmt — kein manuelles Chaos mehr.
+      <strong>Fokus: technische Implementierung.</strong> Wir übernehmen Einrichtung, Integration und laufenden Betrieb der Systeme. Die fachliche Nutzung und inhaltliche Ausgestaltung liegt beim Auftraggeber.
     </div>
   </div>
 </section>
@@ -572,78 +580,52 @@
   </div>
 </section>
 
-<!-- ── ROI BLOCK DE ── -->
+<!-- ── NUTZEN BLOCK DE ── -->
 <section style="background:#0E0E0E;padding:96px 0;border-top:1px solid var(--border);">
   <div class="wrap">
-    <div class="label">Return on Investment</div>
-    <h2 style="color:#fff;">Wie viel kostet Sie jede Woche Verzögerung?</h2>
-    <p class="sub" style="color:rgba(255,255,255,.45)">Die meisten Unternehmen unterschätzen, wie viel Zeit täglich in wiederkehrende Aufgaben fließt — und was das wirklich kostet.</p>
+    <div class="label" style="color:var(--gold);">Realistischer Nutzen</div>
+    <h2 style="color:#fff;">Was sich typischerweise verbessert</h2>
+    <p class="sub" style="color:rgba(255,255,255,.45);">Durch strukturierte und automatisierte Prozesse berichten viele Unternehmen von messbaren Verbesserungen in ihrer täglichen Arbeitsorganisation.</p>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--border);margin:48px 0 40px;">
-      <div style="background:var(--dark);padding:32px 24px;">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Zeitverlust täglich</div>
-        <div style="font-size:2.6rem;font-weight:700;color:var(--gold);line-height:1;">1–2 h</div>
-        <div style="font-size:.82rem;color:rgba(255,255,255,.35);margin-top:8px;">Anfragen · Termine · Koordination</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:rgba(255,255,255,.05);margin:48px 0 40px;">
+      <div style="background:var(--dark);padding:32px 28px;">
+        <div style="font-size:1.8rem;margin-bottom:14px;">⏱</div>
+        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;">Schnellere Reaktionszeiten</h4>
+        <p style="font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;">Eingehende Anfragen werden strukturiert erfasst und sofort verarbeitet — nicht erst, wenn jemand Zeit findet.</p>
       </div>
-      <div style="background:var(--dark);padding:32px 24px;">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Verlust pro Monat</div>
-        <div style="font-size:2.6rem;font-weight:700;color:var(--gold);line-height:1.1;">€1.200–<br>€3.600</div>
-        <div style="font-size:.82rem;color:rgba(255,255,255,.35);margin-top:8px;">bei €40–60 / Stunde intern</div>
+      <div style="background:var(--dark);padding:32px 28px;">
+        <div style="font-size:1.8rem;margin-bottom:14px;">🔁</div>
+        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;">Weniger manuelle Arbeit</h4>
+        <p style="font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;">Wiederkehrende Aufgaben laufen automatisch — das Team kann sich auf Tätigkeiten konzentrieren, die Aufmerksamkeit erfordern.</p>
       </div>
-      <div style="background:var(--dark);padding:32px 24px;">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Automatisierungsgrad</div>
-        <div style="font-size:2.6rem;font-weight:700;color:var(--gold);line-height:1;">70–90%</div>
-        <div style="font-size:.82rem;color:rgba(255,255,255,.35);margin-top:8px;">aller Standard-Anfragen</div>
+      <div style="background:var(--dark);padding:32px 28px;">
+        <div style="font-size:1.8rem;margin-bottom:14px;">📋</div>
+        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;">Bessere Übersicht</h4>
+        <p style="font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;">Alle eingehenden Anfragen sind strukturiert erfasst — nichts geht unter, keine Information geht verloren.</p>
       </div>
-      <div style="background:var(--dark);padding:32px 24px;">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">ROI erreicht nach</div>
-        <div style="font-size:2.6rem;font-weight:700;color:var(--gold);line-height:1;">2–6</div>
-        <div style="font-size:.82rem;color:rgba(255,255,255,.35);margin-top:8px;">Wochen</div>
+      <div style="background:var(--dark);padding:32px 28px;">
+        <div style="font-size:1.8rem;margin-bottom:14px;">⚙️</div>
+        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;">Stabilere Abläufe</h4>
+        <p style="font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;">Interne Prozesse laufen nach definierten Regeln — unabhängig von Auslastung, Tageszeit oder Personalstand.</p>
       </div>
     </div>
 
-    <div style="border-left:3px solid var(--gold);padding:22px 28px;background:rgba(176,125,58,.08);margin-bottom:48px;">
-      <p style="font-size:1.2rem;font-weight:600;color:#fff;margin:0;line-height:1.6;">Sie kaufen keine Software.<br>Sie kaufen <span style="color:var(--gold);">Zeit zurück.</span></p>
+    <div style="background:#161616;border:1px solid rgba(255,255,255,.07);padding:28px 32px;margin-bottom:48px;display:flex;gap:16px;align-items:flex-start;">
+      <div style="font-size:1.2rem;flex-shrink:0;margin-top:2px;">👉</div>
+      <p style="font-size:.875rem;color:rgba(255,255,255,.4);line-height:1.75;margin:0;"><strong style="color:rgba(255,255,255,.65);">Wichtiger Hinweis:</strong> Es werden keine wirtschaftlichen Ergebnisse garantiert. Die dargestellten Verbesserungen beziehen sich auf die technische Prozessorganisation. Konkrete betriebswirtschaftliche Auswirkungen hängen von individuellen Faktoren ab und liegen außerhalb unseres Leistungsumfangs.</p>
     </div>
 
-    <div style="background:#161616;border:1px solid var(--border);padding:36px;margin-bottom:48px;">
-      <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;">Praxisbeispiel — Kosmetikstudio</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:28px;">
-        <div>
-          <div style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,.4);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em;">Vorher</div>
-          <ul style="list-style:none;padding:0;margin:0;color:rgba(255,255,255,.55);font-size:.875rem;line-height:2;">
-            <li>30–50 Nachrichten / Tag</li>
-            <li>Standardfragen manuell</li>
-            <li>Termine per Hand abgestimmt</li>
-            <li>ständige Unterbrechungen</li>
-          </ul>
-          <div style="margin-top:10px;font-size:.82rem;color:rgba(255,255,255,.3);">→ ~2 Stunden Verlust täglich</div>
-        </div>
-        <div>
-          <div style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,.4);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em;">Lösung</div>
-          <ul style="list-style:none;padding:0;margin:0;color:rgba(255,255,255,.55);font-size:.875rem;line-height:2;">
-            <li>Automatische Standardantworten</li>
-            <li>Terminlogik + Bestätigung</li>
-            <li>Qualifizierte Weiterleitung</li>
-          </ul>
-          <div style="margin-top:10px;font-size:.82rem;color:var(--gold);font-weight:600;">Setup ~€2.500</div>
-        </div>
-        <div>
-          <div style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,.4);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em;">Nachher</div>
-          <div style="font-size:1.9rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:4px;">~60 Std.</div>
-          <div style="font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:14px;">eingespart / Monat</div>
-          <div style="font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:4px;">€3.000</div>
-          <div style="font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:14px;">eingesparte Zeit / Monat</div>
-          <div style="font-size:.85rem;color:var(--gold);font-weight:700;">Amortisiert in &lt; 1 Monat</div>
-        </div>
-      </div>
+    <div style="background:#161616;border:1px solid rgba(255,255,255,.06);padding:36px;margin-bottom:48px;">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;">Beispiel aus der Praxis</div>
+      <p style="font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:16px;">Ein lokaler Dienstleister hatte das Problem, dass Kundenanfragen unregelmäßig beantwortet wurden und intern untergingen.</p>
+      <p style="font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:16px;">Nach der technischen Implementierung eines automatisierten Erfassungs- und Antwortsystems wurden Anfragen strukturiert verarbeitet und intern sofort weitergeleitet.</p>
+      <p style="font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.8;margin:0;">Die internen Abläufe wurden dadurch deutlich stabiler und übersichtlicher. <span style="color:rgba(255,255,255,.3);font-size:.8rem;">Konkrete wirtschaftliche Auswirkungen werden nicht zugesichert.</span></p>
     </div>
 
     <div style="text-align:center;">
-      <p style="color:rgba(255,255,255,.45);font-size:.95rem;margin-bottom:28px;">Die einzige Frage: Wie viele Stunden verlieren Sie aktuell jeden Tag?</p>
+      <p style="color:rgba(255,255,255,.4);font-size:.9rem;margin-bottom:28px;">In einem kurzen Gespräch klären wir, welche technischen Möglichkeiten es für Ihre Situation gibt.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="#contact" style="display:inline-block;padding:14px 30px;background:var(--gold);color:#fff;border-radius:3px;text-decoration:none;font-size:.875rem;font-weight:600;">Kostenloses Erstgespräch buchen</a>
-        <a href="#contact" style="display:inline-block;padding:14px 30px;border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:3px;text-decoration:none;font-size:.875rem;font-weight:600;">Live-Demo anfordern</a>
+        <a href="#contact" style="display:inline-block;padding:14px 30px;background:var(--gold);color:#fff;border-radius:3px;text-decoration:none;font-size:.875rem;font-weight:600;">Kostenloses Erstgespräch anfragen</a>
       </div>
     </div>
   </div>
@@ -730,6 +712,30 @@
   </div>
 </section>
 
+<!-- ── MINI-AGB + RECHTLICHER HINWEIS (DE) ── -->
+<section style="background:#0a0a0a;border-top:1px solid rgba(255,255,255,.04);padding:56px 0;">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px 48px;">
+      <div>
+        <h4 style="font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.04em;">🛡 Rechtlicher Hinweis</h4>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.28);line-height:1.75;">Es handelt sich um technische Dienstleistungen im Bereich der Systemintegration und Automatisierung. Es werden keine garantierten wirtschaftlichen Ergebnisse (z.B. Umsatzsteigerungen oder Kundenzuwachs) zugesichert.</p>
+      </div>
+      <div>
+        <h4 style="font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.04em;">📋 Leistungsumfang</h4>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.28);line-height:1.75;">Gegenstand ist die technische Implementierung und der Betrieb von Systemen. Unternehmensberatung oder Beratung zu wirtschaftlichen Zielen ist nicht Bestandteil der Leistung.</p>
+      </div>
+      <div>
+        <h4 style="font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.04em;">🔐 Datenschutz (DSGVO)</h4>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.28);line-height:1.75;">Die Implementierung erfolgt unter Berücksichtigung technischer Datenschutzanforderungen. Die datenschutzrechtliche Bewertung und rechtmäßige Nutzung der Systeme liegt in der Verantwortung des Auftraggebers.</p>
+      </div>
+      <div>
+        <h4 style="font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.04em;">⚖️ Haftung</h4>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.28);line-height:1.75;">Es wird keine Haftung für wirtschaftliche Ergebnisse übernommen. Die Haftung beschränkt sich auf die vertraglich vereinbarte technische Leistungserbringung.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="impressum">
   <div class="wrap">
     <div style="font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.22);">Impressum</div>
@@ -780,17 +786,17 @@
 
 <section id="hero-en" style="background:var(--dark);min-height:100vh;display:flex;align-items:center;padding:130px 0 80px;">
   <div class="wrap">
-    <div class="hero-tag">AI Automation for Businesses · Austria</div>
-    <h1>You lose time every day to<br><em>inquiries, appointments and quotes.</em></h1>
-    <p class="hero-sub">We build you a system that handles this work automatically. No extra staff. No chaos. No technical effort on your part.</p>
+    <div class="hero-tag">Digital Automation for Businesses · Austria</div>
+    <h1>More inquiries. Less effort.<br><em>Automated.</em></h1>
+    <p class="hero-sub">We implement digital systems that automatically capture, structure and respond to customer inquiries — around the clock.</p>
     <div class="hero-btns">
-      <a href="#contact" class="btn btn-gold">See it live now</a>
+      <a href="#contact" class="btn btn-gold">Book a free intro call</a>
       <a href="#system" class="btn btn-outline-dark">What does the system handle?</a>
     </div>
     <div class="hero-bar">
-      <div><div class="hstat-val">10–20 hrs</div><div class="hstat-lab">reclaimed per week</div></div>
-      <div><div class="hstat-val">24/7</div><div class="hstat-lab">the system always works</div></div>
-      <div><div class="hstat-val">2–6 wks</div><div class="hstat-lab">until ROI is reached</div></div>
+      <div><div class="hstat-val">24/7</div><div class="hstat-lab">automatically available</div></div>
+      <div><div class="hstat-val">&lt; 2 wks</div><div class="hstat-lab">to go-live</div></div>
+      <div><div class="hstat-val">Local</div><div class="hstat-lab">personal point of contact</div></div>
     </div>
   </div>
 </section>
@@ -798,31 +804,32 @@
 <section style="background:var(--bg);padding:88px 0;border-top:1px solid var(--border);">
   <div class="wrap">
     <div class="label">The Problem</div>
-    <h2>If this sounds familiar...</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);margin:48px 0 40px;">
+    <h2>Inquiries get lost. Responses take too long.</h2>
+    <p class="sub" style="margin-bottom:48px;">Many businesses lose potential customers every day because inquiries aren't answered immediately or fall through the cracks internally. That's exactly where we start.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);margin-bottom:40px;">
       <div style="background:var(--bg);padding:32px 28px;">
         <div style="font-size:1.6rem;margin-bottom:14px;">📩</div>
-        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Answering customer inquiries manually</h4>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">The same questions, every day, via WhatsApp, email and Instagram.</p>
+        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Inquiries captured manually</h4>
+        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">The same questions, every day, handled by hand across WhatsApp, email and web forms.</p>
       </div>
       <div style="background:var(--bg);padding:32px 28px;">
         <div style="font-size:1.6rem;margin-bottom:14px;">📅</div>
-        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Coordinating appointments by hand</h4>
+        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Appointments unstructured</h4>
         <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Back-and-forth by phone or messenger for every single booking.</p>
       </div>
       <div style="background:var(--bg);padding:32px 28px;">
         <div style="font-size:1.6rem;margin-bottom:14px;">📄</div>
-        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Creating quotes from scratch every time</h4>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Hours spent on recurring documents that barely change.</p>
+        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Internal processes not structured</h4>
+        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Information scattered, handoffs happen verbally, tasks slip through.</p>
       </div>
       <div style="background:var(--bg);padding:32px 28px;">
         <div style="font-size:1.6rem;margin-bottom:14px;">⚡</div>
-        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Constant interruptions</h4>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">No focused work — always reactive instead of proactive.</p>
+        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Reactive instead of structured</h4>
+        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Always caught in day-to-day operations — little time for what matters.</p>
       </div>
     </div>
-    <div style="border-left:3px solid #c0392b;padding:20px 28px;background:rgba(192,57,43,.05);">
-      <p style="font-size:1rem;font-weight:600;color:var(--text);margin:0;">This isn't growth. This is <span style="color:#c0392b;">standstill.</span></p>
+    <div style="border-left:3px solid var(--gold);padding:20px 28px;background:rgba(176,125,58,.05);">
+      <p style="font-size:1rem;font-weight:600;color:var(--text);margin:0;">Through technical automation, inquiries are structured, captured and processed directly — without additional effort from your team.</p>
     </div>
   </div>
 </section>
@@ -834,24 +841,24 @@
     <p class="sub">No technical knowledge needed. We handle the entire setup.</p>
     <div class="steps">
       <div class="step">
-        <div class="step-n">01 — Analysis call</div>
-        <h4>We identify your potential</h4>
-        <p>Free intro call (30 min.) — we look at your processes and show concretely what can be automated and what that's worth.</p>
+        <div class="step-n">01 — Situation analysis</div>
+        <h4>We understand your current processes</h4>
+        <p>Free intro call (30 min.) — we review your existing workflows and define together which technical solutions make sense to implement.</p>
       </div>
       <div class="step">
         <div class="step-n">02 — Setup &amp; Build</div>
         <h4>The system is built</h4>
-        <p>We configure everything with your information, tone and processes. Nothing to install or program on your end.</p>
+        <p>We configure and integrate everything based on your requirements. Nothing to install or program on your end.</p>
       </div>
       <div class="step">
         <div class="step-n">03 — Go-Live</div>
-        <h4>First processes run automatically</h4>
-        <p>From day one the system takes over. You see everything in a simple overview — and immediately get more time back.</p>
+        <h4>The system goes live</h4>
+        <p>The implemented systems are put into operation. You receive a walkthrough of how everything works and an overview of all running processes.</p>
       </div>
       <div class="step">
-        <div class="step-n">04 — Optimisation</div>
-        <h4>Continuous improvement</h4>
-        <p>We monitor, optimise and adjust the system continuously. Monthly flat rate covers everything — no hidden extras.</p>
+        <div class="step-n">04 — Operations &amp; Support</div>
+        <h4>Ongoing technical support</h4>
+        <p>We monitor, optimise and adjust the systems continuously. The monthly flat rate covers technical operations, updates and support.</p>
       </div>
     </div>
   </div>
@@ -861,58 +868,58 @@
   <div class="wrap">
     <div class="agents-hd">
       <div>
-        <div class="label">The System</div>
-        <h2>What your system handles</h2>
+        <div class="label">Technical Implementation</div>
+        <h2>Automated processes — what we implement</h2>
       </div>
-      <p class="sub" style="max-width:360px">Six specialised components — individually configured, seamlessly connected.</p>
+      <p class="sub" style="max-width:380px">We develop and integrate systems for automated processing of customer inquiries. Focus: technical implementation and system integration.</p>
     </div>
     <div class="agents-grid">
 
       <div class="agent">
         <div class="agent-id">📩 Communication</div>
-        <h3>Communication Agent</h3>
-        <p class="agent-desc">Automatically answers incoming customer inquiries via WhatsApp, email or website chat. Provides information, captures requests and escalates when needed.</p>
-        <div class="agent-example"><strong>Typical use:</strong> Standard inquiries, pricing info, opening hours, first contact — around the clock, no manual effort.</div>
+        <h3>Automated Response Systems</h3>
+        <p class="agent-desc">Setup of automated systems to capture and respond to incoming inquiries — via website form, email or chat integration.</p>
+        <div class="agent-example"><strong>Typical use:</strong> Structured capture of standard inquiries, automatic routing to responsible parties, receipt confirmations.</div>
       </div>
 
       <div class="agent">
         <div class="agent-id">📅 Appointments</div>
-        <h3>Appointment Agent</h3>
-        <p class="agent-desc">Accepts booking requests, sends confirmations and automatically reminds customers before their appointment — fewer no-shows, more predictability.</p>
-        <div class="agent-example"><strong>Typical use:</strong> Online booking, automatic confirmation, 24h reminder, thank-you after the appointment.</div>
+        <h3>Appointment Management Integration</h3>
+        <p class="agent-desc">Technical integration of booking systems with automatic confirmation and reminder function — connected to existing calendars and CRM systems.</p>
+        <div class="agent-example"><strong>Typical use:</strong> Online booking form → automatic calendar entry → confirmation email → reminder dispatch.</div>
       </div>
 
       <div class="agent">
-        <div class="agent-id">📄 Quotes</div>
-        <h3>Quote Agent</h3>
-        <p class="agent-desc">Automatically prepares standardised quotes and documents — based on your templates and the information in incoming requests.</p>
-        <div class="agent-example"><strong>Typical use:</strong> Fill quote templates, send price overviews, prepare documents — without manual effort.</div>
+        <div class="agent-id">📄 Documents</div>
+        <h3>Document Automation</h3>
+        <p class="agent-desc">Automated generation of standardised documents based on defined templates and structured input data — quotes, confirmations, info packages.</p>
+        <div class="agent-example"><strong>Typical use:</strong> Inquiry received → template filled → document sent. No manual steps in between.</div>
       </div>
 
       <div class="agent">
         <div class="agent-id">⚙️ Processes</div>
-        <h3>Process Agent</h3>
-        <p class="agent-desc">Automates internal operations — notifications, handoffs between systems, status updates and recurring tasks.</p>
-        <div class="agent-example"><strong>Typical use:</strong> New inquiry → team notified → task created → status updated. Fully automatic.</div>
+        <h3>Internal Process Automation</h3>
+        <p class="agent-desc">Automation of internal workflows: system notifications, data handoffs between platforms, status updates and recurring tasks.</p>
+        <div class="agent-example"><strong>Typical use:</strong> New inquiry → system entry → notification to responsible person → automatic status tracking.</div>
       </div>
 
       <div class="agent">
         <div class="agent-id">📊 Analysis</div>
-        <h3>Analysis Agent</h3>
-        <p class="agent-desc">Automatically evaluates inquiries, appointments and processes — and delivers regular reports without manual effort.</p>
-        <div class="agent-example"><strong>Typical use:</strong> Weekly report: How many inquiries? Which topics? Where is there optimisation potential?</div>
+        <h3>Automated Reporting</h3>
+        <p class="agent-desc">Technical setup of automatic evaluations and reports based on captured system data — structured, regular, without manual effort.</p>
+        <div class="agent-example"><strong>Typical use:</strong> Regular report: inquiry volume, processing times, system load — automatically generated.</div>
       </div>
 
       <div class="agent">
         <div class="agent-id">🔄 Workflow</div>
-        <h3>Workflow Agent</h3>
-        <p class="agent-desc">Connects all system components — so data flows, processes interlock and nothing needs to be passed on manually.</p>
-        <div class="agent-example"><strong>Typical use:</strong> Inquiry comes in → reply goes out → appointment booked → team notified → report updated. All automatic.</div>
+        <h3>System Integration &amp; Connectivity</h3>
+        <p class="agent-desc">Technical interconnection of all system components — data flows between platforms, API integrations, interfaces to existing tools.</p>
+        <div class="agent-example"><strong>Typical use:</strong> Incoming inquiry → multiple systems updated automatically → no manual data synchronisation needed.</div>
       </div>
 
     </div>
     <div class="callout">
-      <strong>Everything works together.</strong> The components are interconnected and individually tailored to your processes — no more manual chaos.
+      <strong>Focus: technical implementation.</strong> We handle setup, integration and ongoing operation of the systems. The substantive use and content design lies with the client.
     </div>
   </div>
 </section>
@@ -1130,78 +1137,52 @@
   </div>
 </section>
 
-<!-- ── ROI BLOCK EN ── -->
+<!-- ── BENEFITS BLOCK EN ── -->
 <section style="background:#0E0E0E;padding:96px 0;border-top:1px solid var(--border);">
   <div class="wrap">
-    <div class="label">Return on Investment</div>
-    <h2 style="color:#fff;">How much is each week of delay costing you?</h2>
-    <p class="sub" style="color:rgba(255,255,255,.45)">Most businesses massively underestimate how much time flows into repetitive tasks every day — and what that actually costs.</p>
+    <div class="label" style="color:var(--gold);">Realistic Benefits</div>
+    <h2 style="color:#fff;">What typically improves</h2>
+    <p class="sub" style="color:rgba(255,255,255,.45);">Through structured and automated processes, many businesses report measurable improvements in their daily work organisation.</p>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--border);margin:48px 0 40px;">
-      <div style="background:var(--dark);padding:32px 24px;">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Daily time lost</div>
-        <div style="font-size:2.6rem;font-weight:700;color:var(--gold);line-height:1;">1–2 h</div>
-        <div style="font-size:.82rem;color:rgba(255,255,255,.35);margin-top:8px;">Inquiries · appointments · coordination</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:rgba(255,255,255,.05);margin:48px 0 40px;">
+      <div style="background:var(--dark);padding:32px 28px;">
+        <div style="font-size:1.8rem;margin-bottom:14px;">⏱</div>
+        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;">Faster response times</h4>
+        <p style="font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;">Incoming inquiries are structured and processed immediately — not when someone finds the time.</p>
       </div>
-      <div style="background:var(--dark);padding:32px 24px;">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Monthly cost</div>
-        <div style="font-size:2.6rem;font-weight:700;color:var(--gold);line-height:1.1;">€1,200–<br>€3,600</div>
-        <div style="font-size:.82rem;color:rgba(255,255,255,.35);margin-top:8px;">at €40–60 / hour internal cost</div>
+      <div style="background:var(--dark);padding:32px 28px;">
+        <div style="font-size:1.8rem;margin-bottom:14px;">🔁</div>
+        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;">Less manual work</h4>
+        <p style="font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;">Recurring tasks run automatically — the team can focus on work that actually requires attention.</p>
       </div>
-      <div style="background:var(--dark);padding:32px 24px;">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Automation rate</div>
-        <div style="font-size:2.6rem;font-weight:700;color:var(--gold);line-height:1;">70–90%</div>
-        <div style="font-size:.82rem;color:rgba(255,255,255,.35);margin-top:8px;">of all standard inquiries</div>
+      <div style="background:var(--dark);padding:32px 28px;">
+        <div style="font-size:1.8rem;margin-bottom:14px;">📋</div>
+        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;">Better overview</h4>
+        <p style="font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;">All incoming inquiries are structured and captured — nothing falls through, no information gets lost.</p>
       </div>
-      <div style="background:var(--dark);padding:32px 24px;">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">ROI reached after</div>
-        <div style="font-size:2.6rem;font-weight:700;color:var(--gold);line-height:1;">2–6</div>
-        <div style="font-size:.82rem;color:rgba(255,255,255,.35);margin-top:8px;">weeks</div>
+      <div style="background:var(--dark);padding:32px 28px;">
+        <div style="font-size:1.8rem;margin-bottom:14px;">⚙️</div>
+        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;">More stable processes</h4>
+        <p style="font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;">Internal processes follow defined rules — regardless of workload, time of day or staffing levels.</p>
       </div>
     </div>
 
-    <div style="border-left:3px solid var(--gold);padding:22px 28px;background:rgba(176,125,58,.08);margin-bottom:48px;">
-      <p style="font-size:1.2rem;font-weight:600;color:#fff;margin:0;line-height:1.6;">You're not buying software.<br>You're buying <span style="color:var(--gold);">time back.</span></p>
+    <div style="background:#161616;border:1px solid rgba(255,255,255,.07);padding:28px 32px;margin-bottom:48px;display:flex;gap:16px;align-items:flex-start;">
+      <div style="font-size:1.2rem;flex-shrink:0;margin-top:2px;">👉</div>
+      <p style="font-size:.875rem;color:rgba(255,255,255,.4);line-height:1.75;margin:0;"><strong style="color:rgba(255,255,255,.65);">Important note:</strong> No economic results are guaranteed. The improvements described relate to technical process organisation. Specific business outcomes depend on individual factors and are outside our scope of services.</p>
     </div>
 
-    <div style="background:#161616;border:1px solid var(--border);padding:36px;margin-bottom:48px;">
-      <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;">Case study — Beauty Studio</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:28px;">
-        <div>
-          <div style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,.4);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em;">Before</div>
-          <ul style="list-style:none;padding:0;margin:0;color:rgba(255,255,255,.55);font-size:.875rem;line-height:2;">
-            <li>30–50 messages / day</li>
-            <li>standard questions answered manually</li>
-            <li>appointments coordinated by hand</li>
-            <li>constant interruptions</li>
-          </ul>
-          <div style="margin-top:10px;font-size:.82rem;color:rgba(255,255,255,.3);">→ ~2 hours lost daily</div>
-        </div>
-        <div>
-          <div style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,.4);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em;">Solution</div>
-          <ul style="list-style:none;padding:0;margin:0;color:rgba(255,255,255,.55);font-size:.875rem;line-height:2;">
-            <li>Automated standard responses</li>
-            <li>Appointment logic + confirmation</li>
-            <li>Qualified routing of leads</li>
-          </ul>
-          <div style="margin-top:10px;font-size:.82rem;color:var(--gold);font-weight:600;">Setup ~€2,500</div>
-        </div>
-        <div>
-          <div style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,.4);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em;">After</div>
-          <div style="font-size:1.9rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:4px;">~60 hrs</div>
-          <div style="font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:14px;">saved / month</div>
-          <div style="font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:4px;">€3,000</div>
-          <div style="font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:14px;">in saved time / month</div>
-          <div style="font-size:.85rem;color:var(--gold);font-weight:700;">Paid back in &lt; 1 month</div>
-        </div>
-      </div>
+    <div style="background:#161616;border:1px solid rgba(255,255,255,.06);padding:36px;margin-bottom:48px;">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;">Example from practice</div>
+      <p style="font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:16px;">A local service provider had the problem that customer inquiries were answered irregularly and fell through internally.</p>
+      <p style="font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:16px;">After the technical implementation of an automated capture and response system, inquiries were processed in a structured way and forwarded internally immediately.</p>
+      <p style="font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.8;margin:0;">Internal processes became significantly more stable and transparent. <span style="color:rgba(255,255,255,.3);font-size:.8rem;">Specific economic outcomes are not guaranteed.</span></p>
     </div>
 
     <div style="text-align:center;">
-      <p style="color:rgba(255,255,255,.45);font-size:.95rem;margin-bottom:28px;">The only question: how many hours are you losing every day right now?</p>
+      <p style="color:rgba(255,255,255,.4);font-size:.9rem;margin-bottom:28px;">In a short call we clarify which technical options make sense for your situation.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
         <a href="#contact" style="display:inline-block;padding:14px 30px;background:var(--gold);color:#fff;border-radius:3px;text-decoration:none;font-size:.875rem;font-weight:600;">Book a free intro call</a>
-        <a href="#contact" style="display:inline-block;padding:14px 30px;border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:3px;text-decoration:none;font-size:.875rem;font-weight:600;">Request a live demo</a>
       </div>
     </div>
   </div>
@@ -1283,6 +1264,30 @@
       <div>
         <div class="ci-lbl">Location</div>
         <span class="ci-val">Austria</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MINI-TERMS + LEGAL NOTE (EN) ── -->
+<section style="background:#0a0a0a;border-top:1px solid rgba(255,255,255,.04);padding:56px 0;">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px 48px;">
+      <div>
+        <h4 style="font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.04em;">🛡 Legal Notice</h4>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.28);line-height:1.75;">These are technical services in the field of system integration and automation. No guaranteed economic results (e.g. revenue growth or customer acquisition) are warranted.</p>
+      </div>
+      <div>
+        <h4 style="font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.04em;">📋 Scope of Services</h4>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.28);line-height:1.75;">The subject matter is the technical implementation and operation of systems. Business consulting or advice on commercial objectives is not part of the service.</p>
+      </div>
+      <div>
+        <h4 style="font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.04em;">🔐 Data Protection (GDPR)</h4>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.28);line-height:1.75;">Implementation takes place with consideration of technical data protection requirements. The legal assessment and lawful use of the systems is the responsibility of the client.</p>
+      </div>
+      <div>
+        <h4 style="font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.04em;">⚖️ Liability</h4>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.28);line-height:1.75;">No liability is accepted for economic outcomes. Liability is limited to the contractually agreed technical service delivery.</p>
       </div>
     </div>
   </div>
