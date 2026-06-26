@@ -6,6 +6,21 @@
 <title>Mlivo AI – KI-Agentur für Unternehmen in Österreich</title>
 <meta name="description" content="Mlivo AI ist eine KI-Agentur im Raum Enns. Wir bauen, integrieren und betreiben KI-Agenten für kleine Unternehmen — Anfragen, Termine, Angebote vollautomatisch." />
 <meta name="theme-color" content="#0E0E0E" />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://mlivo-ai.at/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Mlivo AI" />
+<meta property="og:locale" content="de_AT" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:url" content="https://mlivo-ai.at/" />
+<meta property="og:title" content="Mlivo AI – KI-Agentur für Unternehmen in Österreich" />
+<meta property="og:description" content="Wir bauen KI-Agenten, die für Ihr Unternehmen arbeiten — Anfragen, Termine, Angebote automatisch. Raum Enns / Oberösterreich." />
+<meta property="og:image" content="https://mlivo-ai.at/stadtturm-enns.jpg" />
+<meta property="og:image:alt" content="Mlivo AI – Stadtturm Enns" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Mlivo AI – KI-Agentur für Unternehmen in Österreich" />
+<meta name="twitter:description" content="Wir bauen KI-Agenten, die für Ihr Unternehmen arbeiten — Anfragen, Termine, Angebote automatisch. Raum Enns / Oberösterreich." />
+<meta name="twitter:image" content="https://mlivo-ai.at/stadtturm-enns.jpg" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230E0E0E'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='58' fill='%23B07D3A' text-anchor='middle' font-weight='700'%3EM%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -172,11 +187,14 @@ header.nav.scrolled .burger span{background:var(--ink)}
 .step .num{font-family:'Space Grotesk';font-weight:700;font-size:1.5rem;width:56px;height:56px;border-radius:14px;display:grid;place-items:center;background:var(--ink);color:var(--gold-lt)}
 .step .meta{font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
 .step h4{font-size:1.16rem;margin-bottom:8px}
+.section-dark .step h4{color:var(--ink)}
 .step p{color:var(--muted);font-size:.95rem}
 
 /* dark sections */
 .section-dark{background:var(--dark);color:var(--on-dark)}
-.section-dark .lead,.section-dark .card p,.section-dark .muted{color:var(--on-dark-muted)}
+.section-dark .card p{color:var(--on-dark-muted)}
+.section-dark .lead{color:rgba(255,255,255,.78)}
+.section-dark .muted{color:rgba(255,255,255,.62)}
 .section-dark .h-sec,.section-dark h2,.section-dark h3,.section-dark h4{color:#fff}
 .section-dark .card{background:var(--dark-2);border-color:rgba(255,255,255,.08)}
 .section-dark .card:hover{border-color:rgba(176,125,58,.45)}
@@ -194,7 +212,7 @@ header.nav.scrolled .burger span{background:var(--ink)}
 .tier:hover{transform:translateY(-5px);border-color:rgba(176,125,58,.45)}
 .tier.core{border-color:rgba(176,125,58,.55);background:linear-gradient(180deg,rgba(176,125,58,.16),var(--dark-2))}
 .tier .badge{font-size:.66rem;font-weight:700;letter-spacing:.09em;color:#0E0E0E;background:var(--grad);padding:4px 10px;border-radius:999px;align-self:flex-start;margin-bottom:12px}
-.tier .name{font-family:'Space Grotesk';font-weight:600;font-size:1.12rem}
+.tier .name{font-family:'Space Grotesk';font-weight:600;font-size:1.12rem;color:#fff}
 .tier .price{font-family:'Space Grotesk';font-weight:700;font-size:1.65rem;margin:8px 0 2px;color:#fff}
 .tier .per{font-size:.76rem;color:var(--on-dark-muted)}
 .tier .desc{font-size:.85rem;color:var(--on-dark-muted);margin:10px 0 14px}
@@ -208,7 +226,8 @@ header.nav.scrolled .burger span{background:var(--ink)}
 
 /* pricing */
 .price-grid{grid-template-columns:repeat(3,1fr);align-items:stretch}
-.plan{background:var(--card);border:1px solid var(--line-2);border-radius:var(--r-lg);padding:34px 30px;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s}
+.plan{background:var(--card);color:var(--ink);border:1px solid var(--line-2);border-radius:var(--r-lg);padding:34px 30px;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s}
+.plan li{color:var(--ink-2)}
 .plan:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
 .plan.feat{border:1.5px solid transparent;background:linear-gradient(var(--card),var(--card)) padding-box,var(--grad) border-box;box-shadow:var(--shadow-lg);position:relative}
 .plan.feat::before{content:attr(data-badge);position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.07em;padding:5px 16px;border-radius:999px;white-space:nowrap}
@@ -219,7 +238,7 @@ header.nav.scrolled .burger span{background:var(--ink)}
 .plan li{display:flex;gap:9px}
 .plan li::before{content:"✓";color:var(--gold);font-weight:700}
 .plan .btn{width:100%;justify-content:center;margin-top:auto}
-.price-meta{display:flex;flex-direction:column;gap:8px;align-items:center;margin-top:28px;color:var(--on-dark-muted);font-size:.88rem;text-align:center}
+.price-meta{display:flex;flex-direction:column;gap:8px;align-items:center;margin-top:28px;color:rgba(255,255,255,.66);font-size:.88rem;text-align:center}
 
 /* tower band */
 .tower{position:relative;min-height:440px;display:flex;align-items:center;border-radius:var(--r-lg);overflow:hidden;color:#fff;box-shadow:var(--shadow-lg)}
@@ -274,8 +293,8 @@ header.nav.scrolled .burger span{background:var(--ink)}
 .about-pts{display:grid;gap:14px}
 .about-pts .pt{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
 .about-pts .pt .ic{width:42px;height:42px;border-radius:11px;background:var(--grad-soft);display:grid;place-items:center;font-size:1.15rem;flex:none}
-.about-pts .pt h5{font-family:'Space Grotesk';font-weight:600;font-size:1.02rem;margin-bottom:2px}
-.about-pts .pt p{font-size:.9rem;color:var(--muted)}
+.about-pts .pt h5{font-family:'Space Grotesk';font-weight:600;font-size:1.02rem;margin-bottom:2px;color:#fff}
+.about-pts .pt p{font-size:.9rem;color:var(--on-dark-muted)}
 
 /* fit */
 .fit-grid{grid-template-columns:repeat(2,1fr)}
