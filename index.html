@@ -1,1567 +1,813 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mlivo AI – KI-Automatisierung für Unternehmen in Österreich</title>
-  <meta name="description" content="Mlivo AI baut KI-Automatisierungssysteme für kleine Unternehmen in Österreich — Anfragen, Termine, Angebote vollautomatisch. Einrichtung ab €1.500. Raum Enns / Oberösterreich." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg:       #F7F4EF;
-      --dark:     #0E0E0E;
-      --gold:     #B07D3A;
-      --gold-lt:  #C99A56;
-      --text:     #1A1A1A;
-      --muted:    #6B6B6B;
-      --border:   #D8D0C4;
-      --white:    #FFFFFF;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.6; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mlivo AI – KI-Agentur für Unternehmen in Österreich</title>
+<meta name="description" content="Mlivo AI ist eine KI-Agentur im Raum Enns. Wir bauen, integrieren und betreiben KI-Agenten für kleine Unternehmen — Anfragen, Termine, Angebote vollautomatisch. Einrichtung ab €1.500." />
+<meta name="theme-color" content="#0E0E0E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230E0E0E'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='58' fill='%23B07D3A' text-anchor='middle' font-weight='700'%3EM%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F4EF;
+  --bg-soft:#EFEAE1;
+  --ink:#161410;
+  --ink-2:#3a382f;
+  --muted:#6B6B6B;
+  --line:rgba(22,20,16,.12);
+  --line-2:rgba(22,20,16,.07);
+  --card:#FFFDF9;
+  --dark:#0E0E0E;
+  --dark-2:#171614;
+  --dark-3:#1f1d19;
+  --on-dark:#F2EEE6;
+  --on-dark-muted:#a39c8d;
+  --gold:#B07D3A;
+  --gold-lt:#C99A56;
+  --accent:#B07D3A;
+  --grad:linear-gradient(135deg,#C99A56 0%,#B07D3A 100%);
+  --grad-soft:linear-gradient(135deg,rgba(201,154,86,.16),rgba(176,125,58,.10));
+  --shadow-sm:0 1px 2px rgba(22,20,16,.04),0 6px 18px rgba(22,20,16,.05);
+  --shadow:0 14px 44px -14px rgba(22,20,16,.22);
+  --shadow-lg:0 36px 90px -28px rgba(22,20,16,.40);
+  --r:16px;
+  --r-lg:24px;
+  --maxw:1140px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  background:var(--bg);color:var(--ink);
+  line-height:1.62;font-size:16px;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.12;letter-spacing:-.02em;font-weight:600}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:rgba(176,125,58,.24)}
 
-    /* ── NAV ── */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: transparent; border-bottom: 1px solid transparent; transition: background .25s, border-color .25s, box-shadow .25s; }
-    nav.scrolled { background: rgba(255,255,255,.97); border-color: var(--border); box-shadow: 0 1px 12px rgba(0,0,0,.06); }
-    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    .nav-row { display: flex; align-items: center; height: 60px; }
-    .nav-logo { font-size: 1rem; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: .05em; margin-right: auto; transition: color .25s; }
-    nav.scrolled .nav-logo { color: var(--text); }
-    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
-    .nav-links a { font-size: .85rem; font-weight: 500; color: rgba(255,255,255,.65); text-decoration: none; transition: color .2s; }
-    .nav-links a:hover { color: #fff; }
-    nav.scrolled .nav-links a { color: var(--muted); }
-    nav.scrolled .nav-links a:hover { color: var(--text); }
-    .nav-cta { padding: 8px 18px !important; background: var(--gold) !important; color: #fff !important; border-radius: 3px; font-weight: 600 !important; }
-    .nav-cta:hover { background: var(--gold-lt) !important; }
-    .lang-switch { display: flex; align-items: center; gap: 2px; margin-left: 24px; }
-    .lang-switch button { background: none; border: none; font-size: .78rem; font-weight: 600; color: rgba(255,255,255,.4); cursor: pointer; padding: 3px 5px; letter-spacing: .06em; transition: color .2s; }
-    .lang-switch button.on { color: #fff; }
-    nav.scrolled .lang-switch button { color: rgba(0,0,0,.3); }
-    nav.scrolled .lang-switch button.on { color: var(--text); }
-    .lang-sep { color: rgba(255,255,255,.2); font-size: .7rem; }
-    nav.scrolled .lang-sep { color: rgba(0,0,0,.15); }
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.section{padding:clamp(70px,9vw,128px) 0;position:relative}
+.section.tight{padding:clamp(52px,6.5vw,90px) 0}
 
-    /* ── LANG PANELS ── */
-    [data-l] { display: none; }
-    [data-l].on { display: block; }
+/* progress + nav */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:300;transition:width .1s linear}
+header.nav{position:fixed;top:0;left:0;right:0;z-index:150;background:transparent;border-bottom:1px solid transparent;transition:background .3s,border-color .3s,box-shadow .3s}
+header.nav.scrolled{background:rgba(247,244,239,.92);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);border-color:var(--line-2);box-shadow:0 6px 30px -22px rgba(22,20,16,.5)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-weight:700;font-size:1.1rem;letter-spacing:.01em;color:#fff;transition:color .3s}
+header.nav.scrolled .brand{color:var(--ink)}
+.brand .dot{width:30px;height:30px;border-radius:8px;background:var(--grad);display:grid;place-items:center;color:#0E0E0E;font-family:Georgia,serif;font-weight:700;font-size:1rem;box-shadow:0 6px 16px -6px rgba(176,125,58,.7)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:.9rem;color:rgba(255,255,255,.66);font-weight:500;position:relative;transition:color .2s}
+header.nav.scrolled .nav-links a{color:var(--muted)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--grad);transition:width .25s var(--ease)}
+.nav-links a:hover{color:#fff}
+header.nav.scrolled .nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:16px}
+.lang-toggle{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:3px;font-size:.76rem;font-weight:600;transition:border-color .3s}
+header.nav.scrolled .lang-toggle{border-color:var(--line)}
+.lang-toggle button{border:0;background:transparent;color:rgba(255,255,255,.55);padding:4px 11px;border-radius:999px;cursor:pointer;font-weight:600;font-family:inherit;transition:.2s}
+header.nav.scrolled .lang-toggle button{color:var(--muted)}
+.lang-toggle button.active{background:var(--gold);color:#0E0E0E}
+header.nav.scrolled .lang-toggle button.active{color:#fff}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#fff;padding:9px 18px;border-radius:999px;font-size:.86rem;font-weight:600;transition:transform .2s var(--ease),background .2s}
+.nav-cta:hover{transform:translateY(-1px);background:var(--gold-lt)}
+.burger{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+.burger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+header.nav.scrolled .burger span{background:var(--ink)}
 
-    /* ── SHARED ── */
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    section { padding: 88px 0; }
-    .label { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-    h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 700; line-height: 1.15; color: var(--text); margin-bottom: 12px; }
-    .sub { font-size: .975rem; color: var(--muted); max-width: 540px; line-height: 1.7; }
-    .btn { display: inline-block; padding: 13px 28px; border-radius: 3px; font-size: .875rem; font-weight: 600; text-decoration: none; transition: background .2s, border-color .2s, color .2s, transform .1s; border: none; cursor: pointer; }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-gold { background: var(--gold); color: #fff; }
-    .btn-gold:hover { background: var(--gold-lt); }
-    .btn-outline-dark { background: transparent; color: rgba(255,255,255,.65); border: 1.5px solid rgba(255,255,255,.2); }
-    .btn-outline-dark:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.94rem;padding:14px 26px;border-radius:999px;cursor:pointer;border:1px solid transparent;transition:transform .22s var(--ease),box-shadow .22s,background .22s,color .22s,border-color .22s;font-family:inherit}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 14px 32px -14px rgba(176,125,58,.7)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 42px -14px rgba(176,125,58,.85)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{background:var(--ink);color:#fff;border-color:var(--ink);transform:translateY(-2px)}
+.btn-dark{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.2)}
+.btn-dark:hover{background:#fff;color:var(--ink);transform:translateY(-2px)}
+.btn-white{background:#fff;color:var(--ink)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn-outline-gold{background:transparent;color:var(--gold-lt);border-color:rgba(201,154,86,.4)}
+.btn-outline-gold:hover{border-color:var(--gold-lt);color:#fff;transform:translateY(-2px)}
 
-    /* ── HERO ── */
-    #hero { background: var(--dark); min-height: 100vh; display: flex; align-items: center; padding: 130px 0 80px; }
-    .hero-tag { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(176,125,58,.3); padding: 5px 12px; border-radius: 2px; margin-bottom: 32px; }
-    #hero h1, #hero-en h1 { font-size: clamp(2rem, 4.5vw, 3.5rem); font-weight: 700; color: #fff; max-width: 780px; line-height: 1.1; margin-bottom: 20px; }
-    #hero h1 em, #hero-en h1 em { font-style: normal; color: var(--gold); }
-    .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,.48); max-width: 500px; line-height: 1.75; margin-bottom: 40px; }
-    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-    .hero-bar { margin-top: 64px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,.07); display: flex; gap: 48px; flex-wrap: wrap; }
-    .hstat-val { font-size: 1.85rem; font-weight: 700; color: #fff; line-height: 1; }
-    .hstat-lab { font-size: .75rem; color: rgba(255,255,255,.32); margin-top: 5px; }
+/* typographic helpers */
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.eyebrow::before{content:"";width:22px;height:1.5px;background:var(--grad);display:inline-block}
+.eyebrow.center{justify-content:center}
+.h-sec{font-size:clamp(1.8rem,3.8vw,2.9rem);max-width:20ch}
+.h-sec.center{margin:0 auto;text-align:center}
+.lead{font-size:clamp(1rem,1.4vw,1.14rem);color:var(--muted);max-width:62ch;margin-top:18px}
+.lead.center{margin-left:auto;margin-right:auto;text-align:center}
+.head-block{margin-bottom:52px}
+.head-block.center{text-align:center}
 
-    /* ── HOW IT WORKS ── */
-    #how { background: var(--bg); }
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); margin-top: 48px; border: 1px solid var(--border); }
-    .step { background: var(--white); padding: 36px 28px; }
-    .step-n { font-size: .68rem; font-weight: 700; letter-spacing: .1em; color: var(--gold); margin-bottom: 16px; }
-    .step h4 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.25; }
-    .step p { font-size: .845rem; color: var(--muted); line-height: 1.6; }
+/* hero */
+.hero{position:relative;background:var(--dark);color:#fff;padding-top:148px;padding-bottom:clamp(80px,9vw,120px);overflow:hidden;text-align:center}
+.hero .mesh{position:absolute;inset:-20% -10% auto -10%;height:130%;z-index:0;filter:blur(70px);opacity:.5;pointer-events:none}
+.blob{position:absolute;border-radius:50%}
+.blob.b1{width:540px;height:540px;background:radial-gradient(circle,#B07D3A,transparent 64%);top:-140px;left:-40px;animation:float1 19s var(--ease) infinite alternate}
+.blob.b2{width:480px;height:480px;background:radial-gradient(circle,#C99A56,transparent 64%);top:-60px;right:-60px;animation:float2 22s var(--ease) infinite alternate}
+.blob.b3{width:380px;height:380px;background:radial-gradient(circle,#7a5524,transparent 64%);top:180px;left:42%;animation:float1 24s var(--ease) infinite alternate}
+@keyframes float1{to{transform:translate(40px,30px) scale(1.08)}}
+@keyframes float2{to{transform:translate(-40px,40px) scale(1.05)}}
+.hero-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
+.hero-tag{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);padding:7px 16px;border-radius:999px;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:28px}
+.hero-tag .pulse{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}70%{box-shadow:0 0 0 9px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);letter-spacing:-.03em;font-weight:700;color:#fff;max-width:16ch;margin:0 auto}
+.hero h1 .grad{color:var(--gold-lt)}
+.hero p.sub{font-size:clamp(1.02rem,1.7vw,1.24rem);color:rgba(255,255,255,.6);max-width:60ch;margin:26px auto 0}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:38px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:680px;margin:60px auto 0}
+.stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:24px 18px}
+.stat .n{font-family:'Space Grotesk';font-size:clamp(1.5rem,3vw,2rem);font-weight:700;color:var(--gold-lt)}
+.stat .l{font-size:.84rem;color:rgba(255,255,255,.5);margin-top:4px}
 
-    /* ── AGENTS ── */
-    #agents { background: var(--bg); border-top: 1px solid var(--border); }
-    .agents-hd { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 48px; flex-wrap: wrap; }
-    .agents-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--border); }
-    .agent { background: var(--white); padding: 36px 30px; }
-    .agent-id { font-size: .68rem; font-weight: 700; letter-spacing: .1em; color: var(--gold); margin-bottom: 18px; }
-    .agent h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
-    .agent-desc { font-size: .845rem; color: var(--muted); line-height: 1.65; margin-bottom: 18px; }
-    .agent-example { font-size: .8rem; color: var(--muted); background: var(--bg); padding: 10px 14px; border-left: 2px solid var(--gold); border-radius: 0 2px 2px 0; margin-bottom: 20px; line-height: 1.55; }
-    .agent-example strong { color: var(--text); font-weight: 600; }
-    .agent-price { border-top: 1px solid var(--border); padding-top: 16px; display: flex; justify-content: space-between; align-items: baseline; }
-    .agent-setup { font-size: .78rem; color: var(--muted); }
-    .agent-mo { font-size: .9rem; font-weight: 700; color: var(--gold); }
+/* grids/cards */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line-2);border-radius:var(--r);padding:30px;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s,border-color .3s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(176,125,58,.3)}
+.card .ico{width:50px;height:50px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;background:var(--grad-soft);margin-bottom:18px}
+.card h4{font-size:1.1rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.94rem}
+.card .use{margin-top:14px;font-size:.87rem;color:var(--ink-2);border-top:1px solid var(--line-2);padding-top:14px}
+.card .use b{color:var(--ink);font-weight:600}
+.tagline{font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
 
-    /* ── PACKAGES ── */
-    #packages { background: var(--dark); }
-    #packages .label { color: var(--gold); }
-    #packages h2 { color: #fff; }
-    #packages .sub { color: rgba(255,255,255,.4); }
-    .pkg-note { font-size: .8rem; color: rgba(255,255,255,.28); margin-top: 10px; }
-    .pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: rgba(255,255,255,.05); margin-top: 48px; border: 1px solid rgba(255,255,255,.05); }
-    .pkg { background: #171717; padding: 40px 32px; }
-    .pkg.star { background: #1C1710; border-left: 2px solid var(--gold); }
-    .pkg-badge { display: inline-block; font-size: .63rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(176,125,58,.35); padding: 3px 10px; border-radius: 2px; margin-bottom: 16px; }
-    .pkg h3 { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
-    .pkg-tag { font-size: .815rem; color: rgba(255,255,255,.32); margin-bottom: 24px; line-height: 1.5; }
-    .pkg-agents { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 24px; }
-    .pkg-agent-chip { font-size: .72rem; font-weight: 500; color: rgba(255,255,255,.5); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); padding: 3px 10px; border-radius: 20px; }
-    .pkg-price { padding: 18px 0; border-top: 1px solid rgba(255,255,255,.05); border-bottom: 1px solid rgba(255,255,255,.05); margin-bottom: 24px; display: flex; gap: 32px; }
-    .pkg-price-col { }
-    .pkg-price-lbl { font-size: .7rem; color: rgba(255,255,255,.28); margin-bottom: 3px; }
-    .pkg-setup-val { font-size: 1.6rem; font-weight: 700; color: #fff; line-height: 1; }
-    .pkg-mo-val { font-size: 1.15rem; font-weight: 700; color: var(--gold); }
-    .pkg-includes { list-style: none; margin-bottom: 28px; }
-    .pkg-includes li { font-size: .815rem; color: rgba(255,255,255,.45); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.04); display: flex; align-items: flex-start; gap: 9px; line-height: 1.45; }
-    .pkg-includes li:last-child { border-bottom: none; }
-    .pkg-includes li::before { content: ''; width: 4px; height: 4px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
-    .pkg-btn { display: block; width: 100%; text-align: center; padding: 11px; background: rgba(255,255,255,.05); color: rgba(255,255,255,.6); border-radius: 3px; text-decoration: none; font-size: .845rem; font-weight: 600; transition: background .2s, color .2s; }
-    .pkg-btn:hover { background: rgba(255,255,255,.09); color: #fff; }
-    .pkg.star .pkg-btn { background: var(--gold); color: #fff; }
-    .pkg.star .pkg-btn:hover { background: var(--gold-lt); }
+/* agents */
+.agent-card{background:var(--card);border:1px solid var(--line-2);border-radius:var(--r);padding:28px;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s,border-color .3s;position:relative;overflow:hidden}
+.agent-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.agent-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(176,125,58,.3)}
+.agent-card:hover::before{transform:scaleX(1)}
+.agent-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.agent-head .ico{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font-size:1.35rem;background:var(--grad-soft);flex:none}
+.agent-head .nm{font-family:'Space Grotesk';font-weight:600;font-size:1.12rem}
+.agent-head .nm small{display:block;font-family:'Inter';font-weight:600;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-top:2px}
+.agent-card p{color:var(--muted);font-size:.93rem}
 
-    /* ── INCLUDED ── */
-    #included { background: var(--bg); border-top: 1px solid var(--border); }
-    .incl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--border); margin-top: 48px; }
-    .incl-item { background: var(--white); padding: 26px 22px; }
-    .incl-item h4 { font-size: .9rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-    .incl-item p { font-size: .8rem; color: var(--muted); line-height: 1.55; }
+/* problem */
+.prob-grid{grid-template-columns:repeat(4,1fr)}
+.prob-card{background:var(--card);border:1px solid var(--line-2);border-radius:var(--r);padding:26px;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s}
+.prob-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.prob-card .emo{font-size:1.7rem;margin-bottom:14px}
+.prob-card h4{font-size:1rem;margin-bottom:6px}
+.prob-card p{font-size:.89rem;color:var(--muted)}
+.note-band{margin-top:32px;padding:20px 24px;border-radius:var(--r);background:var(--grad-soft);border:1px solid rgba(176,125,58,.2);color:var(--ink-2);font-size:.96rem}
 
-    /* ── CONTACT ── */
-    #contact { background: var(--dark); text-align: center; }
-    #contact h2 { color: #fff; margin-bottom: 12px; }
-    #contact .sub { color: rgba(255,255,255,.4); margin: 0 auto 36px; }
-    .contact-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .contact-note { margin-top: 20px; font-size: .77rem; color: rgba(255,255,255,.22); }
-    .contact-info { display: flex; justify-content: center; gap: 40px; margin-top: 44px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,.06); flex-wrap: wrap; }
-    .ci-lbl { font-size: .7rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.22); margin-bottom: 5px; }
-    .ci-val { font-size: .875rem; color: rgba(255,255,255,.55); text-decoration: none; }
-    .ci-val:hover { color: #fff; }
+/* process steps */
+.steps{display:grid;gap:16px}
+.step{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start;background:var(--card);border:1px solid var(--line-2);border-radius:var(--r);padding:28px 30px;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s}
+.step:hover{transform:translateX(6px);box-shadow:var(--shadow)}
+.step .num{font-family:'Space Grotesk';font-weight:700;font-size:1.5rem;width:56px;height:56px;border-radius:14px;display:grid;place-items:center;background:var(--ink);color:var(--gold-lt)}
+.step .meta{font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.step h4{font-size:1.16rem;margin-bottom:8px}
+.step p{color:var(--muted);font-size:.95rem}
 
-    /* ── FOOTER ── */
-    footer { background: #080808; padding: 26px 24px; }
-    .foot-in { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .foot-logo { font-size: .875rem; font-weight: 700; color: rgba(255,255,255,.28); letter-spacing: .05em; text-decoration: none; }
-    .foot-copy { font-size: .72rem; color: rgba(255,255,255,.16); }
-    .foot-link { font-size: .72rem; color: rgba(255,255,255,.25); text-decoration: none; transition: color .2s; }
-    .foot-link:hover { color: rgba(255,255,255,.6); }
+/* dark sections */
+.section-dark{background:var(--dark);color:var(--on-dark)}
+.section-dark .lead,.section-dark .card p,.section-dark .muted{color:var(--on-dark-muted)}
+.section-dark .h-sec,.section-dark h2,.section-dark h3,.section-dark h4{color:#fff}
+.section-dark .card{background:var(--dark-2);border-color:rgba(255,255,255,.08)}
+.section-dark .card:hover{border-color:rgba(176,125,58,.45)}
+.section-dark .note-band{background:rgba(176,125,58,.12);border-color:rgba(176,125,58,.28);color:var(--on-dark-muted)}
 
-    /* ── IMPRESSUM ── */
-    #impressum { background: #0a0a0a; border-top: 1px solid rgba(255,255,255,.04); padding: 64px 0; }
-    .imp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-top: 36px; }
-    .imp-col h4 { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.25); margin-bottom: 12px; }
-    .imp-col p, .imp-col a { font-size: .815rem; color: rgba(255,255,255,.35); line-height: 1.7; display: block; text-decoration: none; }
-    .imp-col a:hover { color: rgba(255,255,255,.6); }
-    .imp-col strong { color: rgba(255,255,255,.5); font-weight: 500; }
+/* funnel */
+.funnel{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:14px 0 30px;position:relative}
+.fstep{background:var(--dark-2);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:24px;text-align:center;position:relative}
+.fstep .e{font-size:1.7rem}
+.fstep .k{font-size:.7rem;letter-spacing:.1em;color:var(--gold-lt);font-weight:700;margin:10px 0 6px}
+.fstep .d{font-size:.85rem;color:var(--on-dark-muted)}
+.fstep .arr{position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:1.2rem;z-index:2}
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+.tier{background:var(--dark-2);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;transition:transform .3s var(--ease),border-color .3s}
+.tier:hover{transform:translateY(-5px);border-color:rgba(176,125,58,.45)}
+.tier.core{border-color:rgba(176,125,58,.55);background:linear-gradient(180deg,rgba(176,125,58,.16),var(--dark-2))}
+.tier .badge{font-size:.66rem;font-weight:700;letter-spacing:.09em;color:#0E0E0E;background:var(--grad);padding:4px 10px;border-radius:999px;align-self:flex-start;margin-bottom:12px}
+.tier .name{font-family:'Space Grotesk';font-weight:600;font-size:1.12rem}
+.tier .price{font-family:'Space Grotesk';font-weight:700;font-size:1.65rem;margin:8px 0 2px;color:#fff}
+.tier .per{font-size:.76rem;color:var(--on-dark-muted)}
+.tier .desc{font-size:.85rem;color:var(--on-dark-muted);margin:10px 0 14px}
+.tier ul{list-style:none;display:grid;gap:8px;font-size:.85rem}
+.tier li{display:flex;gap:8px;color:var(--on-dark)}
+.tier li::before{content:"✓";color:var(--gold-lt);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:.84rem;color:var(--on-dark);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:8px 14px;border-radius:999px}
+.chip::before{content:"✓";color:var(--gold-lt)}
+.center-cta{text-align:center;margin-top:36px}
 
-    /* ── SAVINGS CALLOUT ── */
-    .callout { background: rgba(176,125,58,.08); border: 1px solid rgba(176,125,58,.2); border-radius: 4px; padding: 14px 18px; margin-top: 28px; font-size: .845rem; color: var(--muted); line-height: 1.6; }
-    .callout strong { color: var(--text); }
+/* pricing */
+.price-grid{grid-template-columns:repeat(3,1fr);align-items:stretch}
+.plan{background:var(--card);border:1px solid var(--line-2);border-radius:var(--r-lg);padding:34px 30px;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s}
+.plan:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.plan.feat{border:1.5px solid transparent;background:linear-gradient(var(--card),var(--card)) padding-box,var(--grad) border-box;box-shadow:var(--shadow-lg);position:relative}
+.plan.feat::before{content:attr(data-badge);position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.07em;padding:5px 16px;border-radius:999px;white-space:nowrap}
+.plan .pname{font-family:'Space Grotesk';font-size:1.3rem;font-weight:600}
+.plan .pdesc{color:var(--muted);font-size:.91rem;margin:8px 0 22px;min-height:46px}
+.price-rows{display:flex;gap:10px;margin-bottom:22px}
+.price-rows .pr{flex:1;background:var(--bg-soft);border-radius:13px;padding:14px}
+.price-rows .pr .lbl{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.price-rows .pr .val{font-family:'Space Grotesk';font-weight:700;font-size:1.35rem;margin-top:3px}
+.plan ul{list-style:none;display:grid;gap:11px;font-size:.91rem;margin-bottom:26px}
+.plan li{display:flex;gap:9px}
+.plan li::before{content:"✓";color:var(--gold);font-weight:700}
+.plan .btn{width:100%;justify-content:center;margin-top:auto}
+.price-meta{display:flex;flex-direction:column;gap:8px;align-items:center;margin-top:28px;color:var(--on-dark-muted);font-size:.88rem;text-align:center}
 
-    /* ── ON-PREMISE ── */
-    #onpremise { background: var(--bg); border-top: 1px solid var(--border); }
-    .op-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin-top: 48px; }
-    @media (max-width: 720px) { .op-layout { grid-template-columns: 1fr; } }
-    .op-left { background: var(--white); padding: 40px 36px; }
-    .op-right { background: var(--white); padding: 40px 36px; }
-    .op-label { font-size: .68rem; font-weight: 700; letter-spacing: .1em; color: var(--gold); margin-bottom: 16px; }
-    .op-left h3 { font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 10px; }
-    .op-left p { font-size: .845rem; color: var(--muted); line-height: 1.65; margin-bottom: 20px; }
-    .op-hardware-box { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 16px 18px; margin-bottom: 20px; }
-    .op-hw-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; font-size: .845rem; }
-    .op-hw-row:last-child { margin-bottom: 0; }
-    .op-hw-label { color: var(--muted); }
-    .op-hw-val { font-weight: 600; color: var(--text); }
-    .op-hw-note { font-size: .75rem; color: var(--muted); margin-top: 8px; border-top: 1px solid var(--border); padding-top: 8px; }
-    .op-price-block { display: flex; gap: 32px; padding: 18px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 20px; }
-    .op-price-col { }
-    .op-price-lbl { font-size: .7rem; color: var(--muted); margin-bottom: 3px; }
-    .op-price-val { font-size: 1.5rem; font-weight: 700; color: var(--text); }
-    .op-price-mo { font-size: 1.1rem; font-weight: 700; color: var(--gold); }
-    .op-features { list-style: none; margin-bottom: 24px; }
-    .op-features li { font-size: .83rem; color: var(--muted); padding: 7px 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 9px; line-height: 1.45; }
-    .op-features li:last-child { border-bottom: none; }
-    .op-features li::before { content: ''; width: 4px; height: 4px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
-    .op-btn { display: inline-block; padding: 12px 24px; background: var(--text); color: #fff; border-radius: 3px; text-decoration: none; font-size: .845rem; font-weight: 600; transition: background .2s; }
-    .op-btn:hover { background: #333; }
-    .op-vs { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 20px; }
-    .op-vs h4 { font-size: .875rem; font-weight: 700; color: var(--text); margin-bottom: 14px; }
-    .op-vs-row { display: flex; gap: 12px; margin-bottom: 10px; font-size: .815rem; line-height: 1.45; }
-    .op-vs-row:last-child { margin-bottom: 0; }
-    .op-vs-icon { flex-shrink: 0; width: 16px; color: var(--gold); font-weight: 700; font-size: .8rem; margin-top: 1px; }
-    .op-vs-text { color: var(--muted); }
-    .op-vs-text strong { color: var(--text); display: block; font-weight: 600; }
+/* tower band */
+.tower{position:relative;min-height:440px;display:flex;align-items:center;border-radius:var(--r-lg);overflow:hidden;color:#fff;box-shadow:var(--shadow-lg)}
+.tower img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.tower .veil{position:absolute;inset:0;background:linear-gradient(100deg,rgba(8,8,8,.94) 0%,rgba(8,8,8,.72) 45%,rgba(8,8,8,.22) 100%);z-index:1}
+.tower .content{position:relative;z-index:2;padding:clamp(34px,6vw,68px);max-width:620px}
+.tower h2{font-size:clamp(1.9rem,4.2vw,3rem);color:#fff}
+.tower p{color:rgba(255,255,255,.82);margin:16px 0 26px;font-size:1.03rem}
 
-    /* ── MOBILE NAV ── */
-    @media (max-width: 680px) {
-      .nav-links li:not(:last-child) { display: none; }
-      .nav-links { gap: 12px; }
-      .lang-switch { margin-left: 12px; }
-    }
-  </style>
+/* onprem */
+.onprem-grid{grid-template-columns:1.05fr .95fr;align-items:start}
+.spec{background:var(--card);border:1px solid var(--line-2);border-radius:var(--r);padding:30px;box-shadow:var(--shadow-sm)}
+.spec h4{font-size:1.14rem;margin-bottom:12px}
+.spec .row{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line-2);font-size:.92rem}
+.spec .row:last-of-type{border-bottom:0}
+.spec .row .v{font-family:'Space Grotesk';font-weight:600;white-space:nowrap}
+.spec .hl{color:var(--gold)}
+.spec ul{list-style:none;display:grid;gap:10px;margin-top:8px;font-size:.92rem}
+.spec ul li{display:flex;gap:9px;color:var(--ink-2)}
+.spec ul li::before{content:"→";color:var(--gold);font-weight:700}
+.adv{display:grid;gap:14px}
+.adv-item{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+.adv-item .n{font-family:'Space Grotesk';font-weight:700;color:var(--gold);font-size:1.02rem;background:var(--grad-soft);width:40px;height:40px;border-radius:11px;display:grid;place-items:center}
+.adv-item h5{font-size:1rem;font-family:'Space Grotesk';font-weight:600;margin-bottom:3px}
+.adv-item p{font-size:.89rem;color:var(--muted)}
+.calc{margin-top:18px;background:var(--grad-soft);border:1px solid rgba(176,125,58,.2);border-radius:var(--r);padding:22px 24px;font-size:.94rem;color:var(--ink-2)}
+.calc b{color:var(--ink)}
+
+/* includes */
+.inc-grid{grid-template-columns:repeat(3,1fr)}
+.inc{padding:24px;border-radius:var(--r);border:1px solid rgba(255,255,255,.08);background:var(--dark-2);transition:transform .3s var(--ease),border-color .3s}
+.inc:hover{transform:translateY(-4px);border-color:rgba(176,125,58,.4)}
+.inc h4{font-size:1rem;margin-bottom:7px;display:flex;align-items:center;gap:9px;color:#fff}
+.inc h4::before{content:"✓";color:#0E0E0E;background:var(--grad);width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font-size:.76rem;flex:none}
+.inc p{font-size:.89rem;color:var(--on-dark-muted)}
+
+/* case study */
+.case{background:var(--card);border:1px solid var(--line-2);border-radius:var(--r-lg);padding:clamp(30px,5vw,52px);box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+.case .quote-mark{font-family:Georgia,serif;font-size:4rem;color:var(--gold);line-height:.4;opacity:.35}
+.case p{color:var(--ink-2);font-size:1.04rem;margin-bottom:15px;max-width:72ch}
+.case .kpis{display:flex;gap:28px;flex-wrap:wrap;margin-top:24px;padding-top:24px;border-top:1px solid var(--line-2)}
+.case .kpi .n{font-family:'Space Grotesk';font-weight:700;font-size:1.5rem;color:var(--gold)}
+.case .kpi .l{font-size:.82rem;color:var(--muted)}
+
+/* about */
+.about-grid{grid-template-columns:1fr 1.1fr;align-items:center;gap:44px}
+.about-card{background:var(--dark);color:#fff;border-radius:var(--r-lg);padding:clamp(32px,5vw,52px);box-shadow:var(--shadow-lg)}
+.about-card .avatar{width:64px;height:64px;border-radius:16px;background:var(--grad);display:grid;place-items:center;font-family:Georgia,serif;font-weight:700;font-size:1.7rem;color:#0E0E0E;margin-bottom:20px}
+.about-card h3{color:#fff;font-size:1.4rem;margin-bottom:4px}
+.about-card .role{color:var(--gold-lt);font-size:.9rem;font-weight:600;margin-bottom:18px}
+.about-card p{color:rgba(255,255,255,.66);font-size:.97rem;margin-bottom:14px}
+.about-pts{display:grid;gap:14px}
+.about-pts .pt{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.about-pts .pt .ic{width:42px;height:42px;border-radius:11px;background:var(--grad-soft);display:grid;place-items:center;font-size:1.15rem;flex:none}
+.about-pts .pt h5{font-family:'Space Grotesk';font-weight:600;font-size:1.02rem;margin-bottom:2px}
+.about-pts .pt p{font-size:.9rem;color:var(--muted)}
+
+/* fit */
+.fit-grid{grid-template-columns:repeat(2,1fr)}
+.fit{border-radius:var(--r-lg);padding:34px;border:1px solid var(--line-2);background:var(--card);box-shadow:var(--shadow-sm)}
+.fit.no{background:var(--bg-soft)}
+.fit h3{font-size:1.22rem;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.fit.yes h3{color:#15803d}
+.fit.no h3{color:#9a9488}
+.fit ul{list-style:none;display:grid;gap:13px}
+.fit li{display:flex;gap:11px;font-size:.95rem;color:var(--ink-2)}
+.fit.yes li::before{content:"✓";color:#15803d;font-weight:700;flex:none}
+.fit.no li::before{content:"✕";color:#bdb6a8;font-weight:700;flex:none}
+
+/* contact */
+.contact-card{background:var(--dark);color:#fff;border-radius:var(--r-lg);padding:clamp(40px,6vw,72px);text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.contact-card .glow{position:absolute;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(176,125,58,.55),transparent 64%);top:-160px;right:-120px;filter:blur(40px)}
+.contact-card .glow2{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(201,154,86,.4),transparent 64%);bottom:-160px;left:-100px;filter:blur(40px)}
+.contact-card .inner{position:relative;z-index:1}
+.contact-card h2{color:#fff;font-size:clamp(1.9rem,4vw,2.7rem)}
+.contact-card p{color:rgba(255,255,255,.78);max-width:56ch;margin:18px auto 32px;font-size:1.04rem}
+.contact-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.contact-meta{display:flex;gap:38px;justify-content:center;flex-wrap:wrap;margin-top:38px;padding-top:30px;border-top:1px solid rgba(255,255,255,.14)}
+.contact-meta .m .l{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--on-dark-muted)}
+.contact-meta .m .v{font-family:'Space Grotesk';font-weight:600;margin-top:4px}
+.contact-meta .m a:hover{color:var(--gold-lt)}
+.fineprint{text-align:center;color:var(--muted);font-size:.87rem;margin-top:22px}
+
+/* legal + footer */
+.legal-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+.legal{background:var(--card);border:1px solid var(--line-2);border-radius:var(--r);padding:22px;box-shadow:var(--shadow-sm)}
+.legal h4{font-size:.95rem;margin-bottom:8px}
+.legal p{font-size:.86rem;color:var(--muted)}
+.legal a{color:var(--gold)}
+footer{background:var(--dark);color:var(--on-dark);padding:62px 0 30px}
+footer h4{color:#fff;font-size:.96rem;margin-bottom:12px}
+footer p,footer a{color:var(--on-dark-muted);font-size:.89rem}
+footer a:hover{color:#fff}
+.imp-grid{grid-template-columns:repeat(4,1fr);gap:30px}
+.imp-grid p{margin-bottom:3px}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;border-top:1px solid rgba(255,255,255,.1);margin-top:46px;padding-top:26px;font-size:.84rem}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.blob{animation:none}}
+
+/* responsive */
+@media(max-width:980px){
+  .g4,.prob-grid,.funnel,.tiers{grid-template-columns:repeat(2,1fr)}
+  .g3,.price-grid,.inc-grid{grid-template-columns:1fr 1fr}
+  .onprem-grid,.about-grid{grid-template-columns:1fr}
+  .imp-grid{grid-template-columns:repeat(2,1fr)}
+  .fstep .arr{display:none}
+}
+@media(max-width:760px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .nav-links.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;background:rgba(247,244,239,.99);backdrop-filter:blur(16px);padding:22px 24px;gap:18px;border-bottom:1px solid var(--line)}
+  .nav-links.open a{color:var(--ink)}
+  .g2,.g3,.g4,.price-grid,.inc-grid,.fit-grid,.legal-grid,.prob-grid,.funnel,.tiers,.hero-stats{grid-template-columns:1fr}
+  .imp-grid{grid-template-columns:1fr}
+  .step{grid-template-columns:1fr;gap:14px}
+  .contact-meta{gap:24px}
+}
+</style>
 </head>
 <body>
+<div class="progress" id="progress"></div>
 
-<nav id="nav">
+<header class="nav" id="nav">
   <div class="nav-inner">
-    <div class="nav-row">
-      <a href="#" class="nav-logo">Mlivo AI</a>
-      <ul class="nav-links">
-        <li><a href="#system">System</a></li>
-        <li><a href="#lead-system">Lead System</a></li>
-        <li><a href="#packages">Preise</a></li>
-        <li><a href="#onpremise">On-Premise</a></li>
-        <li><a href="#contact" class="nav-cta">Anfragen</a></li>
-      </ul>
-      <div class="lang-switch">
-        <button data-lang="de" class="on">DE</button>
-        <span class="lang-sep">/</span>
-        <button data-lang="en">EN</button>
+    <a href="#top" class="brand"><span class="dot">M</span>Mlivo AI</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#agents" data-en="AI Agents">KI-Agenten</a>
+      <a href="#process" data-en="Process">Ablauf</a>
+      <a href="#packages" data-en="Pricing">Preise</a>
+      <a href="#onpremise" data-en="On-Premise">On-Premise</a>
+      <a href="#about" data-en="About">Über uns</a>
+      <a href="#contact" data-en="Contact">Kontakt</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button id="btnDe" class="active" onclick="setLang('de')">DE</button>
+        <button id="btnEn" onclick="setLang('en')">EN</button>
       </div>
+      <a href="#contact" class="nav-cta" data-en="Free call">Erstgespräch</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
-</nav>
+</header>
 
-<!-- ══════════════ DEUTSCH ══════════════ -->
-<div data-l="de" class="on">
+<main id="top">
 
-<section id="hero">
-  <div class="wrap">
-    <div class="hero-tag">Digitale Automatisierung für Unternehmen · Österreich</div>
-    <h1>Mehr Anfragen. Weniger Aufwand.<br><em>Automatisch umgesetzt.</em></h1>
-    <p class="hero-sub">Wir implementieren digitale Systeme, die Kundenanfragen automatisch erfassen, strukturieren und beantworten — rund um die Uhr.</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn btn-gold">Kostenloses Erstgespräch sichern</a>
-      <a href="#system" class="btn btn-outline-dark">Was übernimmt das System?</a>
+<!-- HERO -->
+<section class="hero">
+  <div class="mesh"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+  <div class="wrap hero-inner">
+    <span class="hero-tag reveal"><span class="pulse"></span><span data-en="AI Agency · Enns, Austria">KI-Agentur · Enns, Österreich</span></span>
+    <h1 class="reveal d1"><span data-en="We build AI agents that">Wir bauen KI-Agenten, die für</span> <span class="grad" data-en="work for your business.">Ihr Unternehmen arbeiten.</span></h1>
+    <p class="sub reveal d2" data-en="Mlivo AI is your AI agency in the Enns region. We design, integrate and operate AI agents that answer inquiries, coordinate appointments and create quotes — automatically, around the clock.">Mlivo AI ist Ihre KI-Agentur im Raum Enns. Wir entwickeln, integrieren und betreiben KI-Agenten, die Anfragen beantworten, Termine koordinieren und Angebote erstellen — automatisch, rund um die Uhr.</p>
+    <div class="hero-cta reveal d3">
+      <a href="#contact" class="btn btn-primary" data-en="Book a free intro call">Kostenloses Erstgespräch sichern</a>
+      <a href="#agents" class="btn btn-outline-gold" data-en="See our AI agents">Unsere KI-Agenten ansehen</a>
     </div>
-    <div class="hero-bar">
-      <div><div class="hstat-val">24/7</div><div class="hstat-lab">automatisch verfügbar</div></div>
-      <div><div class="hstat-val">&lt; 2 Wo.</div><div class="hstat-lab">bis zur Inbetriebnahme</div></div>
-      <div><div class="hstat-val">Lokal</div><div class="hstat-lab">persönlicher Ansprechpartner</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="problem" style="background:var(--bg);padding:88px 0;border-top:1px solid var(--border);">
-  <div class="wrap">
-    <div class="label">Das Problem</div>
-    <h2>Anfragen gehen verloren. Antworten dauern zu lange.</h2>
-    <p class="sub" style="margin-bottom:48px;">Viele Unternehmen verlieren täglich potenzielle Kunden, weil Anfragen nicht sofort beantwortet werden oder intern untergehen. Wir setzen genau hier an.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);margin-bottom:40px;">
-      <div style="background:var(--bg);padding:32px 28px;">
-        <div style="font-size:1.6rem;margin-bottom:14px;">📩</div>
-        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Anfragen werden manuell erfasst</h4>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Dieselben Fragen, täglich, per WhatsApp, E-Mail und Formular — von Hand bearbeitet.</p>
-      </div>
-      <div style="background:var(--bg);padding:32px 28px;">
-        <div style="font-size:1.6rem;margin-bottom:14px;">📅</div>
-        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Termine unstrukturiert koordiniert</h4>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Hin-und-her per Telefon oder Messenger, für jeden einzelnen Termin.</p>
-      </div>
-      <div style="background:var(--bg);padding:32px 28px;">
-        <div style="font-size:1.6rem;margin-bottom:14px;">📄</div>
-        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Interne Abläufe nicht strukturiert</h4>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Infos liegen verstreut, Übergaben passieren mündlich, Aufgaben fallen durch.</p>
-      </div>
-      <div style="background:var(--bg);padding:32px 28px;">
-        <div style="font-size:1.6rem;margin-bottom:14px;">⚡</div>
-        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Reaktiv statt strukturiert</h4>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Immer im Tagesbetrieb gefangen — kaum Zeit für das Wesentliche.</p>
-      </div>
-    </div>
-    <div style="border-left:3px solid var(--gold);padding:20px 28px;background:rgba(176,125,58,.05);">
-      <p style="font-size:1rem;font-weight:600;color:var(--text);margin:0;">Durch technische Automatisierung werden Anfragen strukturiert erfasst und direkt verarbeitet — ohne zusätzlichen Aufwand für Ihr Team.</p>
+    <div class="hero-stats reveal d4">
+      <div class="stat"><div class="n">24/7</div><div class="l" data-en="agents on duty">Agenten im Einsatz</div></div>
+      <div class="stat"><div class="n">&lt; 2 Wo.</div><div class="l" data-en="to go-live">bis zur Inbetriebnahme</div></div>
+      <div class="stat"><div class="n" data-en="Local">Lokal</div><div class="l" data-en="personal point of contact">persönlicher Ansprechpartner</div></div>
     </div>
   </div>
 </section>
 
-<section id="how">
+<!-- PROBLEM -->
+<section class="section tight" id="problem">
   <div class="wrap">
-    <div class="label">Der Ablauf</div>
-    <h2>Von Null zu laufendem System — in 4 Schritten</h2>
-    <p class="sub">Kein technisches Vorwissen nötig. Wir übernehmen die Einrichtung komplett.</p>
+    <div class="head-block reveal">
+      <span class="eyebrow" data-en="Why now">Warum jetzt</span>
+      <h2 class="h-sec" data-en="Inquiries get lost. Responses take too long.">Anfragen gehen verloren. Antworten dauern zu lange.</h2>
+      <p class="lead" data-en="Many businesses lose potential customers every day because inquiries aren't answered immediately or fall through the cracks internally. That's exactly where our agents come in.">Viele Unternehmen verlieren täglich potenzielle Kunden, weil Anfragen nicht sofort beantwortet werden oder intern untergehen. Genau hier setzen unsere Agenten an.</p>
+    </div>
+    <div class="grid prob-grid">
+      <div class="prob-card reveal"><div class="emo">📩</div><h4 data-en="Inquiries captured manually">Anfragen werden manuell erfasst</h4><p data-en="The same questions, every day, handled by hand across WhatsApp, email and web forms.">Dieselben Fragen, täglich, per WhatsApp, E-Mail und Formular — von Hand bearbeitet.</p></div>
+      <div class="prob-card reveal d1"><div class="emo">📅</div><h4 data-en="Appointments unstructured">Termine unstrukturiert koordiniert</h4><p data-en="Back-and-forth by phone or messenger for every single booking.">Hin-und-her per Telefon oder Messenger, für jeden einzelnen Termin.</p></div>
+      <div class="prob-card reveal d2"><div class="emo">📄</div><h4 data-en="Internal processes not structured">Interne Abläufe nicht strukturiert</h4><p data-en="Information scattered, handoffs happen verbally, tasks slip through.">Infos liegen verstreut, Übergaben passieren mündlich, Aufgaben fallen durch.</p></div>
+      <div class="prob-card reveal d3"><div class="emo">⚡</div><h4 data-en="Reactive instead of structured">Reaktiv statt strukturiert</h4><p data-en="Always caught in day-to-day operations — little time for what matters.">Immer im Tagesbetrieb gefangen — kaum Zeit für das Wesentliche.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section class="section" id="agents">
+  <div class="wrap">
+    <div class="head-block reveal">
+      <span class="eyebrow" data-en="Our AI agents">Unsere KI-Agenten</span>
+      <h2 class="h-sec" data-en="A specialised agent for every task">Für jede Aufgabe ein spezialisierter Agent</h2>
+      <p class="lead" data-en="We don't build a single chatbot — we build a team of AI agents, each one specialised for a job and connected to your existing systems. You decide which agents go live.">Wir bauen keinen einzelnen Chatbot — wir bauen ein Team aus KI-Agenten, jeder spezialisiert auf eine Aufgabe und mit Ihren bestehenden Systemen verbunden. Sie entscheiden, welche Agenten live gehen.</p>
+    </div>
+    <div class="grid g3">
+      <div class="agent-card reveal"><div class="agent-head"><div class="ico">📩</div><div class="nm"><small data-en="Inquiry agent">Anfrage-Agent</small><span data-en="Answers automatically">Beantwortet automatisch</span></div></div><p data-en="Captures and answers incoming inquiries via website form, email or chat — structured, immediate, with handoff to the right person.">Erfasst und beantwortet eingehende Anfragen per Website-Formular, E-Mail oder Chat — strukturiert, sofort, mit Weiterleitung an die zuständige Person.</p></div>
+      <div class="agent-card reveal d1"><div class="agent-head"><div class="ico">📅</div><div class="nm"><small data-en="Booking agent">Termin-Agent</small><span data-en="Coordinates appointments">Koordiniert Termine</span></div></div><p data-en="Connects booking systems with automatic confirmation and reminders — synced to your calendar and CRM.">Verbindet Buchungssysteme mit automatischer Bestätigung und Erinnerung — synchron mit Ihrem Kalender und CRM.</p></div>
+      <div class="agent-card reveal d2"><div class="agent-head"><div class="ico">📄</div><div class="nm"><small data-en="Quote agent">Angebots-Agent</small><span data-en="Creates documents">Erstellt Dokumente</span></div></div><p data-en="Generates standardised quotes, confirmations and info packages from your templates and structured input data.">Generiert standardisierte Angebote, Bestätigungen und Infopakete aus Ihren Vorlagen und strukturierten Eingangsdaten.</p></div>
+      <div class="agent-card reveal"><div class="agent-head"><div class="ico">⚙️</div><div class="nm"><small data-en="Process agent">Prozess-Agent</small><span data-en="Automates workflows">Automatisiert Abläufe</span></div></div><p data-en="Automates internal workflows: notifications, data handoffs between platforms, status updates and recurring tasks.">Automatisiert interne Abläufe: Benachrichtigungen, Datenübergaben zwischen Plattformen, Statusupdates und wiederkehrende Aufgaben.</p></div>
+      <div class="agent-card reveal d1"><div class="agent-head"><div class="ico">📊</div><div class="nm"><small data-en="Reporting agent">Reporting-Agent</small><span data-en="Delivers insights">Liefert Auswertungen</span></div></div><p data-en="Produces automatic evaluations and reports from your system data — structured and regular, without manual effort.">Erstellt automatische Auswertungen und Berichte aus Ihren Systemdaten — strukturiert und regelmäßig, ohne manuellen Aufwand.</p></div>
+      <div class="agent-card reveal d2"><div class="agent-head"><div class="ico">🔄</div><div class="nm"><small data-en="Integration agent">Integrations-Agent</small><span data-en="Connects your tools">Vernetzt Ihre Tools</span></div></div><p data-en="Interconnects WhatsApp, CRM, calendar and tools via APIs — data flows automatically, no manual syncing.">Vernetzt WhatsApp, CRM, Kalender und Tools über APIs — Daten fließen automatisch, kein manueller Abgleich.</p></div>
+    </div>
+    <div class="note-band reveal" data-en-html="<b>How we work as an agency:</b> we handle design, integration and ongoing operation of your agents. We build with n8n, Make.com and leading AI models — assembled into a system tailored to your business, not a plug-and-play kit."><b>So arbeiten wir als Agentur:</b> Wir übernehmen Konzeption, Integration und laufenden Betrieb Ihrer Agenten. Gebaut mit n8n, Make.com und führenden KI-Modellen — zusammengesetzt zu einem System, das auf Ihren Betrieb zugeschnitten ist, kein Baukasten von der Stange.</div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section-dark" id="process">
+  <div class="wrap">
+    <div class="head-block reveal">
+      <span class="eyebrow" data-en="Our process">Unser Ablauf</span>
+      <h2 class="h-sec" data-en="From zero to running agents — in 4 steps">Von Null zu laufenden Agenten — in 4 Schritten</h2>
+      <p class="lead" data-en="No technical knowledge needed. As your agency, we handle the entire setup.">Kein technisches Vorwissen nötig. Als Ihre Agentur übernehmen wir die Einrichtung komplett.</p>
+    </div>
     <div class="steps">
-      <div class="step">
-        <div class="step-n">01 — Analyse der Situation</div>
-        <h4>Wir verstehen Ihre aktuellen Abläufe</h4>
-        <p>Kostenloses Erstgespräch (30 Min.) — wir schauen uns Ihre bestehenden Prozesse an und definieren gemeinsam, welche technischen Lösungen sinnvoll umsetzbar sind.</p>
+      <div class="step reveal"><div class="num">01</div><div><div class="meta" data-en="Situation analysis">Analyse der Situation</div><h4 data-en="We understand your current processes">Wir verstehen Ihre aktuellen Abläufe</h4><p data-en="Free intro call (30 min.) — we review your existing workflows and define together which agents make sense to deploy.">Kostenloses Erstgespräch (30 Min.) — wir schauen uns Ihre bestehenden Prozesse an und definieren gemeinsam, welche Agenten sinnvoll sind.</p></div></div>
+      <div class="step reveal"><div class="num">02</div><div><div class="meta" data-en="Build & setup">Setup & Einrichtung</div><h4 data-en="We build your agents">Wir bauen Ihre Agenten</h4><p data-en="We configure and integrate everything with your information, your tone and your processes. Nothing to install or program on your end.">Wir konfigurieren und integrieren alles mit Ihren Infos, Ihrem Ton und Ihren Prozessen. Sie müssen nichts installieren oder programmieren.</p></div></div>
+      <div class="step reveal"><div class="num">03</div><div><div class="meta" data-en="Go-Live">Inbetriebnahme</div><h4 data-en="Your agents go live">Ihre Agenten gehen live</h4><p data-en="The agents go into operation. You receive a walkthrough of how everything works and an overview of all running processes.">Die Agenten werden in Betrieb genommen. Sie erhalten eine Einführung in die Bedienung und eine Übersicht über alle laufenden Prozesse.</p></div></div>
+      <div class="step reveal"><div class="num">04</div><div><div class="meta" data-en="Operations & support">Betrieb & Betreuung</div><h4 data-en="We keep them running">Wir halten sie am Laufen</h4><p data-en="We monitor, optimise and adjust your agents continuously. The monthly flat rate covers operations, updates and support.">Wir überwachen, optimieren und passen Ihre Agenten laufend an. Die monatliche Pauschale deckt Betrieb, Updates und Support ab.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD SYSTEM -->
+<section class="section" id="lead-system">
+  <div class="wrap">
+    <div class="head-block reveal">
+      <span class="eyebrow" data-en="Entry offer · Local">Einstiegsangebot · Lokal</span>
+      <h2 class="h-sec" data-en="Local Lead System — Flyer → QR → Landing page → WhatsApp">Local Lead System — Flyer → QR → Landingpage → WhatsApp</h2>
+      <p class="lead" data-en="A simple, measurable inquiry funnel for local businesses. Mailed flyers with QR codes lead prospects to a landing page and into a structured WhatsApp funnel. Every inquiry is attributable to a campaign.">Ein einfacher, messbarer Anfragen-Funnel für lokale Unternehmen. Post-Flyer mit QR-Code führen Interessenten auf eine Landingpage und in einen strukturierten WhatsApp-Funnel. Jede Anfrage ist einer Kampagne zuordenbar.</p>
+    </div>
+    <div class="note-band reveal" data-en-html="<b>Shared-flyer model:</b> 12 ad slots per flyer — 6 on the front, 6 on the back. Cost is split, reach stays the same."><b>Shared-Flyer-Modell:</b> 12 Werbeplätze pro Flyer — 6 auf der Vorderseite, 6 auf der Rückseite. Kosten werden aufgeteilt, Reichweite bleibt gleich.</div>
+    <div class="funnel reveal" style="margin-top:28px">
+      <div class="fstep" style="background:var(--card);border-color:var(--line-2)"><div class="e">📮</div><div class="k" style="color:var(--gold)">01 · FLYER</div><div class="d" style="color:var(--muted)" data-en="Mailed coupon, targeted distribution in your region">Post-Coupon, zielgruppengerechte Verteilung in der Region</div><span class="arr">→</span></div>
+      <div class="fstep" style="background:var(--card);border-color:var(--line-2)"><div class="e">📱</div><div class="k" style="color:var(--gold)">02 · QR-CODE</div><div class="d" style="color:var(--muted)" data-en="Scannable, unique, measurable per campaign">Scanbar, eindeutig, pro Kampagne messbar</div><span class="arr">→</span></div>
+      <div class="fstep" style="background:var(--card);border-color:var(--line-2)"><div class="e">🌐</div><div class="k" style="color:var(--gold)" data-en="03 · LANDING PAGE">03 · LANDINGPAGE</div><div class="d" style="color:var(--muted)" data-en="Clear offer, short action, one call-to-action">Klares Angebot, kurze Aktion, ein Call-to-Action</div><span class="arr">→</span></div>
+      <div class="fstep" style="background:var(--card);border-color:var(--line-2)"><div class="e">💬</div><div class="k" style="color:var(--gold)">04 · WHATSAPP</div><div class="d" style="color:var(--muted)" data-en="Direct inquiry, structured capture, traceable">Direkte Anfrage, strukturiert erfasst, nachverfolgbar</div></div>
+    </div>
+    <div class="tiers">
+      <div class="tier reveal" style="background:var(--card);border-color:var(--line-2)"><div class="name" style="color:var(--ink)">Basic</div><div class="price" style="color:var(--ink)">€250</div><div class="per" style="color:var(--muted)" data-en="one-off">einmalig</div><div class="desc" style="color:var(--muted)" data-en="Visibility in your region — compact.">Sichtbarkeit in der Region — kompakt.</div><ul style="color:var(--ink-2)"><li style="color:var(--ink-2)" data-en="1 slot on shared flyer (of 12)">1 Werbeplatz auf Shared-Flyer (von 12)</li><li style="color:var(--ink-2)" data-en="Local distribution">Lokale Verteilung</li><li style="color:var(--ink-2)" data-en="Single campaign">Einmalige Kampagne</li></ul></div>
+      <div class="tier reveal d1" style="background:var(--card);border-color:var(--line-2)"><div class="name" style="color:var(--ink)">Premium</div><div class="price" style="color:var(--ink)">€350–550</div><div class="per" style="color:var(--muted)" data-en="one-off">einmalig</div><div class="desc" style="color:var(--muted)" data-en="Digital arrival with measurable funnel.">Digitale Ankunft mit messbarem Funnel.</div><ul><li style="color:var(--ink-2)" data-en="Better flyer placement">Bessere Flyer-Platzierung</li><li style="color:var(--ink-2)" data-en="QR code">QR-Code</li><li style="color:var(--ink-2)" data-en="Simple landing page">Einfache Landingpage</li></ul></div>
+      <div class="tier core reveal d2"><div class="badge" data-en="CORE PRODUCT">KERNPRODUKT</div><div class="name">VIP</div><div class="price">€550–1000</div><div class="per" data-en="one-off · per campaign">einmalig · pro Kampagne</div><div class="desc" data-en="Complete funnel + tracking.">Kompletter Funnel + Tracking.</div><ul><li data-en="Flyer + premium placement">Flyer + Premium-Platzierung</li><li data-en="QR code">QR-Code</li><li data-en="Custom landing page">Individuelle Landingpage</li><li data-en="WhatsApp funnel">WhatsApp-Funnel</li><li data-en="Tracking & reporting">Tracking & Reporting</li></ul></div>
+      <div class="tier reveal d3" style="background:var(--card);border-color:var(--line-2)"><div class="name" style="color:var(--ink)">Automation</div><div class="price" style="color:var(--ink)">€99–299</div><div class="per" style="color:var(--muted)" data-en="/month · optional add-on">/Monat · optionaler Add-on</div><div class="desc" style="color:var(--muted)" data-en="Leads processed automatically.">Leads laufend automatisch verarbeitet.</div><ul><li style="color:var(--ink-2)" data-en="Auto-reply">Auto-Antwort</li><li style="color:var(--ink-2)" data-en="Booking logic">Terminlogik</li><li style="color:var(--ink-2)" data-en="Lead processing">Lead-Verarbeitung</li><li style="color:var(--ink-2)" data-en="Monthly support">Monatliche Betreuung</li></ul></div>
+    </div>
+    <div class="note-band reveal" data-en-html="<b>Note:</b> Prices are reference values and depend on print run, distribution area, and landing page scope. Campaign results depend on offer, region, and target audience — no specific inquiry or revenue volumes are guaranteed." style="margin-top:26px"><b>Hinweis:</b> Die Preise verstehen sich als Richtwerte und hängen von Auflage, Verteilgebiet und Umfang der Landingpage ab. Kampagnenergebnisse sind von Angebot, Region und Zielgruppe abhängig — es werden keine konkreten Anfrage- oder Umsatzmengen zugesichert.</div>
+    <div class="center-cta reveal"><a href="#contact" class="btn btn-primary" data-en="Request a campaign">Kampagne anfragen</a></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section section-dark" id="packages">
+  <div class="wrap">
+    <div class="head-block center reveal">
+      <span class="eyebrow center" data-en="Pricing">Preise</span>
+      <h2 class="h-sec center" data-en="Investment. No surprises.">Investition. Keine Überraschungen.</h2>
+      <p class="lead center" data-en="Two components: one-time setup + monthly service. Tailored to your business — no hidden fine print.">Zwei Komponenten: einmalige Einrichtung + monatliche Betreuung. Abgestimmt auf Ihren Betrieb — kein verstecktes Kleingedrucktes.</p>
+      <p class="muted" style="margin-top:12px;font-size:.85rem" data-en="All prices incl. 20% VAT · Minimum term 6 months · Monthly cancellation thereafter">Alle Preise inkl. 20% MwSt. · Mindestlaufzeit 6 Monate · Danach monatlich kündbar</p>
+    </div>
+    <div class="grid price-grid">
+      <div class="plan reveal">
+        <div class="pname">Starter</div>
+        <div class="pdesc" data-en="One agent — a single core process fully handled">Ein Agent — ein Kernprozess vollständig übernommen</div>
+        <div class="price-rows">
+          <div class="pr"><div class="lbl" data-en="Setup (one-time)">Einrichtung</div><div class="val">€1.500</div></div>
+          <div class="pr"><div class="lbl" data-en="Operations">Betrieb</div><div class="val">€149<span style="font-size:.8rem;font-weight:500">/Mo</span></div></div>
+        </div>
+        <ul>
+          <li data-en="1 AI agent">1 KI-Agent</li>
+          <li data-en="Setup & integration">Einrichtung & Integration</li>
+          <li data-en="Monthly optimisation">Monatliche Optimierung</li>
+          <li data-en="Email support">E-Mail-Support</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline-gold" data-en="Get in touch">Jetzt anfragen</a>
       </div>
-      <div class="step">
-        <div class="step-n">02 — Setup &amp; Einrichtung</div>
-        <h4>Das System wird aufgebaut</h4>
-        <p>Wir konfigurieren alles mit Ihren Infos, Ihrem Ton und Ihren Prozessen. Sie müssen nichts installieren oder programmieren.</p>
+      <div class="plan feat reveal d1" data-badge="EMPFOHLEN">
+        <div class="pname">Business</div>
+        <div class="pdesc" data-en="Multiple agents + system integration — the standard for growing businesses">Mehrere Agenten + Systemintegration — der Standard für wachsende Betriebe</div>
+        <div class="price-rows">
+          <div class="pr"><div class="lbl" data-en="Setup (one-time)">Einrichtung</div><div class="val">€3.000</div></div>
+          <div class="pr"><div class="lbl" data-en="Operations">Betrieb</div><div class="val">€299<span style="font-size:.8rem;font-weight:500">/Mo</span></div></div>
+        </div>
+        <ul>
+          <li data-en="2–4 AI agents">2–4 KI-Agenten</li>
+          <li data-en="CRM / calendar integration">CRM / Kalender-Integration</li>
+          <li data-en="Bi-weekly optimisation">Bi-wöchentliche Optimierung</li>
+          <li data-en="Priority support">Prioritäts-Support</li>
+          <li data-en="Monthly reporting">Monatliches Reporting</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" data-en="Get in touch">Jetzt anfragen</a>
       </div>
-      <div class="step">
-        <div class="step-n">03 — Inbetriebnahme</div>
-        <h4>Das System geht live</h4>
-        <p>Die implementierten Systeme werden in Betrieb genommen. Sie erhalten eine Einführung in die Bedienung und eine Übersicht über alle laufenden Prozesse.</p>
+      <div class="plan reveal d2">
+        <div class="pname">Advanced</div>
+        <div class="pdesc" data-en="A full agent team on your terms — every process, every integration">Ein komplettes Agenten-Team nach Maß — jeder Prozess, jede Integration</div>
+        <div class="price-rows">
+          <div class="pr"><div class="lbl" data-en="Setup (custom)">Einrichtung</div><div class="val">€5.000+</div></div>
+          <div class="pr"><div class="lbl" data-en="Operations">Betrieb</div><div class="val">€499<span style="font-size:.8rem;font-weight:500">/Mo</span></div></div>
+        </div>
+        <ul>
+          <li data-en="Full agent team">Vollständiges Agenten-Team</li>
+          <li data-en="Custom development">Individuelle Entwicklung</li>
+          <li data-en="Weekly optimisation">Wöchentliche Optimierung</li>
+          <li data-en="Dedicated point of contact">Dedizierter Ansprechpartner</li>
+          <li data-en="Full monthly reporting">Vollständiges Monats-Reporting</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline-gold" data-en="Get in touch">Jetzt anfragen</a>
       </div>
-      <div class="step">
-        <div class="step-n">04 — Betrieb &amp; Betreuung</div>
-        <h4>Laufende technische Betreuung</h4>
-        <p>Wir überwachen, optimieren und passen die Systeme laufend an. Die monatliche Pauschale deckt technischen Betrieb, Updates und Support ab.</p>
+    </div>
+    <div class="price-meta reveal">
+      <span data-en="⚠ +€10 per additional 1,000 requests over the included quota">⚠ +€10 pro weitere 1.000 Anfragen über das Kontingent</span>
+      <span data-en="📌 Minimum term 6 months · monthly cancellation thereafter">📌 Mindestlaufzeit 6 Monate · danach monatlich kündbar</span>
+    </div>
+  </div>
+</section>
+
+<!-- TOWER BAND -->
+<section class="section tight">
+  <div class="wrap">
+    <div class="tower reveal">
+      <img src="stadtturm-enns.jpg" alt="Stadtturm Enns" loading="lazy" />
+      <div class="veil"></div>
+      <div class="content">
+        <span class="eyebrow" style="color:var(--gold-lt)" data-en="Enns Region · Upper Austria">Raum Enns · Oberösterreich</span>
+        <h2>The Tower of Power</h2>
+        <p data-en="Personal service on-site — we come to you, set everything up and stay with you. Enns is the oldest city in Austria. Now also with AI agents.">Persönlicher Service vor Ort — wir kommen zu Ihnen, richten alles ein und bleiben dabei. Enns ist die älteste Stadt Österreichs. Und jetzt auch mit KI-Agenten.</p>
+        <a href="#onpremise" class="btn btn-white" data-en="View On-Premise">On-Premise ansehen</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════ LEAD SYSTEM (Einstiegsangebot) ══════════════ -->
-<section id="lead-system" style="background:var(--bg);padding:88px 0;border-top:1px solid var(--border);">
+<!-- ON-PREMISE -->
+<section class="section" id="onpremise">
   <div class="wrap">
-    <div class="label">Einstiegsangebot · Lokal</div>
-    <h2>Local Lead System <span style="display:inline-block;font-size:.65em;font-weight:600;color:var(--gold);background:rgba(176,125,58,.1);padding:3px 12px;border-radius:3px;margin-left:6px;vertical-align:middle;">Flyer → QR → Landingpage → WhatsApp</span></h2>
-    <p class="sub" style="margin-bottom:24px;">Ein einfacher, messbarer Anfragen-Funnel für lokale Unternehmen. Post-Flyer mit QR-Code führen Interessenten auf eine Landingpage und in einen strukturierten WhatsApp-Funnel. Jede Anfrage ist einer Kampagne zuordenbar.</p>
-    <div style="display:inline-block;border:1px solid var(--gold);background:rgba(176,125,58,.06);padding:10px 18px;font-size:.88rem;color:var(--text);margin-bottom:48px;border-radius:3px;"><strong style="color:var(--gold);">Shared-Flyer-Modell:</strong> 12 Werbeplätze pro Flyer — 6 auf der Vorderseite, 6 auf der Rückseite. Kosten werden aufgeteilt, Reichweite bleibt gleich.</div>
-
-    <!-- Funnel-Kette -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--border);margin-bottom:48px;border:1px solid var(--border);">
-      <div style="background:var(--white);padding:28px 22px;text-align:center;">
-        <div style="font-size:1.6rem;margin-bottom:10px;">📮</div>
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;color:var(--gold);margin-bottom:6px;">01 · FLYER</div>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.55;">Post-Coupon, zielgruppengerechte Verteilung in der Region</p>
+    <div class="head-block reveal">
+      <span class="eyebrow" data-en="Own hardware · Enns region / Upper Austria only">Eigene Hardware · Nur Raum Enns / Oberösterreich</span>
+      <h2 class="h-sec" data-en="On-Premise: agents running at your site">On-Premise: Agenten direkt bei Ihnen</h2>
+      <p class="lead" data-en-html="For businesses with data privacy requirements — we come in person, install a Mac Mini on-site and set everything up. <b>Available in the Enns region and surroundings (Upper Austria).</b>">Für Unternehmen mit Datenschutz-Anforderungen — wir kommen persönlich, installieren einen Mac Mini vor Ort und richten alles ein. <b>Verfügbar im Raum Enns und Umgebung (Oberösterreich).</b></p>
+    </div>
+    <div class="grid onprem-grid">
+      <div class="spec reveal">
+        <div class="tagline" data-en="Hardware">Hardware</div>
+        <h4 data-en="Mac Mini M4 installed on-site">Mac Mini M4 beim Kunden vor Ort</h4>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px" data-en="We deliver and install a Mac Mini directly at your business. The automation platform and all your data run locally on your hardware. AI model requests go via the OpenAI API depending on configuration — your workflows and logs stay with you.">Wir liefern und installieren einen Mac Mini direkt in Ihrem Unternehmen. Die Automatisierungsplattform und alle Ihre Daten laufen lokal auf Ihrer Hardware. KI-Modellanfragen gehen je nach Konfiguration über die OpenAI-API — Ihre Workflows und Logs bleiben bei Ihnen.</p>
+        <div class="row"><span data-en="Mac Mini M4 (16 GB, 256 GB SSD)">Mac Mini M4 (16 GB, 256 GB SSD)</span><span class="v">~€699</span></div>
+        <div class="row"><span data-en="Mac Mini M4 (24 GB, 512 GB SSD)">Mac Mini M4 (24 GB, 512 GB SSD)</span><span class="v">~€899</span></div>
+        <div class="row"><span style="font-size:.83rem;color:var(--muted)" data-en="Hardware passed on at cost — no markup on hardware.">Hardware wird zum Einkaufspreis weitergegeben — keine Marge auf Hardware.</span><span></span></div>
+        <div class="row"><span data-en="Setup incl. on-site installation">Setup inkl. Installation vor Ort</span><span class="v hl" data-en="from €590">ab €590</span></div>
+        <div class="row"><span data-en="Monthly remote management">Monatliche Fernwartung</span><span class="v hl" data-en="from €129 / mo">ab €129 / Mo</span></div>
+        <ul>
+          <li data-en="Delivery & on-site installation of Mac Mini">Lieferung & Installation des Mac Mini vor Ort</li>
+          <li data-en="All agents set up and configured">Alle Agenten einrichten und konfigurieren</li>
+          <li data-en="Connection to WhatsApp, email, calendar">Anbindung an WhatsApp, E-Mail, Kalender</li>
+          <li data-en="Team briefing (~1 hr)">Einweisung für Ihr Team (~1 Std.)</li>
+          <li data-en="Remote maintenance, updates and monitoring">Remote-Wartung, Updates und Monitoring</li>
+          <li data-en="API costs (OpenAI) included in monthly fee">API-Kosten (OpenAI) in Monatspauschale inkl.</li>
+          <li data-en="Support for technical issues">Support bei technischen Problemen</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" style="margin-top:20px" data-en="Get in touch">Jetzt anfragen</a>
       </div>
-      <div style="background:var(--white);padding:28px 22px;text-align:center;">
-        <div style="font-size:1.6rem;margin-bottom:10px;">📱</div>
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;color:var(--gold);margin-bottom:6px;">02 · QR-CODE</div>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.55;">Scanbar, eindeutig, pro Kampagne messbar</p>
-      </div>
-      <div style="background:var(--white);padding:28px 22px;text-align:center;">
-        <div style="font-size:1.6rem;margin-bottom:10px;">🌐</div>
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;color:var(--gold);margin-bottom:6px;">03 · LANDINGPAGE</div>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.55;">Klares Angebot, kurze Aktion, ein Call-to-Action</p>
-      </div>
-      <div style="background:var(--white);padding:28px 22px;text-align:center;">
-        <div style="font-size:1.6rem;margin-bottom:10px;">💬</div>
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;color:var(--gold);margin-bottom:6px;">04 · WHATSAPP</div>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.55;">Direkte Anfrage, strukturiert erfasst, nachverfolgbar</p>
+      <div class="reveal d1">
+        <div class="tagline" data-en="When does on-premise make sense?">Wann macht On-Premise Sinn?</div>
+        <h4 style="font-family:'Space Grotesk';font-size:1.18rem;margin-bottom:22px" data-en="Advantages over cloud solution">Vorteile gegenüber Cloud-Lösung</h4>
+        <div class="adv">
+          <div class="adv-item"><div class="n">01</div><div><h5 data-en="Data privacy & GDPR">Datenschutz & DSGVO</h5><p data-en="Orchestration, logs and customer data remain local on your hardware. AI model requests run via the OpenAI API depending on setup (GDPR-compliant configuration available).">Orchestrierung, Logs und Kundendaten bleiben lokal auf Ihrer Hardware. KI-Modellanfragen laufen je nach Setup über die OpenAI-API (DSGVO-konform konfigurierbar).</p></div></div>
+          <div class="adv-item"><div class="n">02</div><div><h5 data-en="Local orchestration">Lokale Orchestrierung</h5><p data-en="The automation platform runs on your hardware, not on third-party servers. An internet connection is required for AI model requests.">Die Automatisierungsplattform läuft auf Ihrer Hardware, nicht auf fremden Servern. Für KI-Modellanfragen ist eine Internetverbindung erforderlich.</p></div></div>
+          <div class="adv-item"><div class="n">03</div><div><h5 data-en="Full control">Volle Kontrolle</h5><p data-en="All data, logs and configurations stay with the client — not on third-party servers.">Alle Daten, Logs und Konfigurationen liegen beim Kunden — nicht auf fremden Servern.</p></div></div>
+          <div class="adv-item"><div class="n">04</div><div><h5 data-en="Lower ongoing costs">Geringere laufende Kosten</h5><p data-en="Monthly flat rate from €129 — cheaper than some cloud packages at higher volume.">Monatliche Pauschale ab €129 — günstiger als manche Cloud-Pakete bei hohem Volumen.</p></div></div>
+        </div>
+        <div class="calc">
+          <div data-en-html="<b>Total cost in first month (example):</b>"><b>Gesamtkosten im ersten Monat (Beispiel):</b></div>
+          <div data-en-html="Mac Mini M4 16GB ~€699 + Setup €590 = <b>€1,289 one-time</b>">Mac Mini M4 16GB ~€699 + Setup €590 = <b>€1.289 einmalig</b></div>
+          <div data-en-html="Then from <b>€129 / month</b> ongoing.">Dann ab <b>€129 / Monat</b> laufend.</div>
+          <div style="margin-top:10px" data-en-html="<b>Who benefits?</b> More cost-effective than comparable cloud packages after ~6 months — and the hardware stays with the client."><b>Für wen rechnet es sich?</b> Ab etwa 6 Monaten Laufzeit günstiger als vergleichbare Cloud-Pakete — und die Hardware bleibt beim Kunden.</div>
+        </div>
       </div>
     </div>
-
-    <!-- Paket-Übersicht -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:32px;">
-      <!-- BASIC -->
-      <div style="background:var(--white);padding:32px 26px;display:flex;flex-direction:column;">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:10px;">Basic</div>
-        <div style="font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:4px;">€250</div>
-        <div style="font-size:.75rem;color:var(--muted);margin-bottom:18px;">einmalig</div>
-        <p style="font-size:.88rem;color:var(--muted);line-height:1.6;margin-bottom:16px;">Sichtbarkeit in der Region — kompakt.</p>
-        <ul style="list-style:none;font-size:.85rem;color:var(--text);line-height:1.9;">
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>1 Werbeplatz auf Shared-Flyer (von 12)</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>Lokale Verteilung</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>Einmalige Kampagne</li>
-        </ul>
-      </div>
-      <!-- PREMIUM -->
-      <div style="background:var(--white);padding:32px 26px;display:flex;flex-direction:column;">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:10px;">Premium</div>
-        <div style="font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:4px;">€350–550</div>
-        <div style="font-size:.75rem;color:var(--muted);margin-bottom:18px;">einmalig</div>
-        <p style="font-size:.88rem;color:var(--muted);line-height:1.6;margin-bottom:16px;">Digitale Ankunft mit messbarem Funnel.</p>
-        <ul style="list-style:none;font-size:.85rem;color:var(--text);line-height:1.9;">
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>Bessere Flyer-Platzierung</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>QR-Code</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>Einfache Landingpage</li>
-        </ul>
-      </div>
-      <!-- VIP -->
-      <div style="background:var(--dark);padding:32px 26px;display:flex;flex-direction:column;position:relative;">
-        <div style="position:absolute;top:-1px;right:-1px;background:var(--gold);color:#fff;font-size:.65rem;font-weight:700;padding:5px 12px;letter-spacing:.08em;">KERNPRODUKT</div>
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;">VIP</div>
-        <div style="font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:4px;">€550–1000</div>
-        <div style="font-size:.75rem;color:rgba(255,255,255,.4);margin-bottom:18px;">einmalig · pro Kampagne</div>
-        <p style="font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:16px;">Kompletter Funnel + Tracking.</p>
-        <ul style="list-style:none;font-size:.85rem;color:rgba(255,255,255,.85);line-height:1.9;">
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold-lt);">✓</span>Flyer + Premium-Platzierung</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold-lt);">✓</span>QR-Code</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold-lt);">✓</span>Individuelle Landingpage</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold-lt);">✓</span>WhatsApp-Funnel</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold-lt);">✓</span>Tracking &amp; Reporting</li>
-        </ul>
-      </div>
-      <!-- AUTOMATION -->
-      <div style="background:var(--white);padding:32px 26px;display:flex;flex-direction:column;">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:10px;">Automation</div>
-        <div style="font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:4px;">€99–299<span style="font-size:.8rem;font-weight:500;color:var(--muted);"> /Monat</span></div>
-        <div style="font-size:.75rem;color:var(--muted);margin-bottom:18px;">optionaler Add-on</div>
-        <p style="font-size:.88rem;color:var(--muted);line-height:1.6;margin-bottom:16px;">Leads laufend automatisch verarbeitet.</p>
-        <ul style="list-style:none;font-size:.85rem;color:var(--text);line-height:1.9;">
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>Auto-Antwort</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>Terminlogik</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>Lead-Verarbeitung</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>Monatliche Betreuung</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Merkmale -->
-    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;">
-      <div style="border:1px solid var(--border);background:var(--white);padding:8px 16px;font-size:.85rem;font-weight:500;border-radius:3px;"><span style="color:var(--gold);font-weight:700;margin-right:6px;">✓</span>Sofort verständlich</div>
-      <div style="border:1px solid var(--border);background:var(--white);padding:8px 16px;font-size:.85rem;font-weight:500;border-radius:3px;"><span style="color:var(--gold);font-weight:700;margin-right:6px;">✓</span>Messbar pro Kampagne</div>
-      <div style="border:1px solid var(--border);background:var(--white);padding:8px 16px;font-size:.85rem;font-weight:500;border-radius:3px;"><span style="color:var(--gold);font-weight:700;margin-right:6px;">✓</span>Lokal fokussiert</div>
-      <div style="border:1px solid var(--border);background:var(--white);padding:8px 16px;font-size:.85rem;font-weight:500;border-radius:3px;"><span style="color:var(--gold);font-weight:700;margin-right:6px;">✓</span>Schnell umsetzbar</div>
-    </div>
-
-    <div style="border-left:3px solid var(--gold);padding:18px 24px;background:rgba(176,125,58,.05);margin-bottom:24px;">
-      <p style="font-size:.9rem;color:var(--text);margin:0;line-height:1.7;"><strong>Hinweis:</strong> Die Preise verstehen sich als Richtwerte und hängen von Auflage, Verteilgebiet und Umfang der Landingpage ab. Kampagnenergebnisse sind von Angebot, Region und Zielgruppe abhängig — es werden keine konkreten Anfrage- oder Umsatzmengen zugesichert.</p>
-    </div>
-
-    <a href="#contact" class="btn btn-gold">Kampagne anfragen</a>
   </div>
 </section>
 
-<section id="system">
+<!-- MONTHLY INCLUDES -->
+<section class="section section-dark">
   <div class="wrap">
-    <div class="agents-hd">
+    <div class="head-block reveal">
+      <span class="eyebrow" data-en="Always included">Was immer dabei ist</span>
+      <h2 class="h-sec" data-en="Monthly flat rate — everything covered">Monatliche Pauschale — alles drin</h2>
+      <p class="lead" data-en="No hidden API costs, no surprise invoices. The monthly flat rate covers everything.">Keine versteckten API-Kosten, keine Überraschungsrechnungen. Die monatliche Pauschale deckt alles ab.</p>
+    </div>
+    <div class="grid inc-grid">
+      <div class="inc reveal"><h4 data-en="API costs included">API-Kosten inklusive</h4><p data-en="OpenAI API fees are included in the monthly flat rate. You pay no extra tokens or credits.">OpenAI API-Gebühren sind in der Monatspauschale enthalten. Sie zahlen keine extra Tokens oder Credits.</p></div>
+      <div class="inc reveal d1"><h4 data-en="Maintenance & updates">Wartung & Updates</h4><p data-en="When OpenAI changes something or an agent shows errors, we handle it. No extra cost.">Wenn OpenAI etwas ändert oder ein Agent Fehler zeigt, kümmern wir uns. Ohne Extrakosten.</p></div>
+      <div class="inc reveal d2"><h4 data-en="Minor adjustments">Kleine Anpassungen</h4><p data-en="New products, changed hours, different prices — we update your agents continuously.">Neue Produkte, geänderte Öffnungszeiten, andere Preise — wir updaten Ihre Agenten laufend.</p></div>
+      <div class="inc reveal"><h4>Support</h4><p data-en="For questions or issues, we respond by email within 24 hours on business days.">Bei Fragen oder Problemen antworten wir per E-Mail innerhalb von 24 Stunden (Werktage).</p></div>
+      <div class="inc reveal d1"><h4 data-en="Monthly optimisation">Monatliche Optimierung</h4><p data-en="We regularly review how your agents perform and improve responses, workflows and conversion.">Wir prüfen regelmäßig, wie Ihre Agenten performen, und verbessern Antworten, Abläufe und Conversion.</p></div>
+      <div class="inc reveal d2"><h4 data-en="No technician needed">Kein Techniker nötig</h4><p data-en="You need no IT knowledge and no in-house technician. We handle everything remotely.">Sie brauchen kein IT-Wissen und keinen eigenen Techniker. Wir erledigen alles remote.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="section" id="cases">
+  <div class="wrap">
+    <div class="head-block reveal">
+      <span class="eyebrow" data-en="Case study">Case Study</span>
+      <h2 class="h-sec" data-en="A local service provider, back in control">Ein lokaler Dienstleister, wieder im Griff</h2>
+    </div>
+    <div class="case reveal">
+      <div class="quote-mark">“</div>
+      <p data-en="A local service provider had the problem that customer inquiries were answered irregularly and fell through internally.">Ein lokaler Dienstleister hatte das Problem, dass Kundenanfragen unregelmäßig beantwortet wurden und intern untergingen.</p>
+      <p data-en="We deployed an inquiry agent and a booking agent. Inquiries are now captured in a structured way and forwarded internally immediately; appointments are confirmed automatically.">Wir haben einen Anfrage-Agenten und einen Termin-Agenten eingerichtet. Anfragen werden jetzt strukturiert erfasst und intern sofort weitergeleitet; Termine werden automatisch bestätigt.</p>
+      <p data-en="Internal processes became significantly more stable and transparent. Specific economic outcomes are not guaranteed and depend on individual factors.">Die internen Abläufe wurden dadurch deutlich stabiler und übersichtlicher. Konkrete wirtschaftliche Auswirkungen werden nicht zugesichert und hängen von individuellen Faktoren ab.</p>
+      <div class="kpis">
+        <div class="kpi"><div class="n">2</div><div class="l" data-en="agents deployed">Agenten im Einsatz</div></div>
+        <div class="kpi"><div class="n">24/7</div><div class="l" data-en="inquiries captured">Anfragen erfasst</div></div>
+        <div class="kpi"><div class="n">&lt; 2 Wo.</div><div class="l" data-en="to go-live">bis zur Inbetriebnahme</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section-dark" id="about">
+  <div class="wrap">
+    <div class="grid about-grid">
+      <div class="about-card reveal">
+        <div class="avatar">M</div>
+        <h3>Ing. Alen Mlivo</h3>
+        <div class="role" data-en="Founder · Mlivo AI">Gründer · Mlivo AI</div>
+        <p data-en="Mlivo AI is a local AI agency based in Enns, Upper Austria. I build, integrate and operate AI agents for small businesses — hands-on, personal and on-site where it counts.">Mlivo AI ist eine lokale KI-Agentur mit Sitz in Enns, Oberösterreich. Ich baue, integriere und betreibe KI-Agenten für kleine Unternehmen — praxisnah, persönlich und bei Bedarf vor Ort.</p>
+        <p data-en="No call centre, no anonymous project. One contact who stays with you and keeps your agents running.">Kein Callcenter, kein anonymes Projekt. Ein Ansprechpartner, der bei Ihnen bleibt und Ihre Agenten am Laufen hält.</p>
+      </div>
+      <div class="reveal d1">
+        <span class="eyebrow" data-en="Why Mlivo AI">Warum Mlivo AI</span>
+        <h2 class="h-sec" data-en="Not a tool. Not a freelancer. An agency.">Kein Tool. Kein Freelancer. Eine Agentur.</h2>
+        <div class="about-pts" style="margin-top:26px">
+          <div class="pt"><div class="ic">🤖</div><div><h5 data-en="vs. ChatGPT / AI tools">vs. ChatGPT / KI-Tools</h5><p data-en="ChatGPT answers questions. Our agents automate workflows — connected to your calendar, CRM and email. No generic tool does that for your specific business.">ChatGPT beantwortet Fragen. Unsere Agenten automatisieren Abläufe — verbunden mit Ihrem Kalender, CRM und E-Mail. Das kann kein Tool von der Stange.</p></div></div>
+          <div class="pt"><div class="ic">👷</div><div><h5 data-en="vs. Freelancer">vs. Freelancer</h5><p data-en="A freelancer delivers once and disappears. As your agency we permanently handle operations, optimisation and support — an ongoing partnership, not a one-off project.">Ein Freelancer liefert einmal und verschwindet. Als Ihre Agentur übernehmen wir dauerhaft Betrieb, Optimierung und Support — eine laufende Partnerschaft, kein einmaliges Projekt.</p></div></div>
+          <div class="pt"><div class="ic">⚙️</div><div><h5 data-en="Technology under the hood">Technologie im Hintergrund</h5><p data-en="We build with n8n, Make.com and leading AI models — assembled into a system built for your specific operation. Custom work, no plug-and-play kits.">Wir bauen mit n8n, Make.com und führenden KI-Modellen — zusammengesetzt zu einem System für Ihren konkreten Betrieb. Maßarbeit, kein Baukasten.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIT -->
+<section class="section tight">
+  <div class="wrap">
+    <div class="head-block reveal">
+      <span class="eyebrow" data-en="Who it's for">Für wen</span>
+      <h2 class="h-sec" data-en="Ideal for — and not suitable for.">Ideal für — und nicht geeignet für.</h2>
+    </div>
+    <div class="grid fit-grid">
+      <div class="fit yes reveal">
+        <h3><span data-en="✓ Ideal for">✓ Ideal für</span></h3>
+        <ul>
+          <li data-en="Small businesses with 1–15 employees">Kleinunternehmen mit 1–15 Mitarbeitern</li>
+          <li data-en="Businesses that answer similar inquiries every day">Betriebe, die täglich ähnliche Anfragen beantworten</li>
+          <li data-en="Owners who want to reclaim time for what matters">Unternehmer, die Zeit für das Wesentliche zurückgewinnen wollen</li>
+          <li data-en="Service providers with appointment or quote processes">Dienstleister mit Terminvergabe oder Angebotsprozess</li>
+          <li data-en="Anyone who doesn't want to deal with the technical side">Wer kein technisches Know-how mitbringen will</li>
+        </ul>
+      </div>
+      <div class="fit no reveal d1">
+        <h3><span data-en="✗ Not suitable for">✗ Nicht geeignet für</span></h3>
+        <ul>
+          <li data-en="Companies that want to build automation themselves">Unternehmen, die Automatisierung selbst entwickeln wollen</li>
+          <li data-en="Industries with highly complex, manual individual decisions">Branchen mit hochkomplexen, manuellen Einzelentscheidungen</li>
+          <li data-en="Businesses without a stable volume of recurring processes">Betriebe, die kein stabiles Prozessvolumen haben</li>
+          <li data-en="Anyone expecting AI as a magic solution with zero setup">Wer KI als „Zauberlösung" ohne Einrichtung erwartet</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <div class="glow"></div><div class="glow2"></div>
+      <div class="inner">
+        <span class="eyebrow center" style="color:var(--gold-lt)" data-en="Contact">Kontakt</span>
+        <h2 data-en="Ready for your own agents?">Bereit für Ihre eigenen Agenten?</h2>
+        <p data-en="Free initial call (30 min.) — we figure out together which agents bring the most value for your business.">Kostenloses Erstgespräch (30 Min.) — wir schauen gemeinsam, welche Agenten für Ihr Unternehmen am meisten bringen.</p>
+        <div class="contact-cta">
+          <a href="mailto:mlivo.office@gmail.com" class="btn btn-primary" data-en="Send an email">E-Mail schreiben</a>
+          <a href="https://mlivo-workflow.com" class="btn btn-dark" data-en="Visit website">Website besuchen</a>
+        </div>
+        <div class="contact-meta">
+          <div class="m"><div class="l">E-Mail</div><div class="v"><a href="mailto:mlivo.office@gmail.com">mlivo.office@gmail.com</a></div></div>
+          <div class="m"><div class="l" data-en="Phone">Telefon</div><div class="v"><a href="tel:+436604038996">+43 660 4038996</a></div></div>
+          <div class="m"><div class="l" data-en="Location">Standort</div><div class="v" data-en="Enns, Austria">Enns, Österreich</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="fineprint reveal" data-en="No sales pressure. No hidden costs. Reply within 24 hours.">Kein Verkaufsdruck. Keine versteckten Kosten. Antwort innerhalb von 24 Stunden.</p>
+  </div>
+</section>
+
+<!-- LEGAL -->
+<section class="section tight">
+  <div class="wrap">
+    <div class="grid legal-grid">
+      <div class="legal reveal"><h4>🛡 <span data-en="Legal Notice">Rechtlicher Hinweis</span></h4><p data-en="These are technical services in the field of system integration and automation. No guaranteed economic results (e.g. revenue growth or customer acquisition) are warranted.">Es handelt sich um technische Dienstleistungen im Bereich der Systemintegration und Automatisierung. Es werden keine garantierten wirtschaftlichen Ergebnisse (z.B. Umsatzsteigerungen oder Kundenzuwachs) zugesichert.</p></div>
+      <div class="legal reveal d1"><h4>📋 <span data-en="Scope of Services">Leistungsumfang</span></h4><p data-en="The subject matter is the technical implementation and operation of systems. Business consulting or advice on commercial objectives is not part of the service.">Gegenstand ist die technische Implementierung und der Betrieb von Systemen. Unternehmensberatung oder Beratung zu wirtschaftlichen Zielen ist nicht Bestandteil der Leistung.</p></div>
+      <div class="legal reveal"><h4>🔐 <span data-en="Data Protection (GDPR)">Datenschutz (DSGVO)</span></h4><p data-en="Implementation takes place with consideration of technical data protection requirements. The legal assessment and lawful use of the systems is the responsibility of the client.">Die Implementierung erfolgt unter Berücksichtigung technischer Datenschutzanforderungen. Die datenschutzrechtliche Bewertung und rechtmäßige Nutzung der Systeme liegt in der Verantwortung des Auftraggebers.</p></div>
+      <div class="legal reveal d1"><h4>⚖️ <span data-en="Liability">Haftung</span></h4><p data-en="No liability is accepted for economic outcomes. Liability is limited to the contractually agreed technical service delivery.">Es wird keine Haftung für wirtschaftliche Ergebnisse übernommen. Die Haftung beschränkt sich auf die vertraglich vereinbarte technische Leistungserbringung.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER / IMPRESSUM -->
+<footer id="impressum">
+  <div class="wrap">
+    <div class="grid imp-grid">
       <div>
-        <div class="label">Technische Umsetzung</div>
-        <h2>Automatisierte Prozesse — was wir implementieren</h2>
-      </div>
-      <p class="sub" style="max-width:380px">Wir entwickeln und integrieren Systeme zur automatisierten Verarbeitung von Kundenanfragen. Fokus: technische Umsetzung und Systemintegration.</p>
-    </div>
-    <div class="agents-grid">
-
-      <div class="agent">
-        <div class="agent-id">📩 Kommunikation</div>
-        <h3>Automatisierte Antwortsysteme</h3>
-        <p class="agent-desc">Einrichtung automatisierter Systeme zur Erfassung und Beantwortung eingehender Anfragen — per Website-Formular, E-Mail oder Chat-Integration.</p>
-        <div class="agent-example"><strong>Typischer Einsatz:</strong> Strukturierte Erfassung von Standardanfragen, automatische Weiterleitung an zuständige Stellen, Eingangsbestätigungen.</div>
-      </div>
-
-      <div class="agent">
-        <div class="agent-id">📅 Termine</div>
-        <h3>Terminmanagement-Integration</h3>
-        <p class="agent-desc">Technische Einbindung von Buchungssystemen mit automatischer Bestätigung und Erinnerungsfunktion — Integration in bestehende Kalender und CRM-Systeme.</p>
-        <div class="agent-example"><strong>Typischer Einsatz:</strong> Online-Buchungsformular → automatische Kalendereinbuchung → Bestätigungs-E-Mail → Erinnerungsversand.</div>
-      </div>
-
-      <div class="agent">
-        <div class="agent-id">📄 Angebote</div>
-        <h3>Dokumentenautomatisierung</h3>
-        <p class="agent-desc">Automatisierte Generierung standardisierter Dokumente auf Basis definierter Vorlagen und strukturierter Eingangsdaten — Angebote, Bestätigungen, Informationspakete.</p>
-        <div class="agent-example"><strong>Typischer Einsatz:</strong> Anfrage eingehend → Vorlage befüllt → Dokument versandt. Ohne manuelle Zwischenschritte.</div>
-      </div>
-
-      <div class="agent">
-        <div class="agent-id">⚙️ Prozesse</div>
-        <h3>Interne Prozessautomatisierung</h3>
-        <p class="agent-desc">Automatisierung interner Abläufe: Systembenachrichtigungen, Datenübergaben zwischen Plattformen, Statusupdates und wiederkehrende Aufgaben.</p>
-        <div class="agent-example"><strong>Typischer Einsatz:</strong> Neue Anfrage → Systemeintrag → Benachrichtigung an zuständige Person → automatische Statusverfolgung.</div>
-      </div>
-
-      <div class="agent">
-        <div class="agent-id">📊 Analyse</div>
-        <h3>Automatisiertes Reporting</h3>
-        <p class="agent-desc">Technische Einrichtung automatischer Auswertungen und Berichte auf Basis der erfassten Systemdaten — strukturiert, regelmäßig, ohne manuellen Aufwand.</p>
-        <div class="agent-example"><strong>Typischer Einsatz:</strong> Regelmäßiger Bericht: Anfragenvolumen, Bearbeitungszeiten, Systemauslastung — automatisch generiert.</div>
-      </div>
-
-      <div class="agent">
-        <div class="agent-id">🔄 Workflow</div>
-        <h3>Systemintegration &amp; Vernetzung</h3>
-        <p class="agent-desc">Technische Verknüpfung aller Systemkomponenten — Datenflüsse zwischen Plattformen, API-Integrationen, Schnittstellen zu bestehenden Tools.</p>
-        <div class="agent-example"><strong>Typischer Einsatz:</strong> Eingehende Anfrage → mehrere Systeme werden automatisch aktualisiert → kein manueller Datenabgleich nötig.</div>
-      </div>
-
-    </div>
-    <div class="callout">
-      <strong>Fokus: technische Implementierung.</strong> Wir übernehmen Einrichtung, Integration und laufenden Betrieb der Systeme. Die fachliche Nutzung und inhaltliche Ausgestaltung liegt beim Auftraggeber.
-    </div>
-  </div>
-</section>
-
-<section id="packages" style="background:var(--dark);padding:88px 0;">
-  <div class="wrap">
-    <div class="label" style="color:var(--gold);">Preise</div>
-    <h2 style="color:#fff;">Investition. Keine Überraschungen.</h2>
-    <p class="sub" style="color:rgba(255,255,255,.42);">Zwei Komponenten: einmalige Einrichtung + monatliche Betreuung. Abgestimmt auf Ihren Betrieb — kein verstecktes Kleingedrucktes.</p>
-    <p style="margin-top:12px;color:rgba(255,255,255,.22);font-size:.8rem;">Alle Preise inkl. 20% MwSt. · Mindestlaufzeit 6 Monate · Danach monatlich kündbar</p>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;margin-top:48px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;">
-
-      <!-- Starter -->
-      <div style="background:#171717;padding:40px 32px;display:flex;flex-direction:column;">
-        <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:14px;">Starter</div>
-        <p style="font-size:.85rem;color:rgba(255,255,255,.4);margin-bottom:28px;line-height:1.65;">Einfache Automatisierung — ein Kernprozess vollständig übernommen</p>
-        <div style="margin-bottom:6px;">
-          <div style="font-size:.7rem;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">Einrichtung (einmalig)</div>
-          <div style="font-size:2.4rem;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1.1;">€1.500</div>
-        </div>
-        <div style="height:1px;background:rgba(255,255,255,.06);margin:20px 0;"></div>
-        <div style="margin-bottom:28px;">
-          <div style="font-size:.7rem;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">Betrieb &amp; Betreuung</div>
-          <div style="font-size:1.6rem;font-weight:700;color:rgba(255,255,255,.65);line-height:1.2;">€149 <span style="font-size:.9rem;font-weight:400;color:rgba(255,255,255,.25);">/ Mo</span></div>
-        </div>
-        <ul style="list-style:none;flex:1;margin-bottom:32px;">
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>1 automatisierter Prozess</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Einrichtung &amp; Integration</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Monatliche Optimierung</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>E-Mail-Support</li>
-        </ul>
-        <a href="#contact" style="display:block;text-align:center;padding:12px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.55);border-radius:3px;text-decoration:none;font-size:.845rem;font-weight:600;transition:background .2s;">Jetzt anfragen</a>
-      </div>
-
-      <!-- Business (empfohlen) -->
-      <div style="background:#1C1710;padding:40px 32px;display:flex;flex-direction:column;border-left:2px solid var(--gold);border-right:2px solid var(--gold);">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-          <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);">Business</div>
-          <div style="font-size:.66rem;font-weight:700;background:var(--gold);color:#fff;padding:2px 8px;border-radius:20px;letter-spacing:.04em;">EMPFOHLEN</div>
-        </div>
-        <p style="font-size:.85rem;color:rgba(255,255,255,.5);margin-bottom:28px;line-height:1.65;">Mehrere Prozesse + Systemintegration — der Standard für wachsende Betriebe</p>
-        <div style="margin-bottom:6px;">
-          <div style="font-size:.7rem;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">Einrichtung (einmalig)</div>
-          <div style="font-size:2.4rem;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1.1;">€3.000</div>
-        </div>
-        <div style="height:1px;background:rgba(176,125,58,.2);margin:20px 0;"></div>
-        <div style="margin-bottom:28px;">
-          <div style="font-size:.7rem;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">Betrieb &amp; Betreuung</div>
-          <div style="font-size:1.6rem;font-weight:700;color:var(--gold-lt);line-height:1.2;">€299 <span style="font-size:.9rem;font-weight:400;color:rgba(255,255,255,.25);">/ Mo</span></div>
-        </div>
-        <ul style="list-style:none;flex:1;margin-bottom:32px;">
-          <li style="font-size:.845rem;color:rgba(255,255,255,.6);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>2–4 automatisierte Prozesse</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.6);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>CRM / Kalender-Integration</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.6);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Bi-wöchentliche Optimierung</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.6);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Prioritäts-Support</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.6);padding:7px 0;display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Monatliches Reporting</li>
-        </ul>
-        <a href="#contact" style="display:block;text-align:center;padding:12px;background:var(--gold);color:#fff;border-radius:3px;text-decoration:none;font-size:.845rem;font-weight:600;transition:background .2s;">Jetzt anfragen</a>
-      </div>
-
-      <!-- Advanced -->
-      <div style="background:#171717;padding:40px 32px;display:flex;flex-direction:column;">
-        <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:14px;">Advanced</div>
-        <p style="font-size:.85rem;color:rgba(255,255,255,.4);margin-bottom:28px;line-height:1.65;">Vollständige Automatisierung nach Maß — jeder Prozess, jede Integration</p>
-        <div style="margin-bottom:6px;">
-          <div style="font-size:.7rem;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">Einrichtung (individuell)</div>
-          <div style="font-size:2.4rem;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1.1;">€5.000<span style="font-size:1.5rem;color:rgba(255,255,255,.35);">+</span></div>
-        </div>
-        <div style="height:1px;background:rgba(255,255,255,.06);margin:20px 0;"></div>
-        <div style="margin-bottom:28px;">
-          <div style="font-size:.7rem;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">Betrieb &amp; Betreuung</div>
-          <div style="font-size:1.6rem;font-weight:700;color:rgba(255,255,255,.65);line-height:1.2;">€499 <span style="font-size:.9rem;font-weight:400;color:rgba(255,255,255,.25);">/ Mo</span></div>
-        </div>
-        <ul style="list-style:none;flex:1;margin-bottom:32px;">
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Vollständige Automatisierung</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Individuelle Entwicklung</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Wöchentliche Optimierung</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Dedizierter Ansprechpartner</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Vollständiges Monats-Reporting</li>
-        </ul>
-        <a href="#contact" style="display:block;text-align:center;padding:12px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.55);border-radius:3px;text-decoration:none;font-size:.845rem;font-weight:600;transition:background .2s;">Jetzt anfragen</a>
-      </div>
-
-    </div>
-
-    <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:center;">
-      <div style="font-size:.8rem;color:rgba(255,255,255,.28);display:flex;align-items:center;gap:7px;"><span style="color:var(--gold);">⚠</span>+€10 pro weitere 1.000 Anfragen über das Kontingent</div>
-      <div style="font-size:.8rem;color:rgba(255,255,255,.28);display:flex;align-items:center;gap:7px;"><span style="color:var(--gold);">📌</span>Mindestlaufzeit 6 Monate · danach monatlich kündbar</div>
-    </div>
-  </div>
-</section>
-
-<section id="tower" style="position:relative;overflow:hidden;padding:0;">
-  <div style="position:relative;height:480px;display:flex;align-items:center;justify-content:center;text-align:center;">
-    <img src="stadtturm-enns.jpg" alt="Stadtturm Enns" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
-    <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(10,8,5,.55) 0%, rgba(10,8,5,.72) 100%);"></div>
-    <div style="position:relative;z-index:2;padding:0 24px;">
-      <div style="font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;">Raum Enns · Oberösterreich</div>
-      <h2 style="font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;color:#fff;line-height:1.05;margin-bottom:16px;letter-spacing:-.01em;">The Tower of Power</h2>
-      <p style="font-size:1rem;color:rgba(255,255,255,.55);max-width:480px;margin:0 auto 28px;line-height:1.7;">Persönlicher Service vor Ort — wir kommen zu Ihnen, richten alles ein und bleiben dabei. Enns ist die älteste Stadt Österreichs. Und jetzt auch mit KI-Agenten.</p>
-      <a href="#onpremise" style="display:inline-block;padding:12px 28px;background:var(--gold);color:#fff;border-radius:3px;text-decoration:none;font-size:.875rem;font-weight:600;transition:background .2s;">On-Premise ansehen</a>
-    </div>
-  </div>
-</section>
-
-<section id="onpremise">
-  <div class="wrap">
-    <div class="label">Eigene Hardware · Nur Raum Enns / Oberösterreich</div>
-    <h2>On-Premise: Agenten direkt beim Kunden</h2>
-    <p class="sub">Für Unternehmen mit Datenschutz-Anforderungen — wir kommen persönlich, installieren einen Mac Mini vor Ort und richten alles ein. <strong style="color:var(--text)">Verfügbar im Raum Enns und Umgebung (Oberösterreich).</strong></p>
-    <div class="op-layout">
-
-      <div class="op-left">
-        <div class="op-label">Hardware</div>
-        <h3>Mac Mini M4 beim Kunden vor Ort</h3>
-        <p>Wir liefern und installieren einen Mac Mini direkt in Ihrem Unternehmen. Die Automatisierungsplattform und alle Ihre Daten laufen lokal auf Ihrer Hardware. KI-Modellanfragen gehen je nach Konfiguration über die OpenAI-API — Ihre Workflows und Logs bleiben bei Ihnen.</p>
-        <div class="op-hardware-box">
-          <div class="op-hw-row">
-            <span class="op-hw-label">Mac Mini M4 (16 GB, 256 GB SSD)</span>
-            <span class="op-hw-val">~€699</span>
-          </div>
-          <div class="op-hw-row">
-            <span class="op-hw-label">Mac Mini M4 (24 GB, 512 GB SSD)</span>
-            <span class="op-hw-val">~€899</span>
-          </div>
-          <div class="op-hw-note">Hardware wird zum Einkaufspreis weitergegeben — keine Marge auf Hardware.</div>
-        </div>
-        <div class="op-price-block">
-          <div class="op-price-col">
-            <div class="op-price-lbl">Setup inkl. Installation vor Ort</div>
-            <div class="op-price-val">ab €590</div>
-          </div>
-          <div class="op-price-col">
-            <div class="op-price-lbl">Monatliche Fernwartung</div>
-            <div class="op-price-mo">ab €129 / Mo</div>
-          </div>
-        </div>
-        <ul class="op-features">
-          <li>Lieferung &amp; Installation des Mac Mini vor Ort</li>
-          <li>Alle Agenten einrichten und konfigurieren</li>
-          <li>Anbindung an WhatsApp, E-Mail, Kalender</li>
-          <li>Einweisung für Ihr Team (~1 Std.)</li>
-          <li>Remote-Wartung, Updates und Monitoring</li>
-          <li>API-Kosten (OpenAI) in Monatspauschale inkl.</li>
-          <li>Support bei technischen Problemen</li>
-        </ul>
-        <a href="#contact" class="op-btn">Jetzt anfragen</a>
-      </div>
-
-      <div class="op-right">
-        <div class="op-label">Wann macht On-Premise Sinn?</div>
-        <div class="op-vs">
-          <h4>Vorteile gegenüber Cloud-Lösung</h4>
-          <div class="op-vs-row">
-            <span class="op-vs-icon">01</span>
-            <span class="op-vs-text"><strong>Datenschutz &amp; DSGVO</strong>Orchestrierung, Logs und Kundendaten bleiben lokal auf Ihrer Hardware. KI-Modellanfragen laufen je nach Setup über die OpenAI-API (DSGVO-konform konfigurierbar).</span>
-          </div>
-          <div class="op-vs-row">
-            <span class="op-vs-icon">02</span>
-            <span class="op-vs-text"><strong>Lokale Orchestrierung</strong>Die Automatisierungsplattform läuft auf Ihrer Hardware, nicht auf fremden Servern. Für KI-Modellanfragen ist eine Internetverbindung erforderlich.</span>
-          </div>
-          <div class="op-vs-row">
-            <span class="op-vs-icon">03</span>
-            <span class="op-vs-text"><strong>Volle Kontrolle</strong>Alle Daten, Logs und Konfigurationen liegen beim Kunden — nicht auf fremden Servern.</span>
-          </div>
-          <div class="op-vs-row">
-            <span class="op-vs-icon">04</span>
-            <span class="op-vs-text"><strong>Geringere laufende Kosten</strong>Monatliche Pauschale ab €129 — günstiger als manche Cloud-Pakete bei hohem Volumen.</span>
-          </div>
-        </div>
-        <div class="callout" style="margin-top:20px;">
-          <strong>Gesamtkosten im ersten Monat (Beispiel):</strong><br>
-          Mac Mini M4 16GB ~€699 + Setup €590 = <strong>€1.289 einmalig</strong><br>
-          Dann ab <strong>€129 / Monat</strong> laufend.<br><br>
-          <strong>Für wen rechnet es sich?</strong> Ab etwa 6 Monaten Laufzeit günstiger als vergleichbare Cloud-Pakete — und die Hardware bleibt beim Kunden.
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="included">
-  <div class="wrap">
-    <div class="label">Was immer dabei ist</div>
-    <h2>Monatliche Pauschale — alles drin</h2>
-    <p class="sub">Keine versteckten API-Kosten, keine Überraschungsrechnungen. Die monatliche Pauschale deckt alles ab.</p>
-    <div class="incl-grid">
-      <div class="incl-item">
-        <h4>API-Kosten inklusive</h4>
-        <p>OpenAI API-Gebühren sind in der Monatspauschale enthalten. Sie zahlen keine extra Tokens oder Credits.</p>
-      </div>
-      <div class="incl-item">
-        <h4>Wartung &amp; Updates</h4>
-        <p>Wenn OpenAI etwas ändert oder der Agent Fehler zeigt, kümmern wir uns. Ohne Extrakosten.</p>
-      </div>
-      <div class="incl-item">
-        <h4>Kleine Anpassungen</h4>
-        <p>Neue Produkte, geänderte Öffnungszeiten, andere Preise — wir updaten den Agenten laufend.</p>
-      </div>
-      <div class="incl-item">
-        <h4>Support</h4>
-        <p>Bei Fragen oder Problemen antworten wir per E-Mail innerhalb von 24 Stunden (Werktage).</p>
-      </div>
-      <div class="incl-item">
-        <h4>Monatliche Optimierung</h4>
-        <p>Wir prüfen regelmäßig wie der Agent performt und verbessern Antworten, Abläufe und Conversion.</p>
-      </div>
-      <div class="incl-item">
-        <h4>Kein Techniker nötig</h4>
-        <p>Sie brauchen kein IT-Wissen und keinen eigenen Techniker. Wir erledigen alles remote.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── NUTZEN BLOCK DE ── -->
-<section style="background:#0E0E0E;padding:96px 0;border-top:1px solid var(--border);">
-  <div class="wrap">
-    <div class="label" style="color:var(--gold);">Realistischer Nutzen</div>
-    <h2 style="color:#fff;">Was sich typischerweise verbessert</h2>
-    <p class="sub" style="color:rgba(255,255,255,.45);">Durch strukturierte und automatisierte Prozesse berichten viele Unternehmen von messbaren Verbesserungen in ihrer täglichen Arbeitsorganisation.</p>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:rgba(255,255,255,.05);margin:48px 0 40px;">
-      <div style="background:var(--dark);padding:32px 28px;">
-        <div style="font-size:1.8rem;margin-bottom:14px;">⏱</div>
-        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;">Schnellere Reaktionszeiten</h4>
-        <p style="font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;">Eingehende Anfragen werden strukturiert erfasst und sofort verarbeitet — nicht erst, wenn jemand Zeit findet.</p>
-      </div>
-      <div style="background:var(--dark);padding:32px 28px;">
-        <div style="font-size:1.8rem;margin-bottom:14px;">🔁</div>
-        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;">Weniger manuelle Arbeit</h4>
-        <p style="font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;">Wiederkehrende Aufgaben laufen automatisch — das Team kann sich auf Tätigkeiten konzentrieren, die Aufmerksamkeit erfordern.</p>
-      </div>
-      <div style="background:var(--dark);padding:32px 28px;">
-        <div style="font-size:1.8rem;margin-bottom:14px;">📋</div>
-        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;">Bessere Übersicht</h4>
-        <p style="font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;">Alle eingehenden Anfragen sind strukturiert erfasst — nichts geht unter, keine Information geht verloren.</p>
-      </div>
-      <div style="background:var(--dark);padding:32px 28px;">
-        <div style="font-size:1.8rem;margin-bottom:14px;">⚙️</div>
-        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;">Stabilere Abläufe</h4>
-        <p style="font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;">Interne Prozesse laufen nach definierten Regeln — unabhängig von Auslastung, Tageszeit oder Personalstand.</p>
-      </div>
-    </div>
-
-    <div style="background:#161616;border:1px solid rgba(255,255,255,.07);padding:28px 32px;margin-bottom:48px;display:flex;gap:16px;align-items:flex-start;">
-      <div style="font-size:1.2rem;flex-shrink:0;margin-top:2px;">👉</div>
-      <p style="font-size:.875rem;color:rgba(255,255,255,.4);line-height:1.75;margin:0;"><strong style="color:rgba(255,255,255,.65);">Wichtiger Hinweis:</strong> Es werden keine wirtschaftlichen Ergebnisse garantiert. Die dargestellten Verbesserungen beziehen sich auf die technische Prozessorganisation. Konkrete betriebswirtschaftliche Auswirkungen hängen von individuellen Faktoren ab und liegen außerhalb unseres Leistungsumfangs.</p>
-    </div>
-
-    <div style="background:#161616;border:1px solid rgba(255,255,255,.06);padding:36px;margin-bottom:48px;">
-      <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;">Beispiel aus der Praxis</div>
-      <p style="font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:16px;">Ein lokaler Dienstleister hatte das Problem, dass Kundenanfragen unregelmäßig beantwortet wurden und intern untergingen.</p>
-      <p style="font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:16px;">Nach der technischen Implementierung eines automatisierten Erfassungs- und Antwortsystems wurden Anfragen strukturiert verarbeitet und intern sofort weitergeleitet.</p>
-      <p style="font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.8;margin:0;">Die internen Abläufe wurden dadurch deutlich stabiler und übersichtlicher. <span style="color:rgba(255,255,255,.3);font-size:.8rem;">Konkrete wirtschaftliche Auswirkungen werden nicht zugesichert.</span></p>
-    </div>
-
-    <div style="text-align:center;">
-      <p style="color:rgba(255,255,255,.4);font-size:.9rem;margin-bottom:28px;">In einem kurzen Gespräch klären wir, welche technischen Möglichkeiten es für Ihre Situation gibt.</p>
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="#contact" style="display:inline-block;padding:14px 30px;background:var(--gold);color:#fff;border-radius:3px;text-decoration:none;font-size:.875rem;font-weight:600;">Kostenloses Erstgespräch anfragen</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── FÜR WEN (DE) ── -->
-<section style="background:var(--bg);padding:88px 0;border-top:1px solid var(--border);">
-  <div class="wrap">
-    <div class="label">Für wen</div>
-    <h2>Ideal für — und nicht geeignet für.</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);margin-top:48px;">
-      <div style="background:var(--white);padding:40px 36px;">
-        <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;">✓ Ideal für</div>
-        <ul style="list-style:none;">
-          <li style="padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">✓</span>Kleinunternehmen mit 1–15 Mitarbeitern</li>
-          <li style="padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">✓</span>Betriebe, die täglich ähnliche Anfragen beantworten</li>
-          <li style="padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">✓</span>Unternehmer, die Zeit für das Wesentliche zurückgewinnen wollen</li>
-          <li style="padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">✓</span>Dienstleister mit Terminvergabe oder Angebotsprozess</li>
-          <li style="padding:10px 0;font-size:.9rem;color:var(--text);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">✓</span>Wer kein technisches Know-how mitbringen will</li>
-        </ul>
-      </div>
-      <div style="background:#FAF9F7;padding:40px 36px;">
-        <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;">✗ Nicht geeignet für</div>
-        <ul style="list-style:none;">
-          <li style="padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--muted);display:flex;gap:12px;align-items:flex-start;"><span style="flex-shrink:0;">✗</span>Unternehmen, die Automatisierung selbst entwickeln wollen</li>
-          <li style="padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--muted);display:flex;gap:12px;align-items:flex-start;"><span style="flex-shrink:0;">✗</span>Branchen mit hochkomplexen, manuellen Einzelentscheidungen</li>
-          <li style="padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--muted);display:flex;gap:12px;align-items:flex-start;"><span style="flex-shrink:0;">✗</span>Betriebe, die kein stabiles Prozessvolumen haben</li>
-          <li style="padding:10px 0;font-size:.9rem;color:var(--muted);display:flex;gap:12px;align-items:flex-start;"><span style="flex-shrink:0;">✗</span>Wer KI als „Zauberlösung" ohne Einrichtung erwartet</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── DIFFERENZIERUNG (DE) ── -->
-<section style="background:var(--dark);padding:88px 0;">
-  <div class="wrap">
-    <div class="label" style="color:var(--gold);">Warum Mlivo AI</div>
-    <h2 style="color:#fff;">Kein Tool. Kein Freelancer. Ein System.</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;background:rgba(255,255,255,.04);margin-top:48px;border-radius:4px;overflow:hidden;">
-      <div style="background:#171717;padding:36px 30px;">
-        <div style="font-size:1.4rem;margin-bottom:14px;">🤖</div>
-        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:10px;">vs. ChatGPT / KI-Tools</h4>
-        <p style="font-size:.845rem;color:rgba(255,255,255,.42);line-height:1.7;">ChatGPT beantwortet Fragen. Mlivo AI automatisiert Abläufe. Wir verbinden KI mit Ihren bestehenden Systemen — Kalender, CRM, E-Mail. Das Tool kann das nicht.</p>
-      </div>
-      <div style="background:#171717;padding:36px 30px;">
-        <div style="font-size:1.4rem;margin-bottom:14px;">👷</div>
-        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:10px;">vs. Freelancer / Agentur</h4>
-        <p style="font-size:.845rem;color:rgba(255,255,255,.42);line-height:1.7;">Ein Freelancer liefert einmal und verschwindet. Wir übernehmen dauerhaft Betrieb, Optimierung und Support. Sie haben immer einen Ansprechpartner — kein Projekt, sondern eine laufende Partnerschaft.</p>
-      </div>
-      <div style="background:#171717;padding:36px 30px;">
-        <div style="font-size:1.4rem;margin-bottom:14px;">⚙️</div>
-        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:10px;">Technologie im Hintergrund</h4>
-        <p style="font-size:.845rem;color:rgba(255,255,255,.42);line-height:1.7;">Wir arbeiten mit n8n, Make.com und führenden KI-Modellen — zusammengebaut zu einem System, das für Ihren konkreten Betrieb funktioniert. Kein Baukastenprinzip. Maßarbeit.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap">
-    <div class="label">Kontakt</div>
-    <h2>Interesse? Schreiben Sie uns.</h2>
-    <p class="sub">Kostenloses Erstgespräch (30 Min.) — wir schauen gemeinsam, welcher Agent für Ihr Unternehmen am meisten bringt.</p>
-    <div class="contact-btns">
-      <a href="mailto:mlivo.office@gmail.com" class="btn btn-gold">E-Mail schreiben</a>
-      <a href="https://mlivo-workflow.com" class="btn btn-outline-dark" target="_blank">Website besuchen</a>
-    </div>
-    <p class="contact-note">Kein Verkaufsdruck. Keine versteckten Kosten. Antwort innerhalb von 24 Stunden.</p>
-    <div class="contact-info">
-      <div>
-        <div class="ci-lbl">E-Mail</div>
-        <a href="mailto:mlivo.office@gmail.com" class="ci-val">mlivo.office@gmail.com</a>
-      </div>
-      <div>
-        <div class="ci-lbl">Website</div>
-        <a href="https://mlivo-workflow.com" class="ci-val" target="_blank">mlivo-workflow.com</a>
-      </div>
-      <div>
-        <div class="ci-lbl">Standort</div>
-        <span class="ci-val">Österreich</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── MINI-AGB + RECHTLICHER HINWEIS (DE) ── -->
-<section style="background:#0a0a0a;border-top:1px solid rgba(255,255,255,.04);padding:56px 0;">
-  <div class="wrap">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px 48px;">
-      <div>
-        <h4 style="font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.04em;">🛡 Rechtlicher Hinweis</h4>
-        <p style="font-size:.8rem;color:rgba(255,255,255,.28);line-height:1.75;">Es handelt sich um technische Dienstleistungen im Bereich der Systemintegration und Automatisierung. Es werden keine garantierten wirtschaftlichen Ergebnisse (z.B. Umsatzsteigerungen oder Kundenzuwachs) zugesichert.</p>
-      </div>
-      <div>
-        <h4 style="font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.04em;">📋 Leistungsumfang</h4>
-        <p style="font-size:.8rem;color:rgba(255,255,255,.28);line-height:1.75;">Gegenstand ist die technische Implementierung und der Betrieb von Systemen. Unternehmensberatung oder Beratung zu wirtschaftlichen Zielen ist nicht Bestandteil der Leistung.</p>
-      </div>
-      <div>
-        <h4 style="font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.04em;">🔐 Datenschutz (DSGVO)</h4>
-        <p style="font-size:.8rem;color:rgba(255,255,255,.28);line-height:1.75;">Die Implementierung erfolgt unter Berücksichtigung technischer Datenschutzanforderungen. Die datenschutzrechtliche Bewertung und rechtmäßige Nutzung der Systeme liegt in der Verantwortung des Auftraggebers.</p>
-      </div>
-      <div>
-        <h4 style="font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.04em;">⚖️ Haftung</h4>
-        <p style="font-size:.8rem;color:rgba(255,255,255,.28);line-height:1.75;">Es wird keine Haftung für wirtschaftliche Ergebnisse übernommen. Die Haftung beschränkt sich auf die vertraglich vereinbarte technische Leistungserbringung.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="impressum">
-  <div class="wrap">
-    <div style="font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.22);">Impressum</div>
-    <div class="imp-grid">
-      <div class="imp-col">
-        <h4>Angaben gem. § 5 ECG</h4>
-        <p><strong>Ing. Alen Mlivo</strong></p>
+        <h4 data-en="Information per § 5 ECG">Angaben gem. § 5 ECG</h4>
+        <p style="color:#fff;font-weight:600">Ing. Alen Mlivo</p>
         <p>Gerstmayrgutstraße 1</p>
-        <p>4470 Enns, Österreich</p>
-        <a href="tel:+436604038996">+43 660 4038996</a><br>
-        <a href="mailto:mlivo.office@gmail.com">mlivo.office@gmail.com</a>
+        <p data-en="4470 Enns, Austria">4470 Enns, Österreich</p>
+        <p><a href="tel:+436604038996">+43 660 4038996</a></p>
+        <p><a href="mailto:mlivo.office@gmail.com">mlivo.office@gmail.com</a></p>
       </div>
-      <div class="imp-col">
-        <h4>Gewerbe</h4>
-        <p>Freies Gewerbe</p>
-        <p>Dienstleistungen in der automatischen Datenverarbeitung und Informationstechnik</p>
-        <p>Gewerbebehörde: BH Linz-Land</p>
-        <p>Mitglied der WKO Oberösterreich</p>
+      <div>
+        <h4 data-en="Business">Gewerbe</h4>
+        <p data-en="Free trade (Freies Gewerbe)">Freies Gewerbe</p>
+        <p data-en="IT services and data processing">Dienstleistungen in der automatischen Datenverarbeitung und Informationstechnik</p>
+        <p data-en="Trade authority: BH Linz-Land">Gewerbebehörde: BH Linz-Land</p>
+        <p data-en="Member of WKO Upper Austria">Mitglied der WKO Oberösterreich</p>
       </div>
-      <div class="imp-col">
-        <h4>Steuer</h4>
-        <p>Kleinunternehmer gem. § 6 Abs. 1 Z 27 UStG</p>
-        <p>UID: [wird nach Gewerbeanmeldung ergänzt]</p>
+      <div>
+        <h4 data-en="Tax">Steuer</h4>
+        <p data-en="Small business per § 6 Abs. 1 Z 27 UStG (VAT exempt)">Kleinunternehmer gem. § 6 Abs. 1 Z 27 UStG</p>
+        <p data-en="VAT ID: [added after registration]">UID: [wird nach Gewerbeanmeldung ergänzt]</p>
       </div>
-      <div class="imp-col">
-        <h4>Datenschutz</h4>
-        <p>Eingehende Anfragen per E-Mail werden ausschließlich zur Bearbeitung der Anfrage verarbeitet und nicht an Dritte weitergegeben.</p>
-        <p style="margin-top:8px;">Für KI-Dienste wird die OpenAI API verwendet. Es gelten die <a href="https://openai.com/policies/privacy-policy" target="_blank" style="color:rgba(255,255,255,.4);text-decoration:underline;">Datenschutzbestimmungen von OpenAI</a>.</p>
+      <div>
+        <h4 data-en="Privacy">Datenschutz</h4>
+        <p data-en="Incoming email inquiries are processed solely for handling the request and not shared with third parties.">Eingehende Anfragen per E-Mail werden ausschließlich zur Bearbeitung der Anfrage verarbeitet und nicht an Dritte weitergegeben.</p>
+        <p style="margin-top:8px" data-en-html="AI services use the OpenAI API. <a href='https://openai.com/policies/privacy-policy'>OpenAI Privacy Policy</a> applies.">Für KI-Dienste wird die OpenAI API verwendet. Es gelten die <a href="https://openai.com/policies/privacy-policy">Datenschutzbestimmungen von OpenAI</a>.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<footer>
-  <div class="foot-in">
-    <a href="#" class="foot-logo">Mlivo AI</a>
-    <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
-      <a href="#impressum" class="foot-link">Impressum</a>
-      <span class="foot-copy">&copy; 2026 Mlivo AI — Enns, Österreich</span>
+    <div class="foot-bottom">
+      <a href="#top" class="brand" style="color:#fff"><span class="dot">M</span>Mlivo AI</a>
+      <div data-en="© 2026 Mlivo AI — AI Agency · Enns, Austria">© 2026 Mlivo AI — KI-Agentur · Enns, Österreich</div>
     </div>
   </div>
 </footer>
 
-</div><!-- /DE -->
-
-<!-- ══════════════ ENGLISH ══════════════ -->
-<div data-l="en">
-
-<section id="hero-en" style="background:var(--dark);min-height:100vh;display:flex;align-items:center;padding:130px 0 80px;">
-  <div class="wrap">
-    <div class="hero-tag">Digital Automation for Businesses · Austria</div>
-    <h1>More inquiries. Less effort.<br><em>Automated.</em></h1>
-    <p class="hero-sub">We implement digital systems that automatically capture, structure and respond to customer inquiries — around the clock.</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn btn-gold">Book a free intro call</a>
-      <a href="#system" class="btn btn-outline-dark">What does the system handle?</a>
-    </div>
-    <div class="hero-bar">
-      <div><div class="hstat-val">24/7</div><div class="hstat-lab">automatically available</div></div>
-      <div><div class="hstat-val">&lt; 2 wks</div><div class="hstat-lab">to go-live</div></div>
-      <div><div class="hstat-val">Local</div><div class="hstat-lab">personal point of contact</div></div>
-    </div>
-  </div>
-</section>
-
-<section style="background:var(--bg);padding:88px 0;border-top:1px solid var(--border);">
-  <div class="wrap">
-    <div class="label">The Problem</div>
-    <h2>Inquiries get lost. Responses take too long.</h2>
-    <p class="sub" style="margin-bottom:48px;">Many businesses lose potential customers every day because inquiries aren't answered immediately or fall through the cracks internally. That's exactly where we start.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);margin-bottom:40px;">
-      <div style="background:var(--bg);padding:32px 28px;">
-        <div style="font-size:1.6rem;margin-bottom:14px;">📩</div>
-        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Inquiries captured manually</h4>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">The same questions, every day, handled by hand across WhatsApp, email and web forms.</p>
-      </div>
-      <div style="background:var(--bg);padding:32px 28px;">
-        <div style="font-size:1.6rem;margin-bottom:14px;">📅</div>
-        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Appointments unstructured</h4>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Back-and-forth by phone or messenger for every single booking.</p>
-      </div>
-      <div style="background:var(--bg);padding:32px 28px;">
-        <div style="font-size:1.6rem;margin-bottom:14px;">📄</div>
-        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Internal processes not structured</h4>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Information scattered, handoffs happen verbally, tasks slip through.</p>
-      </div>
-      <div style="background:var(--bg);padding:32px 28px;">
-        <div style="font-size:1.6rem;margin-bottom:14px;">⚡</div>
-        <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px;">Reactive instead of structured</h4>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">Always caught in day-to-day operations — little time for what matters.</p>
-      </div>
-    </div>
-    <div style="border-left:3px solid var(--gold);padding:20px 28px;background:rgba(176,125,58,.05);">
-      <p style="font-size:1rem;font-weight:600;color:var(--text);margin:0;">Through technical automation, inquiries are structured, captured and processed directly — without additional effort from your team.</p>
-    </div>
-  </div>
-</section>
-
-<section style="background:var(--bg);padding:88px 0;">
-  <div class="wrap">
-    <div class="label">The Process</div>
-    <h2>From zero to running system — in 4 steps</h2>
-    <p class="sub">No technical knowledge needed. We handle the entire setup.</p>
-    <div class="steps">
-      <div class="step">
-        <div class="step-n">01 — Situation analysis</div>
-        <h4>We understand your current processes</h4>
-        <p>Free intro call (30 min.) — we review your existing workflows and define together which technical solutions make sense to implement.</p>
-      </div>
-      <div class="step">
-        <div class="step-n">02 — Setup &amp; Build</div>
-        <h4>The system is built</h4>
-        <p>We configure and integrate everything based on your requirements. Nothing to install or program on your end.</p>
-      </div>
-      <div class="step">
-        <div class="step-n">03 — Go-Live</div>
-        <h4>The system goes live</h4>
-        <p>The implemented systems are put into operation. You receive a walkthrough of how everything works and an overview of all running processes.</p>
-      </div>
-      <div class="step">
-        <div class="step-n">04 — Operations &amp; Support</div>
-        <h4>Ongoing technical support</h4>
-        <p>We monitor, optimise and adjust the systems continuously. The monthly flat rate covers technical operations, updates and support.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════ LEAD SYSTEM (Entry Offer) ══════════════ -->
-<section style="background:var(--bg);padding:88px 0;border-top:1px solid var(--border);">
-  <div class="wrap">
-    <div class="label">Entry Offer · Local</div>
-    <h2>Local Lead System <span style="display:inline-block;font-size:.65em;font-weight:600;color:var(--gold);background:rgba(176,125,58,.1);padding:3px 12px;border-radius:3px;margin-left:6px;vertical-align:middle;">Flyer → QR → Landing page → WhatsApp</span></h2>
-    <p class="sub" style="margin-bottom:24px;">A simple, measurable inquiry funnel for local businesses. Mailed flyers with QR codes lead prospects to a landing page and into a structured WhatsApp funnel. Every inquiry is attributable to a campaign.</p>
-    <div style="display:inline-block;border:1px solid var(--gold);background:rgba(176,125,58,.06);padding:10px 18px;font-size:.88rem;color:var(--text);margin-bottom:48px;border-radius:3px;"><strong style="color:var(--gold);">Shared-flyer model:</strong> 12 ad slots per flyer — 6 on the front, 6 on the back. Cost is split, reach stays the same.</div>
-
-    <!-- Funnel -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--border);margin-bottom:48px;border:1px solid var(--border);">
-      <div style="background:var(--white);padding:28px 22px;text-align:center;">
-        <div style="font-size:1.6rem;margin-bottom:10px;">📮</div>
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;color:var(--gold);margin-bottom:6px;">01 · FLYER</div>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.55;">Mailed coupon, targeted distribution in your region</p>
-      </div>
-      <div style="background:var(--white);padding:28px 22px;text-align:center;">
-        <div style="font-size:1.6rem;margin-bottom:10px;">📱</div>
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;color:var(--gold);margin-bottom:6px;">02 · QR CODE</div>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.55;">Scannable, unique, measurable per campaign</p>
-      </div>
-      <div style="background:var(--white);padding:28px 22px;text-align:center;">
-        <div style="font-size:1.6rem;margin-bottom:10px;">🌐</div>
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;color:var(--gold);margin-bottom:6px;">03 · LANDING PAGE</div>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.55;">Clear offer, short action, one call-to-action</p>
-      </div>
-      <div style="background:var(--white);padding:28px 22px;text-align:center;">
-        <div style="font-size:1.6rem;margin-bottom:10px;">💬</div>
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;color:var(--gold);margin-bottom:6px;">04 · WHATSAPP</div>
-        <p style="font-size:.85rem;color:var(--muted);line-height:1.55;">Direct inquiry, structured capture, traceable</p>
-      </div>
-    </div>
-
-    <!-- Packages -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:32px;">
-      <div style="background:var(--white);padding:32px 26px;display:flex;flex-direction:column;">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:10px;">Basic</div>
-        <div style="font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:4px;">€250</div>
-        <div style="font-size:.75rem;color:var(--muted);margin-bottom:18px;">one-off</div>
-        <p style="font-size:.88rem;color:var(--muted);line-height:1.6;margin-bottom:16px;">Visibility in your region — compact.</p>
-        <ul style="list-style:none;font-size:.85rem;color:var(--text);line-height:1.9;">
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>1 slot on shared flyer (of 12)</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>Local distribution</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>Single campaign</li>
-        </ul>
-      </div>
-      <div style="background:var(--white);padding:32px 26px;display:flex;flex-direction:column;">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:10px;">Premium</div>
-        <div style="font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:4px;">€350–550</div>
-        <div style="font-size:.75rem;color:var(--muted);margin-bottom:18px;">one-off</div>
-        <p style="font-size:.88rem;color:var(--muted);line-height:1.6;margin-bottom:16px;">Digital arrival with measurable funnel.</p>
-        <ul style="list-style:none;font-size:.85rem;color:var(--text);line-height:1.9;">
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>Better flyer placement</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>QR code</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>Simple landing page</li>
-        </ul>
-      </div>
-      <div style="background:var(--dark);padding:32px 26px;display:flex;flex-direction:column;position:relative;">
-        <div style="position:absolute;top:-1px;right:-1px;background:var(--gold);color:#fff;font-size:.65rem;font-weight:700;padding:5px 12px;letter-spacing:.08em;">CORE PRODUCT</div>
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;">VIP</div>
-        <div style="font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:4px;">€550–1000</div>
-        <div style="font-size:.75rem;color:rgba(255,255,255,.4);margin-bottom:18px;">one-off · per campaign</div>
-        <p style="font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:16px;">Complete funnel + tracking.</p>
-        <ul style="list-style:none;font-size:.85rem;color:rgba(255,255,255,.85);line-height:1.9;">
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold-lt);">✓</span>Flyer + premium placement</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold-lt);">✓</span>QR code</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold-lt);">✓</span>Custom landing page</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold-lt);">✓</span>WhatsApp funnel</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold-lt);">✓</span>Tracking &amp; reporting</li>
-        </ul>
-      </div>
-      <div style="background:var(--white);padding:32px 26px;display:flex;flex-direction:column;">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:10px;">Automation</div>
-        <div style="font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:4px;">€99–299<span style="font-size:.8rem;font-weight:500;color:var(--muted);"> /month</span></div>
-        <div style="font-size:.75rem;color:var(--muted);margin-bottom:18px;">optional add-on</div>
-        <p style="font-size:.88rem;color:var(--muted);line-height:1.6;margin-bottom:16px;">Leads processed automatically.</p>
-        <ul style="list-style:none;font-size:.85rem;color:var(--text);line-height:1.9;">
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>Auto-reply</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>Booking logic</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>Lead processing</li>
-          <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--gold);">✓</span>Monthly support</li>
-        </ul>
-      </div>
-    </div>
-
-    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;">
-      <div style="border:1px solid var(--border);background:var(--white);padding:8px 16px;font-size:.85rem;font-weight:500;border-radius:3px;"><span style="color:var(--gold);font-weight:700;margin-right:6px;">✓</span>Immediately clear</div>
-      <div style="border:1px solid var(--border);background:var(--white);padding:8px 16px;font-size:.85rem;font-weight:500;border-radius:3px;"><span style="color:var(--gold);font-weight:700;margin-right:6px;">✓</span>Measurable per campaign</div>
-      <div style="border:1px solid var(--border);background:var(--white);padding:8px 16px;font-size:.85rem;font-weight:500;border-radius:3px;"><span style="color:var(--gold);font-weight:700;margin-right:6px;">✓</span>Locally focused</div>
-      <div style="border:1px solid var(--border);background:var(--white);padding:8px 16px;font-size:.85rem;font-weight:500;border-radius:3px;"><span style="color:var(--gold);font-weight:700;margin-right:6px;">✓</span>Fast to deploy</div>
-    </div>
-
-    <div style="border-left:3px solid var(--gold);padding:18px 24px;background:rgba(176,125,58,.05);margin-bottom:24px;">
-      <p style="font-size:.9rem;color:var(--text);margin:0;line-height:1.7;"><strong>Note:</strong> Prices are reference values and depend on print run, distribution area, and landing page scope. Campaign results depend on offer, region, and target audience — no specific inquiry or revenue volumes are guaranteed.</p>
-    </div>
-
-    <a href="#contact" class="btn btn-gold">Request a campaign</a>
-  </div>
-</section>
-
-<section style="background:var(--bg);padding:88px 0;border-top:1px solid var(--border);">
-  <div class="wrap">
-    <div class="agents-hd">
-      <div>
-        <div class="label">Technical Implementation</div>
-        <h2>Automated processes — what we implement</h2>
-      </div>
-      <p class="sub" style="max-width:380px">We develop and integrate systems for automated processing of customer inquiries. Focus: technical implementation and system integration.</p>
-    </div>
-    <div class="agents-grid">
-
-      <div class="agent">
-        <div class="agent-id">📩 Communication</div>
-        <h3>Automated Response Systems</h3>
-        <p class="agent-desc">Setup of automated systems to capture and respond to incoming inquiries — via website form, email or chat integration.</p>
-        <div class="agent-example"><strong>Typical use:</strong> Structured capture of standard inquiries, automatic routing to responsible parties, receipt confirmations.</div>
-      </div>
-
-      <div class="agent">
-        <div class="agent-id">📅 Appointments</div>
-        <h3>Appointment Management Integration</h3>
-        <p class="agent-desc">Technical integration of booking systems with automatic confirmation and reminder function — connected to existing calendars and CRM systems.</p>
-        <div class="agent-example"><strong>Typical use:</strong> Online booking form → automatic calendar entry → confirmation email → reminder dispatch.</div>
-      </div>
-
-      <div class="agent">
-        <div class="agent-id">📄 Documents</div>
-        <h3>Document Automation</h3>
-        <p class="agent-desc">Automated generation of standardised documents based on defined templates and structured input data — quotes, confirmations, info packages.</p>
-        <div class="agent-example"><strong>Typical use:</strong> Inquiry received → template filled → document sent. No manual steps in between.</div>
-      </div>
-
-      <div class="agent">
-        <div class="agent-id">⚙️ Processes</div>
-        <h3>Internal Process Automation</h3>
-        <p class="agent-desc">Automation of internal workflows: system notifications, data handoffs between platforms, status updates and recurring tasks.</p>
-        <div class="agent-example"><strong>Typical use:</strong> New inquiry → system entry → notification to responsible person → automatic status tracking.</div>
-      </div>
-
-      <div class="agent">
-        <div class="agent-id">📊 Analysis</div>
-        <h3>Automated Reporting</h3>
-        <p class="agent-desc">Technical setup of automatic evaluations and reports based on captured system data — structured, regular, without manual effort.</p>
-        <div class="agent-example"><strong>Typical use:</strong> Regular report: inquiry volume, processing times, system load — automatically generated.</div>
-      </div>
-
-      <div class="agent">
-        <div class="agent-id">🔄 Workflow</div>
-        <h3>System Integration &amp; Connectivity</h3>
-        <p class="agent-desc">Technical interconnection of all system components — data flows between platforms, API integrations, interfaces to existing tools.</p>
-        <div class="agent-example"><strong>Typical use:</strong> Incoming inquiry → multiple systems updated automatically → no manual data synchronisation needed.</div>
-      </div>
-
-    </div>
-    <div class="callout">
-      <strong>Focus: technical implementation.</strong> We handle setup, integration and ongoing operation of the systems. The substantive use and content design lies with the client.
-    </div>
-  </div>
-</section>
-
-<section style="background:var(--dark);padding:88px 0;">
-  <div class="wrap">
-    <div class="label" style="color:var(--gold);">Pricing</div>
-    <h2 style="color:#fff;">Investment. No surprises.</h2>
-    <p class="sub" style="color:rgba(255,255,255,.42);">Two components: one-time setup + monthly service. Tailored to your business — no hidden fine print.</p>
-    <p style="margin-top:12px;color:rgba(255,255,255,.22);font-size:.8rem;">All prices incl. 20% VAT · Minimum term 6 months · Monthly cancellation thereafter</p>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;margin-top:48px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;">
-
-      <!-- Starter -->
-      <div style="background:#171717;padding:40px 32px;display:flex;flex-direction:column;">
-        <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:14px;">Starter</div>
-        <p style="font-size:.85rem;color:rgba(255,255,255,.4);margin-bottom:28px;line-height:1.65;">Simple automation — one core process fully handled</p>
-        <div style="margin-bottom:6px;">
-          <div style="font-size:.7rem;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">Setup (one-time)</div>
-          <div style="font-size:2.4rem;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1.1;">€1,500</div>
-        </div>
-        <div style="height:1px;background:rgba(255,255,255,.06);margin:20px 0;"></div>
-        <div style="margin-bottom:28px;">
-          <div style="font-size:.7rem;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">Operations &amp; Support</div>
-          <div style="font-size:1.6rem;font-weight:700;color:rgba(255,255,255,.65);line-height:1.2;">€149 <span style="font-size:.9rem;font-weight:400;color:rgba(255,255,255,.25);">/ mo</span></div>
-        </div>
-        <ul style="list-style:none;flex:1;margin-bottom:32px;">
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>1 automated process</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Setup &amp; integration</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Monthly optimisation</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Email support</li>
-        </ul>
-        <a href="#contact" style="display:block;text-align:center;padding:12px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.55);border-radius:3px;text-decoration:none;font-size:.845rem;font-weight:600;transition:background .2s;">Get in touch</a>
-      </div>
-
-      <!-- Business (recommended) -->
-      <div style="background:#1C1710;padding:40px 32px;display:flex;flex-direction:column;border-left:2px solid var(--gold);border-right:2px solid var(--gold);">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-          <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);">Business</div>
-          <div style="font-size:.66rem;font-weight:700;background:var(--gold);color:#fff;padding:2px 8px;border-radius:20px;letter-spacing:.04em;">RECOMMENDED</div>
-        </div>
-        <p style="font-size:.85rem;color:rgba(255,255,255,.5);margin-bottom:28px;line-height:1.65;">Multiple processes + system integration — the standard for growing businesses</p>
-        <div style="margin-bottom:6px;">
-          <div style="font-size:.7rem;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">Setup (one-time)</div>
-          <div style="font-size:2.4rem;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1.1;">€3,000</div>
-        </div>
-        <div style="height:1px;background:rgba(176,125,58,.2);margin:20px 0;"></div>
-        <div style="margin-bottom:28px;">
-          <div style="font-size:.7rem;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">Operations &amp; Support</div>
-          <div style="font-size:1.6rem;font-weight:700;color:var(--gold-lt);line-height:1.2;">€299 <span style="font-size:.9rem;font-weight:400;color:rgba(255,255,255,.25);">/ mo</span></div>
-        </div>
-        <ul style="list-style:none;flex:1;margin-bottom:32px;">
-          <li style="font-size:.845rem;color:rgba(255,255,255,.6);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>2–4 automated processes</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.6);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>CRM / calendar integration</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.6);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Bi-weekly optimisation</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.6);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Priority support</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.6);padding:7px 0;display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Monthly reporting</li>
-        </ul>
-        <a href="#contact" style="display:block;text-align:center;padding:12px;background:var(--gold);color:#fff;border-radius:3px;text-decoration:none;font-size:.845rem;font-weight:600;transition:background .2s;">Get in touch</a>
-      </div>
-
-      <!-- Advanced -->
-      <div style="background:#171717;padding:40px 32px;display:flex;flex-direction:column;">
-        <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:14px;">Advanced</div>
-        <p style="font-size:.85rem;color:rgba(255,255,255,.4);margin-bottom:28px;line-height:1.65;">Full automation on your terms — every process, every integration</p>
-        <div style="margin-bottom:6px;">
-          <div style="font-size:.7rem;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">Setup (custom)</div>
-          <div style="font-size:2.4rem;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1.1;">€5,000<span style="font-size:1.5rem;color:rgba(255,255,255,.35);">+</span></div>
-        </div>
-        <div style="height:1px;background:rgba(255,255,255,.06);margin:20px 0;"></div>
-        <div style="margin-bottom:28px;">
-          <div style="font-size:.7rem;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">Operations &amp; Support</div>
-          <div style="font-size:1.6rem;font-weight:700;color:rgba(255,255,255,.65);line-height:1.2;">€499 <span style="font-size:.9rem;font-weight:400;color:rgba(255,255,255,.25);">/ mo</span></div>
-        </div>
-        <ul style="list-style:none;flex:1;margin-bottom:32px;">
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Full automation</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Custom development</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Weekly optimisation</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Dedicated point of contact</li>
-          <li style="font-size:.845rem;color:rgba(255,255,255,.45);padding:7px 0;display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✓</span>Full monthly reporting</li>
-        </ul>
-        <a href="#contact" style="display:block;text-align:center;padding:12px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.55);border-radius:3px;text-decoration:none;font-size:.845rem;font-weight:600;transition:background .2s;">Get in touch</a>
-      </div>
-
-    </div>
-
-    <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:center;">
-      <div style="font-size:.8rem;color:rgba(255,255,255,.28);display:flex;align-items:center;gap:7px;"><span style="color:var(--gold);">⚠</span>+€10 per additional 1,000 requests over the included quota</div>
-      <div style="font-size:.8rem;color:rgba(255,255,255,.28);display:flex;align-items:center;gap:7px;"><span style="color:var(--gold);">📌</span>Minimum term 6 months · monthly cancellation thereafter</div>
-    </div>
-  </div>
-</section>
-
-<section style="position:relative;overflow:hidden;padding:0;">
-  <div style="position:relative;height:480px;display:flex;align-items:center;justify-content:center;text-align:center;">
-    <img src="stadtturm-enns.jpg" alt="Stadtturm Enns" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;" />
-    <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(10,8,5,.55) 0%, rgba(10,8,5,.72) 100%);"></div>
-    <div style="position:relative;z-index:2;padding:0 24px;">
-      <div style="font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;">Enns Region · Upper Austria</div>
-      <h2 style="font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;color:#fff;line-height:1.05;margin-bottom:16px;letter-spacing:-.01em;">The Tower of Power</h2>
-      <p style="font-size:1rem;color:rgba(255,255,255,.55);max-width:480px;margin:0 auto 28px;line-height:1.7;">Personal service on-site — we come to you, set everything up and stay with you. Enns is the oldest city in Austria. Now also with AI agents.</p>
-      <a href="#onpremise" style="display:inline-block;padding:12px 28px;background:var(--gold);color:#fff;border-radius:3px;text-decoration:none;font-size:.875rem;font-weight:600;transition:background .2s;">View On-Premise</a>
-    </div>
-  </div>
-</section>
-
-<section style="background:var(--bg);padding:88px 0;border-top:1px solid var(--border);">
-  <div class="wrap">
-    <div class="label">Own Hardware · Enns Region / Upper Austria only</div>
-    <h2>On-Premise: agents running at the client's site</h2>
-    <p class="sub">For businesses with data privacy requirements — we come in person, install a Mac Mini on-site and set everything up. <strong style="color:var(--text)">Available in the Enns region and surroundings (Upper Austria).</strong></p>
-    <div class="op-layout">
-
-      <div class="op-left">
-        <div class="op-label">Hardware</div>
-        <h3>Mac Mini M4 installed on-site</h3>
-        <p>We deliver and install a Mac Mini directly at your business. The automation platform and all your data run locally on your hardware. AI model requests go via the OpenAI API depending on configuration — your workflows and logs stay with you.</p>
-        <div class="op-hardware-box">
-          <div class="op-hw-row">
-            <span class="op-hw-label">Mac Mini M4 (16 GB, 256 GB SSD)</span>
-            <span class="op-hw-val">~€699</span>
-          </div>
-          <div class="op-hw-row">
-            <span class="op-hw-label">Mac Mini M4 (24 GB, 512 GB SSD)</span>
-            <span class="op-hw-val">~€899</span>
-          </div>
-          <div class="op-hw-note">Hardware passed on at cost — no markup on hardware.</div>
-        </div>
-        <div class="op-price-block">
-          <div class="op-price-col">
-            <div class="op-price-lbl">Setup incl. on-site installation</div>
-            <div class="op-price-val">from €590</div>
-          </div>
-          <div class="op-price-col">
-            <div class="op-price-lbl">Monthly remote management</div>
-            <div class="op-price-mo">from €129 / mo</div>
-          </div>
-        </div>
-        <ul class="op-features">
-          <li>Delivery &amp; on-site installation of Mac Mini</li>
-          <li>All agents set up and configured</li>
-          <li>Connection to WhatsApp, email, calendar</li>
-          <li>Team briefing (~1 hr)</li>
-          <li>Remote maintenance, updates and monitoring</li>
-          <li>API costs (OpenAI) included in monthly fee</li>
-          <li>Support for technical issues</li>
-        </ul>
-        <a href="#contact" class="op-btn">Get in touch</a>
-      </div>
-
-      <div class="op-right">
-        <div class="op-label">When does on-premise make sense?</div>
-        <div class="op-vs">
-          <h4>Advantages over cloud solution</h4>
-          <div class="op-vs-row">
-            <span class="op-vs-icon">01</span>
-            <span class="op-vs-text"><strong>Data privacy &amp; GDPR</strong>Orchestration, logs and customer data remain local on your hardware. AI model requests run via the OpenAI API depending on setup (GDPR-compliant configuration available).</span>
-          </div>
-          <div class="op-vs-row">
-            <span class="op-vs-icon">02</span>
-            <span class="op-vs-text"><strong>Local orchestration</strong>The automation platform runs on your hardware, not on third-party servers. An internet connection is required for AI model requests.</span>
-          </div>
-          <div class="op-vs-row">
-            <span class="op-vs-icon">03</span>
-            <span class="op-vs-text"><strong>Full control</strong>All data, logs and configurations stay with the client — not on third-party servers.</span>
-          </div>
-          <div class="op-vs-row">
-            <span class="op-vs-icon">04</span>
-            <span class="op-vs-text"><strong>Lower ongoing costs</strong>Monthly flat rate from €129 — cheaper than some cloud packages at higher volume.</span>
-          </div>
-        </div>
-        <div class="callout" style="margin-top:20px;">
-          <strong>Total cost in first month (example):</strong><br>
-          Mac Mini M4 16GB ~€699 + Setup €590 = <strong>€1,289 one-time</strong><br>
-          Then from <strong>€129 / month</strong> ongoing.<br><br>
-          <strong>Who benefits?</strong> More cost-effective than comparable cloud packages after ~6 months — and the hardware stays with the client.
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section style="background:var(--bg);padding:88px 0;border-top:1px solid var(--border);">
-  <div class="wrap">
-    <div class="label">Always included</div>
-    <h2>Monthly flat rate — everything covered</h2>
-    <p class="sub">No hidden API costs, no surprise invoices. The monthly flat rate covers everything.</p>
-    <div class="incl-grid">
-      <div class="incl-item">
-        <h4>API costs included</h4>
-        <p>OpenAI API fees are included in the monthly flat rate. You pay no extra tokens or credits.</p>
-      </div>
-      <div class="incl-item">
-        <h4>Maintenance &amp; updates</h4>
-        <p>When OpenAI changes something or the agent shows errors, we handle it. No extra cost.</p>
-      </div>
-      <div class="incl-item">
-        <h4>Minor adjustments</h4>
-        <p>New products, changed hours, different prices — we update the agent continuously.</p>
-      </div>
-      <div class="incl-item">
-        <h4>Support</h4>
-        <p>For questions or issues, we respond by email within 24 hours on business days.</p>
-      </div>
-      <div class="incl-item">
-        <h4>Monthly optimisation</h4>
-        <p>We regularly review how the agent performs and improve responses, workflows and conversion.</p>
-      </div>
-      <div class="incl-item">
-        <h4>No technician needed</h4>
-        <p>You need no IT knowledge and no in-house technician. We handle everything remotely.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── BENEFITS BLOCK EN ── -->
-<section style="background:#0E0E0E;padding:96px 0;border-top:1px solid var(--border);">
-  <div class="wrap">
-    <div class="label" style="color:var(--gold);">Realistic Benefits</div>
-    <h2 style="color:#fff;">What typically improves</h2>
-    <p class="sub" style="color:rgba(255,255,255,.45);">Through structured and automated processes, many businesses report measurable improvements in their daily work organisation.</p>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:rgba(255,255,255,.05);margin:48px 0 40px;">
-      <div style="background:var(--dark);padding:32px 28px;">
-        <div style="font-size:1.8rem;margin-bottom:14px;">⏱</div>
-        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;">Faster response times</h4>
-        <p style="font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;">Incoming inquiries are structured and processed immediately — not when someone finds the time.</p>
-      </div>
-      <div style="background:var(--dark);padding:32px 28px;">
-        <div style="font-size:1.8rem;margin-bottom:14px;">🔁</div>
-        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;">Less manual work</h4>
-        <p style="font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;">Recurring tasks run automatically — the team can focus on work that actually requires attention.</p>
-      </div>
-      <div style="background:var(--dark);padding:32px 28px;">
-        <div style="font-size:1.8rem;margin-bottom:14px;">📋</div>
-        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;">Better overview</h4>
-        <p style="font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;">All incoming inquiries are structured and captured — nothing falls through, no information gets lost.</p>
-      </div>
-      <div style="background:var(--dark);padding:32px 28px;">
-        <div style="font-size:1.8rem;margin-bottom:14px;">⚙️</div>
-        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;">More stable processes</h4>
-        <p style="font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;">Internal processes follow defined rules — regardless of workload, time of day or staffing levels.</p>
-      </div>
-    </div>
-
-    <div style="background:#161616;border:1px solid rgba(255,255,255,.07);padding:28px 32px;margin-bottom:48px;display:flex;gap:16px;align-items:flex-start;">
-      <div style="font-size:1.2rem;flex-shrink:0;margin-top:2px;">👉</div>
-      <p style="font-size:.875rem;color:rgba(255,255,255,.4);line-height:1.75;margin:0;"><strong style="color:rgba(255,255,255,.65);">Important note:</strong> No economic results are guaranteed. The improvements described relate to technical process organisation. Specific business outcomes depend on individual factors and are outside our scope of services.</p>
-    </div>
-
-    <div style="background:#161616;border:1px solid rgba(255,255,255,.06);padding:36px;margin-bottom:48px;">
-      <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;">Example from practice</div>
-      <p style="font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:16px;">A local service provider had the problem that customer inquiries were answered irregularly and fell through internally.</p>
-      <p style="font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:16px;">After the technical implementation of an automated capture and response system, inquiries were processed in a structured way and forwarded internally immediately.</p>
-      <p style="font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.8;margin:0;">Internal processes became significantly more stable and transparent. <span style="color:rgba(255,255,255,.3);font-size:.8rem;">Specific economic outcomes are not guaranteed.</span></p>
-    </div>
-
-    <div style="text-align:center;">
-      <p style="color:rgba(255,255,255,.4);font-size:.9rem;margin-bottom:28px;">In a short call we clarify which technical options make sense for your situation.</p>
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="#contact" style="display:inline-block;padding:14px 30px;background:var(--gold);color:#fff;border-radius:3px;text-decoration:none;font-size:.875rem;font-weight:600;">Book a free intro call</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── FOR WHOM (EN) ── -->
-<section style="background:var(--bg);padding:88px 0;border-top:1px solid var(--border);">
-  <div class="wrap">
-    <div class="label">Who it's for</div>
-    <h2>Ideal for — and not suitable for.</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);margin-top:48px;">
-      <div style="background:var(--white);padding:40px 36px;">
-        <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;">✓ Ideal for</div>
-        <ul style="list-style:none;">
-          <li style="padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">✓</span>Small businesses with 1–15 employees</li>
-          <li style="padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">✓</span>Businesses that answer similar inquiries every day</li>
-          <li style="padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">✓</span>Owners who want to reclaim time for what matters</li>
-          <li style="padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">✓</span>Service providers with appointment or quote processes</li>
-          <li style="padding:10px 0;font-size:.9rem;color:var(--text);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">✓</span>Anyone who doesn't want to deal with the technical side</li>
-        </ul>
-      </div>
-      <div style="background:#FAF9F7;padding:40px 36px;">
-        <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;">✗ Not suitable for</div>
-        <ul style="list-style:none;">
-          <li style="padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--muted);display:flex;gap:12px;align-items:flex-start;"><span style="flex-shrink:0;">✗</span>Companies that want to build automation themselves</li>
-          <li style="padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--muted);display:flex;gap:12px;align-items:flex-start;"><span style="flex-shrink:0;">✗</span>Industries with highly complex, manual individual decisions</li>
-          <li style="padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--muted);display:flex;gap:12px;align-items:flex-start;"><span style="flex-shrink:0;">✗</span>Businesses without a stable volume of recurring processes</li>
-          <li style="padding:10px 0;font-size:.9rem;color:var(--muted);display:flex;gap:12px;align-items:flex-start;"><span style="flex-shrink:0;">✗</span>Anyone expecting AI as a magic solution with zero setup</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── DIFFERENTIATION (EN) ── -->
-<section style="background:var(--dark);padding:88px 0;">
-  <div class="wrap">
-    <div class="label" style="color:var(--gold);">Why Mlivo AI</div>
-    <h2 style="color:#fff;">Not a tool. Not a freelancer. A system.</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;background:rgba(255,255,255,.04);margin-top:48px;border-radius:4px;overflow:hidden;">
-      <div style="background:#171717;padding:36px 30px;">
-        <div style="font-size:1.4rem;margin-bottom:14px;">🤖</div>
-        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:10px;">vs. ChatGPT / AI tools</h4>
-        <p style="font-size:.845rem;color:rgba(255,255,255,.42);line-height:1.7;">ChatGPT answers questions. Mlivo AI automates workflows. We connect AI with your existing systems — calendar, CRM, email. No generic tool does that for your specific business.</p>
-      </div>
-      <div style="background:#171717;padding:36px 30px;">
-        <div style="font-size:1.4rem;margin-bottom:14px;">👷</div>
-        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:10px;">vs. Freelancer / Agency</h4>
-        <p style="font-size:.845rem;color:rgba(255,255,255,.42);line-height:1.7;">A freelancer delivers once and disappears. We permanently handle operations, optimisation and support. You always have a contact — not a project, but an ongoing partnership.</p>
-      </div>
-      <div style="background:#171717;padding:36px 30px;">
-        <div style="font-size:1.4rem;margin-bottom:14px;">⚙️</div>
-        <h4 style="font-size:.95rem;font-weight:700;color:#fff;margin-bottom:10px;">Technology under the hood</h4>
-        <p style="font-size:.845rem;color:rgba(255,255,255,.42);line-height:1.7;">We work with n8n, Make.com and leading AI models — assembled into a system built for your specific operation. No plug-and-play kits. Custom work.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section style="background:var(--dark);padding:88px 0;text-align:center;">
-  <div class="wrap">
-    <div class="label">Contact</div>
-    <h2 style="color:#fff;">Interested? Get in touch.</h2>
-    <p class="sub" style="color:rgba(255,255,255,.4);margin:0 auto 36px;">Free initial call (30 min.) — we figure out together which agent brings the most value for your business.</p>
-    <div class="contact-btns">
-      <a href="mailto:mlivo.office@gmail.com" class="btn btn-gold">Send an email</a>
-      <a href="https://mlivo-workflow.com" class="btn btn-outline-dark" target="_blank">Visit website</a>
-    </div>
-    <p class="contact-note">No sales pressure. No hidden costs. Reply within 24 hours.</p>
-    <div class="contact-info">
-      <div>
-        <div class="ci-lbl">Email</div>
-        <a href="mailto:mlivo.office@gmail.com" class="ci-val">mlivo.office@gmail.com</a>
-      </div>
-      <div>
-        <div class="ci-lbl">Website</div>
-        <a href="https://mlivo-workflow.com" class="ci-val" target="_blank">mlivo-workflow.com</a>
-      </div>
-      <div>
-        <div class="ci-lbl">Location</div>
-        <span class="ci-val">Austria</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── MINI-TERMS + LEGAL NOTE (EN) ── -->
-<section style="background:#0a0a0a;border-top:1px solid rgba(255,255,255,.04);padding:56px 0;">
-  <div class="wrap">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px 48px;">
-      <div>
-        <h4 style="font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.04em;">🛡 Legal Notice</h4>
-        <p style="font-size:.8rem;color:rgba(255,255,255,.28);line-height:1.75;">These are technical services in the field of system integration and automation. No guaranteed economic results (e.g. revenue growth or customer acquisition) are warranted.</p>
-      </div>
-      <div>
-        <h4 style="font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.04em;">📋 Scope of Services</h4>
-        <p style="font-size:.8rem;color:rgba(255,255,255,.28);line-height:1.75;">The subject matter is the technical implementation and operation of systems. Business consulting or advice on commercial objectives is not part of the service.</p>
-      </div>
-      <div>
-        <h4 style="font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.04em;">🔐 Data Protection (GDPR)</h4>
-        <p style="font-size:.8rem;color:rgba(255,255,255,.28);line-height:1.75;">Implementation takes place with consideration of technical data protection requirements. The legal assessment and lawful use of the systems is the responsibility of the client.</p>
-      </div>
-      <div>
-        <h4 style="font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.04em;">⚖️ Liability</h4>
-        <p style="font-size:.8rem;color:rgba(255,255,255,.28);line-height:1.75;">No liability is accepted for economic outcomes. Liability is limited to the contractually agreed technical service delivery.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section style="background:#0a0a0a;border-top:1px solid rgba(255,255,255,.04);padding:64px 0;">
-  <div class="wrap">
-    <div style="font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.22);">Legal Notice (Impressum)</div>
-    <div class="imp-grid">
-      <div class="imp-col">
-        <h4>Information per § 5 ECG</h4>
-        <p><strong>Ing. Alen Mlivo</strong></p>
-        <p>Gerstmayrgutstraße 1</p>
-        <p>4470 Enns, Austria</p>
-        <a href="tel:+436604038996">+43 660 4038996</a><br>
-        <a href="mailto:mlivo.office@gmail.com">mlivo.office@gmail.com</a>
-      </div>
-      <div class="imp-col">
-        <h4>Business</h4>
-        <p>Free trade (Freies Gewerbe)</p>
-        <p>IT services and data processing</p>
-        <p>Trade authority: BH Linz-Land</p>
-        <p>Member of WKO Upper Austria</p>
-      </div>
-      <div class="imp-col">
-        <h4>Tax</h4>
-        <p>Small business per § 6 Abs. 1 Z 27 UStG (VAT exempt)</p>
-        <p>VAT ID: [added after registration]</p>
-      </div>
-      <div class="imp-col">
-        <h4>Privacy</h4>
-        <p>Incoming email inquiries are processed solely for handling the request and not shared with third parties.</p>
-        <p style="margin-top:8px;">AI services use the OpenAI API. <a href="https://openai.com/policies/privacy-policy" target="_blank" style="color:rgba(255,255,255,.4);text-decoration:underline;">OpenAI Privacy Policy</a> applies.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="foot-in">
-    <a href="#" class="foot-logo">Mlivo AI</a>
-    <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
-      <a href="#impressum" class="foot-link">Legal Notice</a>
-      <span class="foot-copy">&copy; 2026 Mlivo AI — Enns, Austria</span>
-    </div>
-  </div>
-</footer>
-
-</div><!-- /EN -->
+</main>
 
 <script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-
-  const langBtns = document.querySelectorAll('[data-lang]');
-  const panels   = document.querySelectorAll('[data-l]');
-  langBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const lang = btn.dataset.lang;
-      langBtns.forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
-      panels.forEach(p => p.classList.toggle('on', p.dataset.l === lang));
-    });
+(function(){
+  document.querySelectorAll('[data-en]').forEach(function(el){ el.setAttribute('data-de', el.textContent); });
+  document.querySelectorAll('[data-en-html]').forEach(function(el){ el.setAttribute('data-de-html', el.innerHTML); });
+})();
+function setLang(lang){
+  document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.setAttribute('lang', lang);
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-de');
   });
-
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const t = document.querySelector(a.getAttribute('href'));
-      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
-    });
+  document.querySelectorAll('[data-en-html]').forEach(function(el){
+    el.innerHTML = lang === 'en' ? el.getAttribute('data-en-html') : el.getAttribute('data-de-html');
   });
+  document.getElementById('btnDe').classList.toggle('active', lang==='de');
+  document.getElementById('btnEn').classList.toggle('active', lang==='en');
+  try{ localStorage.setItem('mlivo-lang', lang); }catch(e){}
+}
+try{ var saved = localStorage.getItem('mlivo-lang'); if(saved==='en') setLang('en'); }catch(e){}
+
+var nav = document.getElementById('nav'), progress = document.getElementById('progress');
+function onScroll(){
+  var y = window.scrollY || document.documentElement.scrollTop;
+  nav.classList.toggle('scrolled', y > 10);
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = (h>0 ? (y/h*100) : 0) + '%';
+}
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+var burger = document.getElementById('burger'), navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', function(){ navLinks.classList.toggle('open'); });
+navLinks.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ navLinks.classList.remove('open'); }); });
+
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
 </body>
 </html>
