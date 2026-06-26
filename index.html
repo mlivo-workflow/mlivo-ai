@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mlivo AI – KI-Agentur für Unternehmen in Österreich</title>
-<meta name="description" content="Mlivo AI ist eine KI-Agentur im Raum Enns. Wir bauen, integrieren und betreiben KI-Agenten für kleine Unternehmen — Anfragen, Termine, Angebote vollautomatisch. Einrichtung ab €1.500." />
+<meta name="description" content="Mlivo AI ist eine KI-Agentur im Raum Enns. Wir bauen, integrieren und betreiben KI-Agenten für kleine Unternehmen — Anfragen, Termine, Angebote vollautomatisch." />
 <meta name="theme-color" content="#0E0E0E" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230E0E0E'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='58' fill='%23B07D3A' text-anchor='middle' font-weight='700'%3EM%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -151,8 +151,9 @@ header.nav.scrolled .burger span{background:var(--ink)}
 .agent-card:hover::before{transform:scaleX(1)}
 .agent-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
 .agent-head .ico{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font-size:1.35rem;background:var(--grad-soft);flex:none}
-.agent-head .nm{font-family:'Space Grotesk';font-weight:600;font-size:1.12rem}
-.agent-head .nm small{display:block;font-family:'Inter';font-weight:600;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-top:2px}
+.agent-head .nm{display:flex;flex-direction:column;gap:3px}
+.agent-head .nm small{font-family:'Space Grotesk';font-weight:600;font-size:1.14rem;color:var(--ink);order:2}
+.agent-head .nm span{font-family:'Inter';font-weight:600;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);order:1}
 .agent-card p{color:var(--muted);font-size:.93rem}
 
 /* problem */
@@ -213,10 +214,7 @@ header.nav.scrolled .burger span{background:var(--ink)}
 .plan.feat::before{content:attr(data-badge);position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.07em;padding:5px 16px;border-radius:999px;white-space:nowrap}
 .plan .pname{font-family:'Space Grotesk';font-size:1.3rem;font-weight:600}
 .plan .pdesc{color:var(--muted);font-size:.91rem;margin:8px 0 22px;min-height:46px}
-.price-rows{display:flex;gap:10px;margin-bottom:22px}
-.price-rows .pr{flex:1;background:var(--bg-soft);border-radius:13px;padding:14px}
-.price-rows .pr .lbl{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-.price-rows .pr .val{font-family:'Space Grotesk';font-weight:700;font-size:1.35rem;margin-top:3px}
+.poa{font-family:'Space Grotesk';font-weight:600;font-size:1.05rem;color:var(--gold);margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--line-2)}
 .plan ul{list-style:none;display:grid;gap:11px;font-size:.91rem;margin-bottom:26px}
 .plan li{display:flex;gap:9px}
 .plan li::before{content:"✓";color:var(--gold);font-weight:700}
@@ -354,7 +352,7 @@ footer a:hover{color:#fff}
     <nav class="nav-links" id="navLinks">
       <a href="#agents" data-en="AI Agents">KI-Agenten</a>
       <a href="#process" data-en="Process">Ablauf</a>
-      <a href="#packages" data-en="Pricing">Preise</a>
+      <a href="#packages" data-en="Packages">Pakete</a>
       <a href="#onpremise" data-en="On-Premise">On-Premise</a>
       <a href="#about" data-en="About">Über uns</a>
       <a href="#contact" data-en="Contact">Kontakt</a>
@@ -461,12 +459,12 @@ footer a:hover{color:#fff}
       <div class="fstep" style="background:var(--card);border-color:var(--line-2)"><div class="e">💬</div><div class="k" style="color:var(--gold)">04 · WHATSAPP</div><div class="d" style="color:var(--muted)" data-en="Direct inquiry, structured capture, traceable">Direkte Anfrage, strukturiert erfasst, nachverfolgbar</div></div>
     </div>
     <div class="tiers">
-      <div class="tier reveal" style="background:var(--card);border-color:var(--line-2)"><div class="name" style="color:var(--ink)">Basic</div><div class="price" style="color:var(--ink)">€250</div><div class="per" style="color:var(--muted)" data-en="one-off">einmalig</div><div class="desc" style="color:var(--muted)" data-en="Visibility in your region — compact.">Sichtbarkeit in der Region — kompakt.</div><ul style="color:var(--ink-2)"><li style="color:var(--ink-2)" data-en="1 slot on shared flyer (of 12)">1 Werbeplatz auf Shared-Flyer (von 12)</li><li style="color:var(--ink-2)" data-en="Local distribution">Lokale Verteilung</li><li style="color:var(--ink-2)" data-en="Single campaign">Einmalige Kampagne</li></ul></div>
-      <div class="tier reveal d1" style="background:var(--card);border-color:var(--line-2)"><div class="name" style="color:var(--ink)">Premium</div><div class="price" style="color:var(--ink)">€350–550</div><div class="per" style="color:var(--muted)" data-en="one-off">einmalig</div><div class="desc" style="color:var(--muted)" data-en="Digital arrival with measurable funnel.">Digitale Ankunft mit messbarem Funnel.</div><ul><li style="color:var(--ink-2)" data-en="Better flyer placement">Bessere Flyer-Platzierung</li><li style="color:var(--ink-2)" data-en="QR code">QR-Code</li><li style="color:var(--ink-2)" data-en="Simple landing page">Einfache Landingpage</li></ul></div>
-      <div class="tier core reveal d2"><div class="badge" data-en="CORE PRODUCT">KERNPRODUKT</div><div class="name">VIP</div><div class="price">€550–1000</div><div class="per" data-en="one-off · per campaign">einmalig · pro Kampagne</div><div class="desc" data-en="Complete funnel + tracking.">Kompletter Funnel + Tracking.</div><ul><li data-en="Flyer + premium placement">Flyer + Premium-Platzierung</li><li data-en="QR code">QR-Code</li><li data-en="Custom landing page">Individuelle Landingpage</li><li data-en="WhatsApp funnel">WhatsApp-Funnel</li><li data-en="Tracking & reporting">Tracking & Reporting</li></ul></div>
-      <div class="tier reveal d3" style="background:var(--card);border-color:var(--line-2)"><div class="name" style="color:var(--ink)">Automation</div><div class="price" style="color:var(--ink)">€99–299</div><div class="per" style="color:var(--muted)" data-en="/month · optional add-on">/Monat · optionaler Add-on</div><div class="desc" style="color:var(--muted)" data-en="Leads processed automatically.">Leads laufend automatisch verarbeitet.</div><ul><li style="color:var(--ink-2)" data-en="Auto-reply">Auto-Antwort</li><li style="color:var(--ink-2)" data-en="Booking logic">Terminlogik</li><li style="color:var(--ink-2)" data-en="Lead processing">Lead-Verarbeitung</li><li style="color:var(--ink-2)" data-en="Monthly support">Monatliche Betreuung</li></ul></div>
+      <div class="tier reveal" style="background:var(--card);border-color:var(--line-2)"><div class="name" style="color:var(--ink)">Basic</div><div class="price" style="color:var(--ink);font-size:1.15rem" data-en="On request">Auf Anfrage</div><div class="per" style="color:var(--muted)" data-en="one-off">einmalig</div><div class="desc" style="color:var(--muted)" data-en="Visibility in your region — compact.">Sichtbarkeit in der Region — kompakt.</div><ul style="color:var(--ink-2)"><li style="color:var(--ink-2)" data-en="1 slot on shared flyer (of 12)">1 Werbeplatz auf Shared-Flyer (von 12)</li><li style="color:var(--ink-2)" data-en="Local distribution">Lokale Verteilung</li><li style="color:var(--ink-2)" data-en="Single campaign">Einmalige Kampagne</li></ul></div>
+      <div class="tier reveal d1" style="background:var(--card);border-color:var(--line-2)"><div class="name" style="color:var(--ink)">Premium</div><div class="price" style="color:var(--ink);font-size:1.15rem" data-en="On request">Auf Anfrage</div><div class="per" style="color:var(--muted)" data-en="one-off">einmalig</div><div class="desc" style="color:var(--muted)" data-en="Digital arrival with measurable funnel.">Digitale Ankunft mit messbarem Funnel.</div><ul><li style="color:var(--ink-2)" data-en="Better flyer placement">Bessere Flyer-Platzierung</li><li style="color:var(--ink-2)" data-en="QR code">QR-Code</li><li style="color:var(--ink-2)" data-en="Simple landing page">Einfache Landingpage</li></ul></div>
+      <div class="tier core reveal d2"><div class="badge" data-en="CORE PRODUCT">KERNPRODUKT</div><div class="name">VIP</div><div class="price" style="font-size:1.15rem" data-en="On request">Auf Anfrage</div><div class="per" data-en="one-off · per campaign">einmalig · pro Kampagne</div><div class="desc" data-en="Complete funnel + tracking.">Kompletter Funnel + Tracking.</div><ul><li data-en="Flyer + premium placement">Flyer + Premium-Platzierung</li><li data-en="QR code">QR-Code</li><li data-en="Custom landing page">Individuelle Landingpage</li><li data-en="WhatsApp funnel">WhatsApp-Funnel</li><li data-en="Tracking & reporting">Tracking & Reporting</li></ul></div>
+      <div class="tier reveal d3" style="background:var(--card);border-color:var(--line-2)"><div class="name" style="color:var(--ink)">Automation</div><div class="price" style="color:var(--ink);font-size:1.15rem" data-en="On request">Auf Anfrage</div><div class="per" style="color:var(--muted)" data-en="/month · optional add-on">/Monat · optionaler Add-on</div><div class="desc" style="color:var(--muted)" data-en="Leads processed automatically.">Leads laufend automatisch verarbeitet.</div><ul><li style="color:var(--ink-2)" data-en="Auto-reply">Auto-Antwort</li><li style="color:var(--ink-2)" data-en="Booking logic">Terminlogik</li><li style="color:var(--ink-2)" data-en="Lead processing">Lead-Verarbeitung</li><li style="color:var(--ink-2)" data-en="Monthly support">Monatliche Betreuung</li></ul></div>
     </div>
-    <div class="note-band reveal" data-en-html="<b>Note:</b> Prices are reference values and depend on print run, distribution area, and landing page scope. Campaign results depend on offer, region, and target audience — no specific inquiry or revenue volumes are guaranteed." style="margin-top:26px"><b>Hinweis:</b> Die Preise verstehen sich als Richtwerte und hängen von Auflage, Verteilgebiet und Umfang der Landingpage ab. Kampagnenergebnisse sind von Angebot, Region und Zielgruppe abhängig — es werden keine konkreten Anfrage- oder Umsatzmengen zugesichert.</div>
+    <div class="note-band reveal" data-en-html="<b>Note:</b> Scope and terms depend on print run, distribution area, and landing page scope. Campaign results depend on offer, region, and target audience — no specific inquiry or revenue volumes are guaranteed." style="margin-top:26px"><b>Hinweis:</b> Umfang und Konditionen hängen von Auflage, Verteilgebiet und Umfang der Landingpage ab. Kampagnenergebnisse sind von Angebot, Region und Zielgruppe abhängig — es werden keine konkreten Anfrage- oder Umsatzmengen zugesichert.</div>
     <div class="center-cta reveal"><a href="#contact" class="btn btn-primary" data-en="Request a campaign">Kampagne anfragen</a></div>
   </div>
 </section>
@@ -475,19 +473,16 @@ footer a:hover{color:#fff}
 <section class="section section-dark" id="packages">
   <div class="wrap">
     <div class="head-block center reveal">
-      <span class="eyebrow center" data-en="Pricing">Preise</span>
-      <h2 class="h-sec center" data-en="Investment. No surprises.">Investition. Keine Überraschungen.</h2>
-      <p class="lead center" data-en="Two components: one-time setup + monthly service. Tailored to your business — no hidden fine print.">Zwei Komponenten: einmalige Einrichtung + monatliche Betreuung. Abgestimmt auf Ihren Betrieb — kein verstecktes Kleingedrucktes.</p>
-      <p class="muted" style="margin-top:12px;font-size:.85rem" data-en="All prices incl. 20% VAT · Minimum term 6 months · Monthly cancellation thereafter">Alle Preise inkl. 20% MwSt. · Mindestlaufzeit 6 Monate · Danach monatlich kündbar</p>
+      <span class="eyebrow center" data-en="Packages">Pakete</span>
+      <h2 class="h-sec center" data-en="Three ways to get started.">Drei Wege zum Start.</h2>
+      <p class="lead center" data-en="From a single agent to a full agent team — tailored to your business. We define the right scope and price together in the free intro call.">Vom einzelnen Agenten bis zum kompletten Agenten-Team — abgestimmt auf Ihren Betrieb. Den passenden Umfang und Preis definieren wir gemeinsam im kostenlosen Erstgespräch.</p>
+      <p class="muted" style="margin-top:12px;font-size:.85rem" data-en="Minimum term 6 months · monthly cancellation thereafter">Mindestlaufzeit 6 Monate · danach monatlich kündbar</p>
     </div>
     <div class="grid price-grid">
       <div class="plan reveal">
         <div class="pname">Starter</div>
         <div class="pdesc" data-en="One agent — a single core process fully handled">Ein Agent — ein Kernprozess vollständig übernommen</div>
-        <div class="price-rows">
-          <div class="pr"><div class="lbl" data-en="Setup (one-time)">Einrichtung</div><div class="val">€1.500</div></div>
-          <div class="pr"><div class="lbl" data-en="Operations">Betrieb</div><div class="val">€149<span style="font-size:.8rem;font-weight:500">/Mo</span></div></div>
-        </div>
+        <div class="poa" data-en="Price on request">Preis auf Anfrage</div>
         <ul>
           <li data-en="1 AI agent">1 KI-Agent</li>
           <li data-en="Setup & integration">Einrichtung & Integration</li>
@@ -499,10 +494,7 @@ footer a:hover{color:#fff}
       <div class="plan feat reveal d1" data-badge="EMPFOHLEN">
         <div class="pname">Business</div>
         <div class="pdesc" data-en="Multiple agents + system integration — the standard for growing businesses">Mehrere Agenten + Systemintegration — der Standard für wachsende Betriebe</div>
-        <div class="price-rows">
-          <div class="pr"><div class="lbl" data-en="Setup (one-time)">Einrichtung</div><div class="val">€3.000</div></div>
-          <div class="pr"><div class="lbl" data-en="Operations">Betrieb</div><div class="val">€299<span style="font-size:.8rem;font-weight:500">/Mo</span></div></div>
-        </div>
+        <div class="poa" data-en="Price on request">Preis auf Anfrage</div>
         <ul>
           <li data-en="2–4 AI agents">2–4 KI-Agenten</li>
           <li data-en="CRM / calendar integration">CRM / Kalender-Integration</li>
@@ -515,10 +507,7 @@ footer a:hover{color:#fff}
       <div class="plan reveal d2">
         <div class="pname">Advanced</div>
         <div class="pdesc" data-en="A full agent team on your terms — every process, every integration">Ein komplettes Agenten-Team nach Maß — jeder Prozess, jede Integration</div>
-        <div class="price-rows">
-          <div class="pr"><div class="lbl" data-en="Setup (custom)">Einrichtung</div><div class="val">€5.000+</div></div>
-          <div class="pr"><div class="lbl" data-en="Operations">Betrieb</div><div class="val">€499<span style="font-size:.8rem;font-weight:500">/Mo</span></div></div>
-        </div>
+        <div class="poa" data-en="Price on request">Preis auf Anfrage</div>
         <ul>
           <li data-en="Full agent team">Vollständiges Agenten-Team</li>
           <li data-en="Custom development">Individuelle Entwicklung</li>
@@ -530,7 +519,7 @@ footer a:hover{color:#fff}
       </div>
     </div>
     <div class="price-meta reveal">
-      <span data-en="⚠ +€10 per additional 1,000 requests over the included quota">⚠ +€10 pro weitere 1.000 Anfragen über das Kontingent</span>
+      <span data-en="📌 Fixed scope, fixed monthly rate — no surprise invoices.">📌 Fester Umfang, feste Monatspauschale — keine Überraschungsrechnungen.</span>
       <span data-en="📌 Minimum term 6 months · monthly cancellation thereafter">📌 Mindestlaufzeit 6 Monate · danach monatlich kündbar</span>
     </div>
   </div>
@@ -565,11 +554,11 @@ footer a:hover{color:#fff}
         <div class="tagline" data-en="Hardware">Hardware</div>
         <h4 data-en="Mac Mini M4 installed on-site">Mac Mini M4 beim Kunden vor Ort</h4>
         <p style="color:var(--muted);font-size:.92rem;margin-bottom:16px" data-en="We deliver and install a Mac Mini directly at your business. The automation platform and all your data run locally on your hardware. AI model requests go via the OpenAI API depending on configuration — your workflows and logs stay with you.">Wir liefern und installieren einen Mac Mini direkt in Ihrem Unternehmen. Die Automatisierungsplattform und alle Ihre Daten laufen lokal auf Ihrer Hardware. KI-Modellanfragen gehen je nach Konfiguration über die OpenAI-API — Ihre Workflows und Logs bleiben bei Ihnen.</p>
-        <div class="row"><span data-en="Mac Mini M4 (16 GB, 256 GB SSD)">Mac Mini M4 (16 GB, 256 GB SSD)</span><span class="v">~€699</span></div>
-        <div class="row"><span data-en="Mac Mini M4 (24 GB, 512 GB SSD)">Mac Mini M4 (24 GB, 512 GB SSD)</span><span class="v">~€899</span></div>
+        <div class="row"><span data-en="Mac Mini M4 (16 GB, 256 GB SSD)">Mac Mini M4 (16 GB, 256 GB SSD)</span><span class="v" data-en="at cost">zum Einkaufspreis</span></div>
+        <div class="row"><span data-en="Mac Mini M4 (24 GB, 512 GB SSD)">Mac Mini M4 (24 GB, 512 GB SSD)</span><span class="v" data-en="at cost">zum Einkaufspreis</span></div>
         <div class="row"><span style="font-size:.83rem;color:var(--muted)" data-en="Hardware passed on at cost — no markup on hardware.">Hardware wird zum Einkaufspreis weitergegeben — keine Marge auf Hardware.</span><span></span></div>
-        <div class="row"><span data-en="Setup incl. on-site installation">Setup inkl. Installation vor Ort</span><span class="v hl" data-en="from €590">ab €590</span></div>
-        <div class="row"><span data-en="Monthly remote management">Monatliche Fernwartung</span><span class="v hl" data-en="from €129 / mo">ab €129 / Mo</span></div>
+        <div class="row"><span data-en="Setup incl. on-site installation">Setup inkl. Installation vor Ort</span><span class="v hl" data-en="On request">auf Anfrage</span></div>
+        <div class="row"><span data-en="Monthly remote management">Monatliche Fernwartung</span><span class="v hl" data-en="On request">auf Anfrage</span></div>
         <ul>
           <li data-en="Delivery & on-site installation of Mac Mini">Lieferung & Installation des Mac Mini vor Ort</li>
           <li data-en="All agents set up and configured">Alle Agenten einrichten und konfigurieren</li>
@@ -588,13 +577,12 @@ footer a:hover{color:#fff}
           <div class="adv-item"><div class="n">01</div><div><h5 data-en="Data privacy & GDPR">Datenschutz & DSGVO</h5><p data-en="Orchestration, logs and customer data remain local on your hardware. AI model requests run via the OpenAI API depending on setup (GDPR-compliant configuration available).">Orchestrierung, Logs und Kundendaten bleiben lokal auf Ihrer Hardware. KI-Modellanfragen laufen je nach Setup über die OpenAI-API (DSGVO-konform konfigurierbar).</p></div></div>
           <div class="adv-item"><div class="n">02</div><div><h5 data-en="Local orchestration">Lokale Orchestrierung</h5><p data-en="The automation platform runs on your hardware, not on third-party servers. An internet connection is required for AI model requests.">Die Automatisierungsplattform läuft auf Ihrer Hardware, nicht auf fremden Servern. Für KI-Modellanfragen ist eine Internetverbindung erforderlich.</p></div></div>
           <div class="adv-item"><div class="n">03</div><div><h5 data-en="Full control">Volle Kontrolle</h5><p data-en="All data, logs and configurations stay with the client — not on third-party servers.">Alle Daten, Logs und Konfigurationen liegen beim Kunden — nicht auf fremden Servern.</p></div></div>
-          <div class="adv-item"><div class="n">04</div><div><h5 data-en="Lower ongoing costs">Geringere laufende Kosten</h5><p data-en="Monthly flat rate from €129 — cheaper than some cloud packages at higher volume.">Monatliche Pauschale ab €129 — günstiger als manche Cloud-Pakete bei hohem Volumen.</p></div></div>
+          <div class="adv-item"><div class="n">04</div><div><h5 data-en="Lower ongoing costs">Geringere laufende Kosten</h5><p data-en="A monthly flat rate — more cost-effective than some cloud packages at higher volume.">Eine monatliche Pauschale — bei hohem Volumen günstiger als manche Cloud-Pakete.</p></div></div>
         </div>
         <div class="calc">
-          <div data-en-html="<b>Total cost in first month (example):</b>"><b>Gesamtkosten im ersten Monat (Beispiel):</b></div>
-          <div data-en-html="Mac Mini M4 16GB ~€699 + Setup €590 = <b>€1,289 one-time</b>">Mac Mini M4 16GB ~€699 + Setup €590 = <b>€1.289 einmalig</b></div>
-          <div data-en-html="Then from <b>€129 / month</b> ongoing.">Dann ab <b>€129 / Monat</b> laufend.</div>
-          <div style="margin-top:10px" data-en-html="<b>Who benefits?</b> More cost-effective than comparable cloud packages after ~6 months — and the hardware stays with the client."><b>Für wen rechnet es sich?</b> Ab etwa 6 Monaten Laufzeit günstiger als vergleichbare Cloud-Pakete — und die Hardware bleibt beim Kunden.</div>
+          <div data-en-html="<b>How it adds up:</b>"><b>So setzt es sich zusammen:</b></div>
+          <div data-en-html="Hardware at cost + one-time on-site setup + monthly remote management.">Hardware zum Einkaufspreis + einmaliges Setup vor Ort + monatliche Fernwartung.</div>
+          <div style="margin-top:10px" data-en-html="<b>Who benefits?</b> After roughly 6 months it tends to be more cost-effective than comparable cloud packages — and the hardware stays with you. We work out the exact figures for your situation in the intro call."><b>Für wen rechnet es sich?</b> Ab etwa 6 Monaten Laufzeit meist günstiger als vergleichbare Cloud-Pakete — und die Hardware bleibt bei Ihnen. Die genauen Zahlen für Ihre Situation klären wir im Erstgespräch.</div>
         </div>
       </div>
     </div>
