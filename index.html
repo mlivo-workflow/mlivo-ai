@@ -321,6 +321,17 @@ header.nav.scrolled .burger span{background:var(--ink)}
 .contact-meta .m .v{font-family:'Space Grotesk';font-weight:600;margin-top:4px}
 .contact-meta .m a:hover{color:var(--gold-lt)}
 .fineprint{text-align:center;color:var(--muted);font-size:.87rem;margin-top:22px}
+.lead-form{margin:30px auto 0;max-width:560px;text-align:left;display:grid;gap:12px}
+.lead-form .lf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lead-form input,.lead-form textarea{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:13px 15px;color:#fff;font-family:inherit;font-size:.95rem;transition:border-color .2s,background .2s}
+.lead-form input::placeholder,.lead-form textarea::placeholder{color:rgba(255,255,255,.45)}
+.lead-form input:focus,.lead-form textarea:focus{outline:none;border-color:var(--gold-lt);background:rgba(255,255,255,.1)}
+.lead-form textarea{resize:vertical}
+.lead-form button{justify-self:center;margin-top:4px;min-width:200px}
+.lead-form .lf-hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+.lf-status{text-align:center;font-size:.92rem;color:var(--gold-lt);min-height:1.2em}
+.lf-status.err{color:#f0a3a3}
+@media(max-width:600px){.lead-form .lf-row{grid-template-columns:1fr}.lead-form button{width:100%}}
 
 /* legal + footer */
 .legal-grid{grid-template-columns:repeat(2,1fr);gap:16px}
@@ -734,9 +745,21 @@ footer a:hover{color:#fff}
         <span class="eyebrow center" style="color:var(--gold-lt)" data-en="Contact">Kontakt</span>
         <h2 data-en="Ready for your own agents?">Bereit für Ihre eigenen Agenten?</h2>
         <p data-en="Free initial call (30 min.) — we figure out together which agents bring the most value for your business.">Kostenloses Erstgespräch (30 Min.) — wir schauen gemeinsam, welche Agenten für Ihr Unternehmen am meisten bringen.</p>
-        <div class="contact-cta">
-          <a href="mailto:mlivo.office@gmail.com" class="btn btn-primary" data-en="Send an email">E-Mail schreiben</a>
-          <a href="https://mlivo-workflow.com" class="btn btn-dark" data-en="Visit website">Website besuchen</a>
+        <form id="leadForm" class="lead-form reveal">
+          <input type="hidden" name="access_key" value="DEIN_WEB3FORMS_ACCESS_KEY">
+          <input type="hidden" name="subject" value="Neue Anfrage über mlivo-ai.at">
+          <input type="checkbox" name="botcheck" class="lf-hp" tabindex="-1" autocomplete="off">
+          <div class="lf-row">
+            <input name="name" required placeholder="Name" data-en-ph="Name" aria-label="Name">
+            <input name="email" type="email" required placeholder="E-Mail" data-en-ph="Email" aria-label="E-Mail">
+          </div>
+          <input name="firma" placeholder="Firma (optional)" data-en-ph="Company (optional)" aria-label="Firma">
+          <textarea name="nachricht" rows="3" required placeholder="Worum geht es? Kurz beschreiben…" data-en-ph="What's it about? Briefly…" aria-label="Nachricht"></textarea>
+          <button type="submit" class="btn btn-primary" data-en="Send inquiry">Anfrage senden</button>
+          <div class="lf-status" id="lfStatus" role="status"></div>
+        </form>
+        <div class="contact-cta" style="margin-top:18px">
+          <a href="mailto:mlivo.office@gmail.com" class="btn btn-dark" data-en="Or write an email">Oder E-Mail schreiben</a>
         </div>
         <div class="contact-meta">
           <div class="m"><div class="l">E-Mail</div><div class="v"><a href="mailto:mlivo.office@gmail.com">mlivo.office@gmail.com</a></div></div>
@@ -804,6 +827,7 @@ footer a:hover{color:#fff}
 (function(){
   document.querySelectorAll('[data-en]').forEach(function(el){ el.setAttribute('data-de', el.textContent); });
   document.querySelectorAll('[data-en-html]').forEach(function(el){ el.setAttribute('data-de-html', el.innerHTML); });
+  document.querySelectorAll('[data-en-ph]').forEach(function(el){ el.setAttribute('data-de-ph', el.getAttribute('placeholder')||''); });
 })();
 function setLang(lang){
   document.documentElement.setAttribute('data-lang', lang);
@@ -813,6 +837,9 @@ function setLang(lang){
   });
   document.querySelectorAll('[data-en-html]').forEach(function(el){
     el.innerHTML = lang === 'en' ? el.getAttribute('data-en-html') : el.getAttribute('data-de-html');
+  });
+  document.querySelectorAll('[data-en-ph]').forEach(function(el){
+    el.setAttribute('placeholder', lang === 'en' ? el.getAttribute('data-en-ph') : el.getAttribute('data-de-ph'));
   });
   document.getElementById('btnDe').classList.toggle('active', lang==='de');
   document.getElementById('btnEn').classList.toggle('active', lang==='en');
@@ -837,6 +864,37 @@ var io = new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
 }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+// ---- lead form (Web3Forms + mailto fallback) ----
+(function(){
+  var form=document.getElementById('leadForm'); if(!form) return;
+  var status=document.getElementById('lfStatus');
+  var g=function(n){ return form.elements[n]; };
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var lang=document.documentElement.getAttribute('data-lang')||'de';
+    if(g('botcheck') && g('botcheck').checked) return;
+    var key=g('access_key').value;
+    var name=g('name').value, email=g('email').value, firma=g('firma').value, nachricht=g('nachricht').value;
+    if(!key || key.indexOf('DEIN_')===0){
+      var subj=encodeURIComponent('Anfrage über mlivo-ai.at');
+      var body=encodeURIComponent('Name: '+name+'\nFirma: '+firma+'\nE-Mail: '+email+'\n\n'+nachricht);
+      window.location.href='mailto:mlivo.office@gmail.com?subject='+subj+'&body='+body;
+      status.className='lf-status'; status.textContent=(lang==='en'?'Opening your email app…':'E-Mail-App wird geöffnet…');
+      return;
+    }
+    status.className='lf-status'; status.textContent=(lang==='en'?'Sending…':'Wird gesendet…');
+    fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(form)})
+      .then(function(r){return r.json();})
+      .then(function(j){
+        if(j.success){ form.reset(); status.className='lf-status';
+          status.textContent=(lang==='en'?"Thanks! We'll get back to you within 24 h.":'Danke! Wir melden uns innerhalb von 24 h.'); }
+        else { throw new Error(); }
+      })
+      .catch(function(){ status.className='lf-status err';
+        status.textContent=(lang==='en'?'Something went wrong — please email us directly.':'Etwas ist schiefgelaufen — bitte direkt per E-Mail.'); });
+  });
+})();
 </script>
 </body>
 </html>
