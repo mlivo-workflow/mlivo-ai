@@ -25,6 +25,47 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://mlivo-ai.at/#business",
+      "name": "Mlivo AI",
+      "description": "KI-Agentur im Raum Enns, Oberösterreich. Wir bauen, integrieren und betreiben KI-Agenten für kleine Unternehmen — Anfragen, Termine, Angebote vollautomatisch.",
+      "url": "https://mlivo-ai.at/",
+      "telephone": "+436604038996",
+      "email": "mlivo.office@gmail.com",
+      "image": "https://mlivo-ai.at/stadtturm-enns.jpg",
+      "priceRange": "Preis auf Anfrage",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Gerstmayrgutstraße 1",
+        "postalCode": "4470",
+        "addressLocality": "Enns",
+        "addressRegion": "Oberösterreich",
+        "addressCountry": "AT"
+      },
+      "areaServed": ["Enns", "Linz", "Linz-Land", "Oberösterreich"],
+      "founder": { "@type": "Person", "name": "Alen Mlivo", "honorificPrefix": "Ing." },
+      "knowsAbout": ["KI-Agenten", "Automatisierung", "n8n", "Make.com", "WhatsApp-Automatisierung", "KI-Training"]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mlivo-ai.at/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "Was kostet ein KI-Agent von Mlivo AI?", "acceptedAnswer": { "@type": "Answer", "text": "Fester Umfang, feste Monatspauschale — API-Kosten, Wartung und Support inklusive. Den genauen Preis definieren wir im kostenlosen Erstgespräch, abgestimmt auf Ihren Betrieb." } },
+        { "@type": "Question", "name": "Wie schnell können wir starten?", "acceptedAnswer": { "@type": "Answer", "text": "In der Regel sind Ihre Agenten in unter zwei Wochen betriebsbereit — von der Analyse bis zum Go-Live." } },
+        { "@type": "Question", "name": "Brauchen wir technisches Vorwissen?", "acceptedAnswer": { "@type": "Answer", "text": "Nein. Wir übernehmen Einrichtung, Integration und Betrieb komplett. Sie erhalten eine kurze Einweisung — mehr ist nicht nötig." } },
+        { "@type": "Question", "name": "Was passiert mit unseren Daten (DSGVO)?", "acceptedAnswer": { "@type": "Answer", "text": "Auf Wunsch läuft alles On-Premise auf eigener Hardware bei Ihnen im Haus. Workflows, Logs und Kundendaten bleiben lokal — DSGVO-bewusst konfiguriert." } },
+        { "@type": "Question", "name": "Funktioniert das mit unseren bestehenden Tools?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Wir verbinden WhatsApp, E-Mail, Kalender und CRM über APIs — Ihre Systeme bleiben, die Agenten docken an." } },
+        { "@type": "Question", "name": "Was passiert, wenn ein Agent Fehler macht?", "acceptedAnswer": { "@type": "Answer", "text": "Wir überwachen Ihre Agenten laufend. Korrekturen, Updates und kleine Anpassungen sind in der Monatspauschale enthalten." } }
+      ]
+    }
+  ]
+}
+</script>
 <style>
 :root{
   --bg:#F7F4EF;
@@ -758,6 +799,24 @@ footer a:hover{color:#fff}
           <li data-en="Anyone expecting AI as a magic solution with zero setup">Wer KI als „Zauberlösung" ohne Einrichtung erwartet</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="head-block reveal">
+      <span class="eyebrow" data-en="FAQ">Häufige Fragen</span>
+      <h2 class="h-sec" data-en="Answers before you even ask.">Antworten, bevor Sie fragen müssen.</h2>
+    </div>
+    <div class="grid g3">
+      <div class="card reveal"><h4 data-en="What does an AI agent cost?">Was kostet ein KI-Agent?</h4><p data-en="Fixed scope, fixed monthly rate — API costs, maintenance and support included. We define the exact price together in the free initial call, tailored to your business.">Fester Umfang, feste Monatspauschale — API-Kosten, Wartung und Support inklusive. Den genauen Preis definieren wir im kostenlosen Erstgespräch, abgestimmt auf Ihren Betrieb.</p></div>
+      <div class="card reveal d1"><h4 data-en="How fast can we start?">Wie schnell können wir starten?</h4><p data-en="Your agents are usually up and running in under two weeks — from analysis to go-live.">In der Regel sind Ihre Agenten in unter zwei Wochen betriebsbereit — von der Analyse bis zum Go-Live.</p></div>
+      <div class="card reveal d2"><h4 data-en="Do we need technical knowledge?">Brauchen wir technisches Vorwissen?</h4><p data-en="No. We handle setup, integration and operation completely. You get a short introduction — that's all you need.">Nein. Wir übernehmen Einrichtung, Integration und Betrieb komplett. Sie erhalten eine kurze Einweisung — mehr ist nicht nötig.</p></div>
+      <div class="card reveal"><h4 data-en="What about our data (GDPR)?">Was passiert mit unseren Daten (DSGVO)?</h4><p data-en="On request everything runs on-premise on your own hardware. Workflows, logs and customer data stay local — configured with GDPR in mind.">Auf Wunsch läuft alles On-Premise auf eigener Hardware bei Ihnen im Haus. Workflows, Logs und Kundendaten bleiben lokal — DSGVO-bewusst konfiguriert.</p></div>
+      <div class="card reveal d1"><h4 data-en="Does it work with our existing tools?">Funktioniert das mit unseren Tools?</h4><p data-en="Yes. We connect WhatsApp, email, calendar and CRM via APIs — your systems stay, the agents dock on.">Ja. Wir verbinden WhatsApp, E-Mail, Kalender und CRM über APIs — Ihre Systeme bleiben, die Agenten docken an.</p></div>
+      <div class="card reveal d2"><h4 data-en="What if an agent makes mistakes?">Was, wenn ein Agent Fehler macht?</h4><p data-en="We monitor your agents continuously. Corrections, updates and small adjustments are included in the monthly rate.">Wir überwachen Ihre Agenten laufend. Korrekturen, Updates und kleine Anpassungen sind in der Monatspauschale enthalten.</p></div>
     </div>
   </div>
 </section>
