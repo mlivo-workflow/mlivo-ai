@@ -8,6 +8,9 @@
 <meta name="theme-color" content="#0E0E0E" />
 <meta name="robots" content="index,follow" />
 <link rel="canonical" href="https://mlivo-ai.at/" />
+<link rel="alternate" hreflang="de" href="https://mlivo-ai.at/" />
+<link rel="alternate" hreflang="en" href="https://mlivo-ai.at/en/" />
+<link rel="alternate" hreflang="x-default" href="https://mlivo-ai.at/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Mlivo AI" />
 <meta property="og:locale" content="de_AT" />
@@ -433,7 +436,7 @@ footer a:hover{color:#fff}
     <div class="nav-right">
       <div class="lang-toggle" role="group" aria-label="Language">
         <button id="btnDe" class="active" onclick="setLang('de')">DE</button>
-        <button id="btnEn" onclick="setLang('en')">EN</button>
+        <button id="btnEn" onclick="location.href='/en/'">EN</button>
       </div>
       <a href="#contact" class="nav-cta" data-en="Free call">Erstgespräch</a>
       <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -930,7 +933,7 @@ function setLang(lang){
   document.getElementById('btnEn').classList.toggle('active', lang==='en');
   try{ localStorage.setItem('mlivo-lang', lang); }catch(e){}
 }
-try{ var saved = localStorage.getItem('mlivo-lang'); if(saved==='en') setLang('en'); }catch(e){}
+/* Language handled via separate URLs: German at / and English at /en/ */
 
 var nav = document.getElementById('nav'), progress = document.getElementById('progress');
 function onScroll(){
