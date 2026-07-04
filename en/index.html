@@ -9,6 +9,9 @@
 <meta content="#0E0E0E" name="theme-color"/>
 <meta content="index,follow" name="robots"/>
 <link href="https://mlivo-ai.at/en/" rel="canonical"/>
+
+
+
 <meta content="website" property="og:type"/>
 <meta content="Mlivo AI" property="og:site_name"/>
 <meta content="en_US" property="og:locale"/>
@@ -454,7 +457,7 @@ footer a:hover{color:#fff}
 </div>
 <div class="hero-stats reveal d4">
 <div class="stat"><div class="n">24/7</div><div class="l" data-en="agents on duty">agents on duty</div></div>
-<div class="stat"><div class="n">&lt; 2 Wo.</div><div class="l" data-en="to go-live">to go-live</div></div>
+<div class="stat"><div class="n" data-en="&lt; 2 wks">&lt; 2 wks</div><div class="l" data-en="to go-live">to go-live</div></div>
 <div class="stat"><div class="n" data-en="Local">Local</div><div class="l" data-en="personal point of contact">personal point of contact</div></div>
 </div>
 </div>
@@ -729,7 +732,7 @@ footer a:hover{color:#fff}
 <div class="kpis">
 <div class="kpi"><div class="n">2</div><div class="l" data-en="agents deployed">agents deployed</div></div>
 <div class="kpi"><div class="n">24/7</div><div class="l" data-en="inquiries captured">inquiries captured</div></div>
-<div class="kpi"><div class="n">&lt; 2 Wo.</div><div class="l" data-en="to go-live">to go-live</div></div>
+<div class="kpi"><div class="n" data-en="&lt; 2 wks">&lt; 2 wks</div><div class="l" data-en="to go-live">to go-live</div></div>
 </div>
 </div>
 </div>
@@ -909,7 +912,7 @@ function setLang(lang){
   document.getElementById('btnEn').classList.toggle('active', lang==='en');
   try{ localStorage.setItem('mlivo-lang', lang); }catch(e){}
 }
-try{ var saved = localStorage.getItem('mlivo-lang'); if(saved==='en') setLang('en'); }catch(e){}
+/* Language handled via separate URLs: German at / and English at /en/ */
 
 var nav = document.getElementById('nav'), progress = document.getElementById('progress');
 function onScroll(){
