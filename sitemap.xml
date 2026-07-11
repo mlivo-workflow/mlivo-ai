@@ -18,4 +18,10 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://mlivo-ai.at/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mlivo-ai.at/"/>
   </url>
+  <url>
+    <loc>https://mlivo-ai.at/datenschutz/</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
