@@ -26,9 +26,9 @@
 <meta content="We build AI agents that work for your business — inquiries, appointments and quotes automatically. Enns region / Upper Austria." name="twitter:description"/>
 <meta content="https://mlivo-ai.at/stadtturm-enns.jpg" name="twitter:image"/>
 <link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230E0E0E'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='58' fill='%23B07D3A' text-anchor='middle' font-weight='700'%3EM%3C/text%3E%3C/svg%3E" rel="icon"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -37,12 +37,12 @@
       "@type": "ProfessionalService",
       "@id": "https://mlivo-ai.at/#business",
       "name": "Mlivo AI",
-      "description": "KI-Agentur im Raum Enns, Oberösterreich. Wir bauen, integrieren und betreiben KI-Agenten für kleine Unternehmen — Anfragen, Termine, Angebote vollautomatisch.",
-      "url": "https://mlivo-ai.at/",
+      "description": "AI agency in the Enns region, Upper Austria. We build, integrate and operate AI agents for small businesses — inquiries, appointments and quotes, fully automated.",
+      "url": "https://mlivo-ai.at/en/",
       "telephone": "+436604038996",
       "email": "mlivo.office@gmail.com",
       "image": "https://mlivo-ai.at/stadtturm-enns.jpg",
-      "priceRange": "Preis auf Anfrage",
+      "priceRange": "from € 149/month",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Gerstmayrgutstraße 1",
@@ -57,20 +57,23 @@
     },
     {
       "@type": "FAQPage",
-      "@id": "https://mlivo-ai.at/#faq",
+      "@id": "https://mlivo-ai.at/en/#faq",
       "mainEntity": [
-        { "@type": "Question", "name": "Was kostet ein KI-Agent von Mlivo AI?", "acceptedAnswer": { "@type": "Answer", "text": "Fester Umfang, feste Monatspauschale — API-Kosten im vereinbarten Nutzungsvolumen, Wartung und Support inklusive. Den genauen Preis definieren wir im kostenlosen Erstgespräch, abgestimmt auf Ihren Betrieb." } },
-        { "@type": "Question", "name": "Wie schnell können wir starten?", "acceptedAnswer": { "@type": "Answer", "text": "In der Regel sind Ihre Agenten in unter zwei Wochen betriebsbereit — von der Analyse bis zum Go-Live." } },
-        { "@type": "Question", "name": "Brauchen wir technisches Vorwissen?", "acceptedAnswer": { "@type": "Answer", "text": "Nein. Wir übernehmen Einrichtung, Integration und Betrieb komplett. Sie erhalten eine kurze Einweisung — mehr ist nicht nötig." } },
-        { "@type": "Question", "name": "Was passiert mit unseren Daten (DSGVO)?", "acceptedAnswer": { "@type": "Answer", "text": "Auf Wunsch läuft alles On-Premise auf eigener Hardware bei Ihnen im Haus. Workflows, Logs und Kundendaten bleiben lokal — DSGVO-bewusst konfiguriert." } },
-        { "@type": "Question", "name": "Funktioniert das mit unseren bestehenden Tools?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Wir verbinden WhatsApp, E-Mail, Kalender und CRM über APIs — Ihre Systeme bleiben, die Agenten docken an." } },
-        { "@type": "Question", "name": "Was passiert, wenn ein Agent Fehler macht?", "acceptedAnswer": { "@type": "Answer", "text": "Wir überwachen Ihre Agenten laufend. Korrekturen, Updates und kleine Anpassungen sind in der Monatspauschale enthalten." } }
+        {"@type": "Question", "name": "What does an AI agent from Mlivo AI cost?", "acceptedAnswer": {"@type": "Answer", "text": "Packages start from € 1,500 setup + € 149/month (Starter). API costs within the agreed usage volume, maintenance and support are included. We define the exact scope and final price together in the free intro call, tailored to your business."}},
+        {"@type": "Question", "name": "How fast can we start?", "acceptedAnswer": {"@type": "Answer", "text": "Your agents are usually up and running in under two weeks — from analysis to go-live."}},
+        {"@type": "Question", "name": "Do we need technical knowledge?", "acceptedAnswer": {"@type": "Answer", "text": "No. We handle setup, integration and operation completely. You get a short introduction — that's all you need."}},
+        {"@type": "Question", "name": "What happens to our data (GDPR)?", "acceptedAnswer": {"@type": "Answer", "text": "On request everything runs on-premise on your own hardware. Workflows, logs and customer data stay local — configured with GDPR in mind."}},
+        {"@type": "Question", "name": "Does it work with our existing tools?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We connect WhatsApp, email, calendar and CRM via APIs — your systems stay, the agents dock on."}},
+        {"@type": "Question", "name": "What if an agent makes mistakes?", "acceptedAnswer": {"@type": "Answer", "text": "We monitor your agents continuously. Corrections, updates and small adjustments are included in the monthly rate."}}
       ]
     }
   ]
 }
 </script>
 <style>
+/* fonts: self-hosted (no connection to Google servers) */
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500 700;font-display:swap;src:url(/fonts/space-grotesk-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{
   --bg:#F7F4EF;
   --bg-soft:#EFEAE1;
@@ -398,6 +401,19 @@ footer a:hover{color:#fff}
 .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.blob{animation:none}}
 
+/* accessibility + contact extras */
+.skip{position:absolute;left:12px;top:-60px;z-index:400;background:var(--gold);color:#fff;padding:10px 16px;border-radius:10px;font-weight:600;transition:top .2s}
+.skip:focus{top:12px}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold-lt);outline-offset:3px}
+html:not(.js) .reveal{opacity:1;transform:none}
+.lf-consent{display:flex;gap:10px;align-items:flex-start;font-size:.82rem;line-height:1.5;color:rgba(255,255,255,.7);cursor:pointer}
+.lf-consent input{width:18px;height:18px;flex:none;margin-top:2px;accent-color:var(--gold)}
+.lf-consent a{color:var(--gold-lt);text-decoration:underline}
+.btn-wa{background:#25D366;color:#0E0E0E}
+.btn-wa:hover{background:#3be07a;transform:translateY(-2px)}
+.brand{white-space:nowrap}
+@media(max-width:480px){.nav-cta{display:none}.nav-right{gap:10px}}
+
 /* responsive */
 @media(max-width:980px){
   .g4,.prob-grid,.funnel,.tiers{grid-template-columns:repeat(2,1fr)}
@@ -419,6 +435,7 @@ footer a:hover{color:#fff}
 </style>
 <link href="https://mlivo-ai.at/" hreflang="de" rel="alternate"/><link href="https://mlivo-ai.at/en/" hreflang="en" rel="alternate"/><link href="https://mlivo-ai.at/" hreflang="x-default" rel="alternate"/></head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <div class="progress" id="progress"></div>
 <header class="nav" id="nav">
 <div class="nav-inner">
@@ -439,11 +456,12 @@ footer a:hover{color:#fff}
 <button class="active" id="btnEn" onclick="location.href='/en/'">EN</button>
 </div>
 <a class="nav-cta" data-en="Free call" href="#contact">Free call</a>
-<button aria-label="Menu" class="burger" id="burger"><span></span><span></span><span></span></button>
+<button aria-label="Menu" class="burger" id="burger" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
 </div>
 </div>
 </header>
 <main id="top">
+<div id="main" tabindex="-1"></div>
 <!-- HERO -->
 <section class="hero">
 <div class="mesh"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
@@ -451,7 +469,7 @@ footer a:hover{color:#fff}
 <span class="hero-tag reveal"><span class="pulse"></span><span data-en="AI Agency · Enns, Austria">AI Agency · Enns, Austria</span></span>
 <h1 class="reveal d1"><span data-en="We build AI agents that">We build AI agents that</span> <span class="grad" data-en="work for your business.">work for your business.</span></h1>
 <p class="sub reveal d2" data-en="Mlivo AI is your AI agency in the Enns region. We design, integrate and operate AI agents that answer inquiries, coordinate appointments and create quotes — automatically, around the clock.">Mlivo AI is your AI agency in the Enns region. We design, integrate and operate AI agents that answer inquiries, coordinate appointments and create quotes — automatically, around the clock.</p>
-<ul class="reveal d2" style="list-style:none;display:flex;gap:22px;flex-wrap:wrap;margin:20px 0 4px;padding:0;font-size:.95rem;opacity:.92">
+<ul class="reveal d2" style="list-style:none;display:flex;justify-content:center;gap:10px 22px;flex-wrap:wrap;margin:20px 0 4px;padding:0;font-size:.95rem;opacity:.92">
 <li data-en="✓ Answers customer inquiries automatically">✓ Answers customer inquiries automatically</li>
 <li data-en="✓ Books appointments &amp; sends reminders">✓ Books appointments &amp; sends reminders</li>
 <li data-en="✓ Routes qualified inquiries cleanly">✓ Routes qualified inquiries cleanly</li>
@@ -623,7 +641,7 @@ footer a:hover{color:#fff}
 <section class="section tight">
 <div class="wrap">
 <div class="tower reveal">
-<img alt="Stadtturm Enns" loading="lazy" src="/stadtturm-enns.jpg"/>
+<img alt="Stadtturm Enns" loading="lazy" src="/stadtturm-enns.jpg" width="960" height="1280" decoding="async"/>
 <div class="veil"></div>
 <div class="content">
 <span class="eyebrow" data-en="Enns Region · Upper Austria" style="color:var(--gold-lt)">Enns Region · Upper Austria</span>
@@ -819,7 +837,7 @@ footer a:hover{color:#fff}
 <h2 class="h-sec" data-en="Answers before you even ask.">Answers before you even ask.</h2>
 </div>
 <div class="grid g3">
-<div class="card reveal"><h4 data-en="What does an AI agent cost?">What does an AI agent cost?</h4><p data-en="Fixed scope, fixed monthly rate — API costs (within the agreed usage volume), maintenance and support included. We define the exact price together in the free initial call, tailored to your business.">Fixed scope, fixed monthly rate — API costs (within the agreed usage volume), maintenance and support included. We define the exact price together in the free initial call, tailored to your business.</p></div>
+<div class="card reveal"><h4 data-en="What does an AI agent cost?">What does an AI agent cost?</h4><p data-en="Packages start from € 1,500 setup + € 149/month (Starter). API costs within the agreed usage volume, maintenance and support are included. We define the exact scope and final price together in the free intro call, tailored to your business.">Packages start from € 1,500 setup + € 149/month (Starter). API costs within the agreed usage volume, maintenance and support are included. We define the exact scope and final price together in the free intro call, tailored to your business.</p></div>
 <div class="card reveal d1"><h4 data-en="How fast can we start?">How fast can we start?</h4><p data-en="Your agents are usually up and running in under two weeks — from analysis to go-live.">Your agents are usually up and running in under two weeks — from analysis to go-live.</p></div>
 <div class="card reveal d2"><h4 data-en="Do we need technical knowledge?">Do we need technical knowledge?</h4><p data-en="No. We handle setup, integration and operation completely. You get a short introduction — that's all you need.">No. We handle setup, integration and operation completely. You get a short introduction — that's all you need.</p></div>
 <div class="card reveal"><h4 data-en="What about our data (GDPR)?">What about our data (GDPR)?</h4><p data-en="On request everything runs on-premise on your own hardware. Workflows, logs and customer data stay local — configured with GDPR in mind.">On request everything runs on-premise on your own hardware. Workflows, logs and customer data stay local — configured with GDPR in mind.</p></div>
@@ -847,10 +865,12 @@ footer a:hover{color:#fff}
 </div>
 <input aria-label="Firma" data-en-ph="Company (optional)" name="firma" placeholder="Company (optional)"/>
 <textarea aria-label="Nachricht" data-en-ph="What's it about? Briefly…" name="nachricht" placeholder="What's it about? Briefly…" required="" rows="3"></textarea>
+<label class="lf-consent"><input type="checkbox" name="datenschutz" value="zugestimmt" required><span>I have read the <a href="/datenschutz/">privacy policy</a> and agree that my details are processed to handle my inquiry (delivered via Web3Forms, USA).</span></label>
 <button class="btn btn-primary" data-en="Send inquiry" type="submit">Send inquiry</button>
 <div class="lf-status" id="lfStatus" role="status"></div>
 </form>
 <div class="contact-cta" style="margin-top:18px">
+<a class="btn btn-wa" href="https://wa.me/436604038996" target="_blank" rel="noopener">Message on WhatsApp</a>
 <a class="btn btn-dark" data-en="Or write an email" href="mailto:mlivo.office@gmail.com">Or write an email</a>
 </div>
 <div class="contact-meta">
@@ -874,6 +894,8 @@ footer a:hover{color:#fff}
 </div>
 </div>
 </section>
+</main>
+
 <!-- FOOTER / IMPRESSUM -->
 <footer id="impressum">
 <div class="wrap">
@@ -911,7 +933,6 @@ footer a:hover{color:#fff}
 </div>
 </div>
 </footer>
-</main>
 <script>
 (function(){
   document.querySelectorAll('[data-en]').forEach(function(el){ el.setAttribute('data-de', el.textContent); });
@@ -946,8 +967,8 @@ function onScroll(){
 window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
 var burger = document.getElementById('burger'), navLinks = document.getElementById('navLinks');
-burger.addEventListener('click', function(){ navLinks.classList.toggle('open'); });
-navLinks.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ navLinks.classList.remove('open'); }); });
+burger.addEventListener('click', function(){ var o=navLinks.classList.toggle('open'); burger.setAttribute('aria-expanded', o); });
+navLinks.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ navLinks.classList.remove('open'); burger.setAttribute('aria-expanded', false); }); });
 
 var io = new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
