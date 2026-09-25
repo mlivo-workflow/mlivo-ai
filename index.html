@@ -52,7 +52,7 @@
       },
       "areaServed": ["Enns", "Linz", "Linz-Land", "Oberösterreich"],
       "founder": { "@type": "Person", "name": "Alen Mlivo", "honorificPrefix": "Ing." },
-      "knowsAbout": ["KI-Agenten", "Automatisierung", "n8n", "Make.com", "WhatsApp-Automatisierung", "KI-Training"]
+      "knowsAbout": ["KI-Agenten", "Automatisierung", "n8n", "Make.com", "WhatsApp-Automatisierung", "KI-Training", "MCP-Connectoren", "FreeCAD", "KI für Architekten"]
     },
     {
       "@type": "FAQPage",
@@ -126,8 +126,9 @@ header.nav.scrolled{background:rgba(247,244,239,.92);backdrop-filter:blur(16px) 
 .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-weight:700;font-size:1.1rem;letter-spacing:.01em;color:#fff;transition:color .3s}
 header.nav.scrolled .brand{color:var(--ink)}
 .brand .dot{width:30px;height:30px;border-radius:8px;background:var(--grad);display:grid;place-items:center;color:#0E0E0E;font-family:Georgia,serif;font-weight:700;font-size:1rem;box-shadow:0 6px 16px -6px rgba(176,125,58,.7)}
-.nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{font-size:.9rem;color:rgba(255,255,255,.66);font-weight:500;position:relative;transition:color .2s}
+.nav-links{display:flex;gap:18px;align-items:center;margin:0 18px}
+.nav-links a{white-space:nowrap}
+.nav-links a{font-size:.86rem;color:rgba(255,255,255,.66);font-weight:500;position:relative;transition:color .2s}
 header.nav.scrolled .nav-links a{color:var(--muted)}
 .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--grad);transition:width .25s var(--ease)}
 .nav-links a:hover{color:#fff}
@@ -413,7 +414,25 @@ html:not(.js) .reveal{opacity:1;transform:none}
 .brand{white-space:nowrap}
 @media(max-width:480px){.nav-cta{display:none}.nav-right{gap:10px}}
 
+/* cad / mcp */
+.cad-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:34px;align-items:center}
+.cad-shot{margin:0;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-lg);background:#fff}
+.cad-shot img{width:100%;height:auto}
+.cad-shot figcaption{font-size:.84rem;color:var(--muted);padding:12px 16px;border-top:1px solid var(--line-2);background:var(--card)}
+.cad-pts{display:grid;gap:14px}
+.cad-pts .pt{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.cad-pts .ic{width:42px;height:42px;border-radius:11px;background:var(--grad-soft);display:grid;place-items:center;font-size:1.15rem}
+.cad-pts h5{font-family:'Space Grotesk';font-weight:600;font-size:1.02rem;margin-bottom:2px}
+.cad-pts p{font-size:.9rem;color:var(--muted)}
+@media(max-width:980px){.cad-grid{grid-template-columns:1fr}}
+
 /* responsive */
+@media(max-width:1180px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .nav-links.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;background:rgba(247,244,239,.99);backdrop-filter:blur(16px);padding:22px 24px;gap:18px;border-bottom:1px solid var(--line)}
+  .nav-links.open a{color:var(--ink)}
+}
 @media(max-width:980px){
   .g4,.prob-grid,.funnel,.tiers{grid-template-columns:repeat(2,1fr)}
   .g3,.price-grid,.inc-grid{grid-template-columns:1fr 1fr}
@@ -422,10 +441,6 @@ html:not(.js) .reveal{opacity:1;transform:none}
   .fstep .arr{display:none}
 }
 @media(max-width:760px){
-  .nav-links{display:none}
-  .burger{display:flex}
-  .nav-links.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;background:rgba(247,244,239,.99);backdrop-filter:blur(16px);padding:22px 24px;gap:18px;border-bottom:1px solid var(--line)}
-  .nav-links.open a{color:var(--ink)}
   .g2,.g3,.g4,.price-grid,.inc-grid,.fit-grid,.legal-grid,.prob-grid,.funnel,.tiers,.hero-stats{grid-template-columns:1fr}
   .imp-grid{grid-template-columns:1fr}
   .step{grid-template-columns:1fr;gap:14px}
@@ -442,6 +457,7 @@ html:not(.js) .reveal{opacity:1;transform:none}
     <a href="#top" class="brand"><span class="dot">M</span>Mlivo AI</a>
     <nav class="nav-links" id="navLinks">
       <a href="#agents" data-en="AI Agents">KI-Agenten</a>
+      <a href="#cad" data-en="Architects">Architekten</a>
       <a href="#process" data-en="Process">Ablauf</a>
       <a href="#packages" data-en="Packages">Pakete</a>
       <a href="#portal" data-en="All-in-One">All-in-One</a>
@@ -522,6 +538,33 @@ html:not(.js) .reveal{opacity:1;transform:none}
       <div class="agent-card reveal d2"><div class="agent-head"><div class="ico">🔄</div><div class="nm"><small data-en="Integration agent">Integrations-Agent</small><span data-en="Connects your tools">Vernetzt Ihre Tools</span></div></div><p data-en="Interconnects WhatsApp, CRM, calendar and tools via APIs — data flows automatically, no manual syncing.">Vernetzt WhatsApp, CRM, Kalender und Tools über APIs — Daten fließen automatisch, kein manueller Abgleich.</p></div>
     </div>
     <div class="note-band reveal" data-en-html="<b>How we work as an agency:</b> we handle design, integration and ongoing operation of your agents. We build with n8n, Make.com and leading AI models — assembled into a system tailored to your business, not a plug-and-play kit."><b>So arbeiten wir als Agentur:</b> Wir übernehmen Konzeption, Integration und laufenden Betrieb Ihrer Agenten. Gebaut mit n8n, Make.com und führenden KI-Modellen — zusammengesetzt zu einem System, das auf Ihren Betrieb zugeschnitten ist, kein Baukasten von der Stange.</div>
+  </div>
+</section>
+
+<!-- CAD / MCP FOR ARCHITECTS -->
+<section class="section" id="cad" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <div class="head-block reveal">
+      <span class="eyebrow" data-en="New · For architects &amp; planners">Neu · Für Architekten &amp; Planer</span>
+      <h2 class="h-sec" style="max-width:24ch" data-en="AI right inside your CAD software — via MCP connector">KI direkt in Ihrer CAD-Software — per MCP-Connector</h2>
+      <p class="lead" data-en="Using the Model Context Protocol (MCP), we connect AI assistants such as Claude directly to your design tools. You describe what you need in plain words — the AI creates the 3D model in FreeCAD and changes it on request.">Über das Model Context Protocol (MCP) verbinden wir KI-Assistenten wie Claude direkt mit Ihren Planungswerkzeugen. Sie beschreiben in Worten, was Sie brauchen — die KI legt das 3D-Modell in FreeCAD an und ändert es auf Zuruf.</p>
+    </div>
+    <div class="cad-grid">
+      <figure class="cad-shot reveal">
+        <a href="/freecad-mcp-haus.jpg" target="_blank" rel="noopener"><img src="/freecad-mcp-haus.jpg" alt="FreeCAD-Modell eines Einfamilienhauses mit Garage, per KI über einen MCP-Connector erstellt" width="1200" height="858" loading="lazy" decoding="async"/></a>
+        <figcaption data-en="A real test from our office: a detached house with garage, driveway, path and plot — modelled by Claude in FreeCAD via an MCP connector, from a text description.">Echter Test aus unserem Büro: Einfamilienhaus mit Garage, Einfahrt, Gehweg und Grundstück — von Claude über einen MCP-Connector in FreeCAD modelliert, aus einer Textbeschreibung.</figcaption>
+      </figure>
+      <div class="reveal d1">
+        <div class="cad-pts">
+          <div class="pt"><div class="ic">🏠</div><div><h5 data-en="Variants &amp; massing studies in minutes">Varianten &amp; Massenstudien in Minuten</h5><p data-en="Building volumes, roof shapes, garage left or right — several variants for the first client meeting, without hours of modelling.">Baukörper, Dachformen, Garage links oder rechts — mehrere Varianten für das Erstgespräch mit Bauherren, ohne stundenlanges Modellieren.</p></div></div>
+          <div class="pt"><div class="ic">🔁</div><div><h5 data-en="Hand off routine work">Routinearbeit abgeben</h5><p data-en="Placing windows, laying out walls on a grid, naming and organising parts — the assistant takes over the repetitive steps.">Fenster setzen, Wände nach Raster anlegen, Bauteile benennen und ordnen — wiederkehrende Schritte übernimmt der Assistent.</p></div></div>
+          <div class="pt"><div class="ic">📐</div><div><h5 data-en="Ask your model">Das Modell befragen</h5><p data-en="“What is the footprint?” or “List all windows with dimensions” — answers straight from the model instead of measuring by hand.">„Wie groß ist die Grundfläche?“ oder „Liste alle Fenster mit Maßen“ — Antworten direkt aus dem Modell, statt manuell nachzumessen.</p></div></div>
+          <div class="pt"><div class="ic">🛠️</div><div><h5 data-en="Set up in your office">Eingerichtet in Ihrem Büro</h5><p data-en="We install and configure the connector on your workstations, train your team and, on request, build custom tools for your standards.">Wir installieren und konfigurieren den Connector auf Ihren Arbeitsplätzen, schulen Ihr Team und bauen auf Wunsch eigene Werkzeuge für Ihre Standards.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="note-band reveal" data-en-html="<b>To be clear:</b> the AI delivers drafts and groundwork — design, checking and responsibility stay with you. Today this runs with FreeCAD; whether your software can be connected (e.g. via an API) is something we check in the intro call. Your CAD files stay on your computer; your instructions and the model information needed for them are sent to the AI service."><b>Ehrlich gesagt:</b> Die KI liefert Entwürfe und Vorarbeit — Planung, Prüfung und Verantwortung bleiben bei Ihnen. Heute läuft das mit FreeCAD; ob sich Ihre Software (z. B. über eine Programmierschnittstelle) anbinden lässt, prüfen wir im Erstgespräch. Ihre CAD-Dateien bleiben auf Ihrem Rechner; an den KI-Dienst gehen Ihre Anweisungen und die dafür nötigen Modellinformationen.</div>
+    <div class="center-cta reveal"><a href="#contact" class="btn btn-primary" data-en="Request a pilot project">Pilotprojekt anfragen</a></div>
   </div>
 </section>
 
