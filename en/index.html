@@ -53,7 +53,7 @@
       },
       "areaServed": ["Enns", "Linz", "Linz-Land", "Oberösterreich"],
       "founder": { "@type": "Person", "name": "Alen Mlivo", "honorificPrefix": "Ing." },
-      "knowsAbout": ["KI-Agenten", "Automatisierung", "n8n", "Make.com", "WhatsApp-Automatisierung", "KI-Training", "MCP-Connectoren", "FreeCAD", "KI für Architekten"]
+      "knowsAbout": ["KI-Agenten", "Automatisierung", "n8n", "Make.com", "WhatsApp-Automatisierung", "KI-Training", "MCP-Connectoren", "FreeCAD", "KI für Architekten", "4D-Bauablaufvisualisierung"]
     },
     {
       "@type": "FAQPage",
@@ -428,6 +428,16 @@ html:not(.js) .reveal{opacity:1;transform:none}
 .cad-real{margin-top:40px}
 .cad-real .tagline{text-align:center}
 @media(max-width:980px){.cad-grid{grid-template-columns:1fr}}
+.vd-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:34px;align-items:center}
+.vd-video video{display:block;width:100%;height:auto;background:#fff}
+.vd-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.vd-strip figure{margin:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff}
+.vd-strip img{display:block;width:100%;height:auto}
+.vd-strip figcaption{padding:10px 14px;font-size:.84rem;color:var(--muted);border-top:1px solid var(--line-2);background:var(--card)}
+.vd-strip figcaption b{display:block;color:var(--ink);font-family:'Space Grotesk';font-weight:600;font-size:.95rem}
+.vd-yt{text-align:center;margin-top:18px;font-size:.92rem;color:var(--muted)}
+.vd-yt a{color:var(--gold);font-weight:600}
+@media(max-width:980px){.vd-grid{grid-template-columns:1fr}.vd-strip{grid-template-columns:repeat(2,1fr)}}
 
 /* responsive */
 @media(max-width:1180px){
@@ -461,6 +471,7 @@ html:not(.js) .reveal{opacity:1;transform:none}
 <nav class="nav-links" id="navLinks">
 <a data-en="AI Agents" href="#agents">AI Agents</a>
 <a href="#cad">Architects</a>
+      <a href="#vierd">4D Schedule</a>
 <a href="#start" data-en="Get started">Get started</a>
       <a href="#begleitung" data-en="AI Guidance">AI Guidance</a>
 <a data-en="Packages" href="#packages">Packages</a>
@@ -571,6 +582,40 @@ html:not(.js) .reveal{opacity:1;transform:none}
     </div>
     <div class="note-band reveal"><b>To be clear:</b> the AI delivers drafts and groundwork — design, checking and responsibility stay with you. Today this runs with FreeCAD; whether your software can be connected (e.g. via an API) is something we check in the intro call. Your CAD files stay on your computer; your instructions and the model information needed for them are sent to the AI service.</div>
     <div class="center-cta reveal"><a href="#contact" class="btn btn-primary">Request a pilot project</a></div>
+  </div>
+</section>
+
+<!-- 4D SCHEDULE VISUALISATION -->
+<section class="section" id="vierd">
+  <div class="wrap">
+    <div class="head-block reveal">
+      <span class="eyebrow" >New · 4D schedule visualisation</span>
+      <h2 class="h-sec" style="max-width:24ch" >See the construction sequence before it is built</h2>
+      <p class="lead" >4D means: 3D model plus construction schedule. Every component is linked to its date — for any given day the visualisation shows what the site should look like according to plan. Your drawings and schedule become a video, an image sequence or an interactive page.</p>
+    </div>
+    <div class="vd-grid">
+      <figure class="cad-shot vd-video reveal">
+        <video controls muted playsinline preload="none" poster="/4d/4d-bauablauf-poster.jpg" width="1600" height="900" aria-label="4D construction sequence of a detached house with garage as a video"><source src="/4d/4d-bauablauf.mp4" type="video/mp4"/></video>
+        <figcaption >Example from our office: a three-storey house with balcony and garage — modelled in FreeCAD, 12 construction stages from excavation to handover. The schedule is assumed for this example.</figcaption>
+      </figure>
+      <div class="reveal d1">
+        <div class="cad-pts">
+          <div class="pt"><div class="ic">🔍</div><div><h5 >Check the sequence before it gets expensive</h5><p >Sequencing errors are obvious in the picture — scaffolding removed too early, or a crane that is still needed.</p></div></div>
+          <div class="pt"><div class="ic">👥</div><div><h5 >Everyone sees the same sequence</h5><p >Clients, authorities and trades understand the schedule without a Gantt chart — ideal for meetings and presentations.</p></div></div>
+          <div class="pt"><div class="ic">🏗️</div><div><h5 >Site logistics made visible</h5><p >Crane, containers, scaffolding and access routes appear and disappear at the right time in the model.</p></div></div>
+          <div class="pt"><div class="ic">🔁</div><div><h5 >Schedule change? New images.</h5><p >If a date moves, the visualisation is regenerated from the schedule — no redrawing.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="vd-strip">
+      <figure class="reveal d1"><img src="/4d/4d-phase-00.jpg" alt="Site set up – March 2027" width="800" height="500" loading="lazy" decoding="async"/><figcaption><b >Site set up</b><span >March 2027</span></figcaption></figure>
+      <figure class="reveal d2"><img src="/4d/4d-phase-03.jpg" alt="Ground-floor slab, scaffolding – May 2027" width="800" height="500" loading="lazy" decoding="async"/><figcaption><b >Ground-floor slab, scaffolding</b><span >May 2027</span></figcaption></figure>
+      <figure class="reveal d3"><img src="/4d/4d-phase-07.jpg" alt="Roof closed – July 2027" width="800" height="500" loading="lazy" decoding="async"/><figcaption><b >Roof closed</b><span >July 2027</span></figcaption></figure>
+      <figure class="reveal d1"><img src="/4d/4d-phase-11.jpg" alt="Handover – April 2028" width="800" height="500" loading="lazy" decoding="async"/><figcaption><b >Handover</b><span >April 2028</span></figcaption></figure>
+    </div>
+    <p class="vd-yt reveal" >In short: <a href="https://youtu.be/z__8b47FMB8" target="_blank" rel="noopener">4D in construction in 60 seconds (YouTube, German)</a></p>
+    <div class="note-band reveal" ><b>To be clear:</b> the 4D visualisation shows your schedule — it does not replace scheduling. Interior work such as installation, screed or fit-out is not visible from outside, and the level of detail depends on the model. Whether your drawings and schedule (e.g. from MS Project or Excel) can be used directly is something we check in the intro call.</div>
+    <div class="center-cta reveal"><a href="#contact" class="btn btn-primary" >Request a 4D pilot</a></div>
   </div>
 </section>
 
