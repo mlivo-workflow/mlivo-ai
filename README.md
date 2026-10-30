@@ -1,29 +1,22 @@
-# Mlivo AI Landing Page
+# Mlivo AI – Website (mlivo-ai.at)
 
-Simple MVP landing page for **Mlivo AI**.
+Statische Website, gehostet über **GitHub Pages** (Push auf `main` → automatisch live, Workflow `.github/workflows/deploy-pages.yml`). Domain bei World4You, DNS zeigt auf GitHub Pages.
 
-## Files
-- `index.html`
-- `styles.css`
+## Aufbau (seit Umbau 29.10.2026)
+| Seite | Datei |
+|---|---|
+| Startseite DE | `index.html` |
+| Architekten & Planer DE | `architekten/index.html` |
+| Startseite EN | `en/index.html` *(generiert)* |
+| Architects EN | `en/architects/index.html` *(generiert)* |
+| Datenschutz | `datenschutz/index.html` |
+| Gemeinsames Design / Script | `assets/site.css`, `assets/site.js` |
 
-## Goal
-A fast, free landing page for GitHub Pages.
+## Texte ändern
+1. **Nur die deutschen Seiten bearbeiten.** Jeder Text trägt seine englische Fassung im Attribut `data-en="…"` (bzw. `data-en-html`, `data-en-alt`, `data-en-href` …).
+2. Danach `python3 tools/build.py` ausführen – das erzeugt die EN-Seiten und die Google-Strukturdaten (JSON-LD, inkl. FAQ) neu.
+3. Committen und pushen.
 
-## Deploy via GitHub Pages
-1. Create a new GitHub repository (for example `mlivo-ai`)
-2. Upload these files into the repository root
-3. Push to `main`
-4. In GitHub: **Settings → Pages**
-5. Source: **Deploy from branch**
-6. Branch: `main` / folder: `/root`
-7. Save
-8. Wait 1–3 minutes
+Bei Änderungen an CSS/JS die Versionsnummer `?v=…` in den `<link>`/`<script>`-Tags erhöhen (Browser-Cache).
 
-## Result
-Your page will then be live on a GitHub Pages URL.
-
-## Next Improvements
-- add Impressum / legal notice
-- add contact form or CTA button
-- refine branding
-- connect custom domain later
+Alte Sprungmarken (`/#cad`, `/#vierd`, `/#start` …) werden in `assets/site.js` auf die neuen Ziele umgeleitet.
