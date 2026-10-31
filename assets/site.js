@@ -69,3 +69,22 @@
       });
   });
 })();
+
+/* YouTube erst nach Klick laden (youtube-nocookie, DSGVO) */
+(function(){
+  document.querySelectorAll('.yt[data-yt]').forEach(function(box){
+    var btn = box.querySelector('.yt-play');
+    if (!btn) return;
+    btn.addEventListener('click', function(){
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + box.getAttribute('data-yt') + '?autoplay=1&rel=0&modestbranding=1&hl=' + (document.documentElement.lang || 'de');
+      f.title = btn.getAttribute('aria-label') || 'Video';
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      f.allowFullscreen = true;
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      box.appendChild(f);
+      box.classList.add('on');
+      f.focus();
+    });
+  });
+})();
