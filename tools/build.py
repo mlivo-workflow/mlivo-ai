@@ -2,7 +2,7 @@
 """
 Mlivo AI – Website-Build
 ========================
-Quelle sind die deutschen Seiten (index.html, architekten/index.html).
+Quelle sind die deutschen Seiten (index.html, architekten/index.html, plan/index.html).
 Jeder sichtbare Text trägt seine englische Fassung als Attribut:
 
   data-en="…"        -> ersetzt den Text des Elements
@@ -12,7 +12,7 @@ Jeder sichtbare Text trägt seine englische Fassung als Attribut:
 
 Das Skript
   1. schreibt die strukturierten Daten (JSON-LD) in alle Seiten,
-  2. erzeugt daraus /en/index.html und /en/architects/index.html.
+  2. erzeugt daraus /en/index.html, /en/architects/index.html und /en/plan/index.html.
 
 Aufruf (im Repo-Ordner):  python3 tools/build.py
 Benötigt: beautifulsoup4  (pip install beautifulsoup4)
@@ -24,6 +24,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PAGES = [  # (Quelle DE, Ziel EN, Schlüssel für JSON-LD)
     ("index.html", "en/index.html", "home"),
     ("architekten/index.html", "en/architects/index.html", "arch"),
+    ("plan/index.html", "en/plan/index.html", "plan"),
 ]
 
 BUSINESS = {
@@ -67,6 +68,15 @@ def ld_json(soup, lang, key):
         faq = faq_from(soup)
         if faq:
             graph.append({"@type": "FAQPage", "mainEntity": faq})
+    elif key == "plan":
+        graph.append({"@type": "SoftwareApplication", "name": "Mlivo Plan",
+                      "applicationCategory": "BusinessApplication",
+                      "operatingSystem": "Windows, macOS, Linux",
+                      "description": ("Planausgang und Besprechungsprotokolle für Architektur- und Ingenieurbüros"
+                                      if lang == "de" else
+                                      "Drawing issue and meeting minutes for architecture and engineering practices"),
+                      "provider": {"@id": "https://mlivo-ai.at/#business"},
+                      "areaServed": "Oberösterreich"})
     else:
         graph.append({"@type": "Service", "name": "KI für Architekten & Planer" if lang == "de" else "AI for architects & planners",
                       "provider": {"@id": "https://mlivo-ai.at/#business"},
@@ -83,7 +93,7 @@ def put_ld(html, block):
 
 ATTR_MAP = {"data-en-ph": "placeholder", "data-en-content": "content", "data-en-href": "href",
             "data-en-alt": "alt", "data-en-aria": "aria-label", "data-en-class": "class",
-            "data-en-value": "value", "data-en-badge": "data-badge"}
+            "data-en-value": "value", "data-en-badge": "data-badge", "data-en-src": "src"}
 
 
 def to_english(html):
