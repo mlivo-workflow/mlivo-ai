@@ -78,7 +78,7 @@ def ld_json(soup, lang, key):
                       "provider": {"@id": "https://mlivo-ai.at/#business"},
                       "areaServed": "Oberösterreich",
                       "offers": {"@type": "AggregateOffer", "priceCurrency": "EUR",
-                                 "lowPrice": "59", "highPrice": "119", "offerCount": 3}})
+                                 "lowPrice": "29", "highPrice": "1490", "offerCount": 5}})
     else:
         graph.append({"@type": "Service", "name": "KI für Architekten & Planer" if lang == "de" else "AI for architects & planners",
                       "provider": {"@id": "https://mlivo-ai.at/#business"},
