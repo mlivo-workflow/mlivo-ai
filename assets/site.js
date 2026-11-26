@@ -88,3 +88,21 @@
     });
   });
 })();
+
+/* Produktvideo: stumm abspielen, sobald es sichtbar ist; anhalten, wenn es den Bildschirm verlässt */
+(function(){
+  var vids = document.querySelectorAll('video[data-autoplay]');
+  if (!vids.length || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var v = e.target;
+      if (e.isIntersecting && e.intersectionRatio >= 0.5) {
+        if (v.ended) return;
+        v.muted = true;
+        var p = v.play(); if (p && p.catch) p.catch(function(){});
+      } else if (!v.paused) { v.pause(); }
+    });
+  }, { threshold: [0, 0.5] });
+  vids.forEach(function(v){ io.observe(v); });
+})();

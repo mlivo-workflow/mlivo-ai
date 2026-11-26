@@ -95,7 +95,8 @@ def put_ld(html, block):
 
 ATTR_MAP = {"data-en-ph": "placeholder", "data-en-content": "content", "data-en-href": "href",
             "data-en-alt": "alt", "data-en-aria": "aria-label", "data-en-class": "class",
-            "data-en-value": "value", "data-en-badge": "data-badge", "data-en-src": "src"}
+            "data-en-value": "value", "data-en-badge": "data-badge", "data-en-src": "src",
+            "data-en-poster": "poster"}
 
 
 def to_english(html):
