@@ -9,6 +9,8 @@ Statische Website, gehostet über **GitHub Pages** (Push auf `main` → automati
 | Architekten & Planer DE | `architekten/index.html` |
 | Startseite EN | `en/index.html` *(generiert)* |
 | Architects EN | `en/architects/index.html` *(generiert)* |
+| Mlivo Plan DE / EN | `plan/index.html` / `en/plan/index.html` *(generiert)* |
+| Mlivo Protokoll DE / EN | `protokoll/index.html` / `en/protocol/index.html` *(generiert)*, Video `protokoll/mlivo-protokoll.mp4` (Quelle: `~/Mlivo-ai/Mlivo-Protokoll/video/`) |
 | Datenschutz | `datenschutz/index.html` |
 | Gemeinsames Design / Script | `assets/site.css`, `assets/site.js` |
 

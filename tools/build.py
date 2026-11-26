@@ -2,7 +2,7 @@
 """
 Mlivo AI – Website-Build
 ========================
-Quelle sind die deutschen Seiten (index.html, architekten/index.html, plan/index.html).
+Quelle sind die deutschen Seiten (index.html, architekten/index.html, plan/index.html, protokoll/index.html).
 Jeder sichtbare Text trägt seine englische Fassung als Attribut:
 
   data-en="…"        -> ersetzt den Text des Elements
@@ -12,7 +12,7 @@ Jeder sichtbare Text trägt seine englische Fassung als Attribut:
 
 Das Skript
   1. schreibt die strukturierten Daten (JSON-LD) in alle Seiten,
-  2. erzeugt daraus /en/index.html, /en/architects/index.html und /en/plan/index.html.
+  2. erzeugt daraus /en/index.html, /en/architects/index.html, /en/plan/index.html und /en/protocol/index.html.
 
 Aufruf (im Repo-Ordner):  python3 tools/build.py
 Benötigt: beautifulsoup4  (pip install beautifulsoup4)
@@ -25,6 +25,7 @@ PAGES = [  # (Quelle DE, Ziel EN, Schlüssel für JSON-LD)
     ("index.html", "en/index.html", "home"),
     ("architekten/index.html", "en/architects/index.html", "arch"),
     ("plan/index.html", "en/plan/index.html", "plan"),
+    ("protokoll/index.html", "en/protocol/index.html", "protokoll"),
 ]
 
 BUSINESS = {
@@ -79,6 +80,15 @@ def ld_json(soup, lang, key):
                       "areaServed": "Oberösterreich",
                       "offers": {"@type": "AggregateOffer", "priceCurrency": "EUR",
                                  "lowPrice": "29", "highPrice": "1490", "offerCount": 5}})
+    elif key == "protokoll":
+        graph.append({"@type": "SoftwareApplication", "name": "Mlivo Protokoll",
+                      "applicationCategory": "BusinessApplication",
+                      "operatingSystem": "macOS, Windows, Linux",
+                      "description": ("Besprechungen lokal transkribieren und protokollieren, ohne Cloud-Dienst"
+                                      if lang == "de" else
+                                      "Transcribe meetings locally and turn them into minutes, without a cloud service"),
+                      "provider": {"@id": "https://mlivo-ai.at/#business"},
+                      "areaServed": "Oberösterreich"})
     else:
         graph.append({"@type": "Service", "name": "KI für Architekten & Planer" if lang == "de" else "AI for architects & planners",
                       "provider": {"@id": "https://mlivo-ai.at/#business"},
