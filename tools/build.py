@@ -88,7 +88,9 @@ def ld_json(soup, lang, key):
                                       if lang == "de" else
                                       "Transcribe meetings locally and turn them into minutes, without a cloud service"),
                       "provider": {"@id": "https://mlivo-ai.at/#business"},
-                      "areaServed": "Oberösterreich"})
+                      "areaServed": "Oberösterreich",
+                      "offers": {"@type": "AggregateOffer", "priceCurrency": "EUR",
+                                 "lowPrice": "1990", "highPrice": "2990", "offerCount": 2}})
     else:
         graph.append({"@type": "Service", "name": "KI für Architekten & Planer" if lang == "de" else "AI for architects & planners",
                       "provider": {"@id": "https://mlivo-ai.at/#business"},
